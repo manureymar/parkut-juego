@@ -1,6 +1,6 @@
 {
   "name": "parkut-juego",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Primer nivel de Parkut: recorrido por azoteas, WebGL 2 y Android offline.",
   "directories": {
     "doc": "docs"
@@ -9,8 +9,9 @@
     "dev": "node nivel-01/scripts/server.mjs",
     "assets": "python3 nivel-01/scripts/restore-originals.py && node nivel-01/scripts/prepare-assets.mjs && node nivel-01/scripts/prepare-colliders.mjs",
     "vendor": "node nivel-01/scripts/vendor.mjs",
-    "test": "node nivel-01/scripts/test-physics.mjs && node nivel-01/scripts/test-game.mjs",
-    "restore": "python3 nivel-01/scripts/restore-originals.py"
+    "test": "node nivel-01/scripts/test-physics.mjs && node nivel-01/scripts/test-traversal.mjs && node nivel-01/scripts/test-game.mjs && node nivel-01/scripts/test-context-game.mjs",
+    "restore": "python3 nivel-01/scripts/restore-originals.py",
+    "test:animation": "node nivel-01/scripts/test-animation.mjs"
   },
   "repository": {
     "type": "git",

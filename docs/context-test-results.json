@@ -1,0 +1,23 @@
+{
+  "used": [
+    "idle",
+    "walk",
+    "run",
+    "subir escalera",
+    "subir escalera recta hacia arriba",
+    "climb",
+    "jump_down",
+    "dive"
+  ],
+  "errors": [],
+  "standing": [
+    0,
+    0.07581151029731484,
+    7.3
+  ],
+  "tank": [
+    -0.675,
+    4.287136863116193,
+    -29.28121771169739
+  ]
+}

@@ -2,18 +2,19 @@
 
 Primer nivel de un juego de parkour en tercera persona, diseñado en vertical para Android. Usa el personaje con esqueleto y los siete edificios entregados por el propietario del proyecto.
 
-**[Descargar el APK de prueba](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-2/Parkut-Nivel01.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases) · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
+**[Descargar el APK de prueba](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-2/Parkut-Nivel01.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
 
 ## Jugar
 
 Instala `Parkut-Nivel01.apk` en Android 8.0 o posterior, con WebView actualizado y soporte de OpenGL ES 3.0 / WebGL 2. El APK incluye los modelos, el código, las texturas y el panorama; no descarga recursos al jugar y no requiere cuenta.
 
 - Joystick: caminar o correr según cuánto lo desplaces.
-- **Saltar**: superar obstáculos y cambiar de azotea.
-- **Trepar**: subir a un obstáculo cercano cuyo borde sea alcanzable.
+- **Saltar**: control manual opcional para saltar cuando tú lo decidas.
+- **Parkour automático**: al dirigirte al obstáculo subes las escaleras, trepas bordes alcanzables y usas la escalera vertical del tanque. Suelta el joystick para detenerte en la escalera; muévelo hacia atrás para bajar.
+- Los seis saltos entre azoteas se activan al avanzar hacia el borde. Tras una caída fuerte, el personaje usa automáticamente la zambullida y rodada para amortiguar. El hueco largo sigue siendo un peligro: usa su cornisa.
 - **Correr**: activar o desactivar el avance continuo; dirige con el joystick.
 - Pausa: continuar, reiniciar, cambiar entre calidad alta y fluida, y activar sonido.
-- En ordenador: WASD o flechas, Espacio para saltar, E para trepar, R para carrera continua, Esc para pausa.
+- En ordenador: WASD o flechas, Espacio para saltar, R para carrera continua, Esc para pausa.
 
 Sigue las marcas amarillas. Cada azotea alcanzada guarda un punto de control durante la partida. En el edificio del hueco central, el recorrido pasa por la cornisa izquierda. La puerta iluminada del último edificio es el final.
 
@@ -28,7 +29,7 @@ Sigue las marcas amarillas. Cada azotea alcanzada guarda un punto de control dur
 | `docs/` | Inventario de recursos, decisiones de integración y resultados de verificación. |
 | `.github/workflows/android.yml` | Compilación automática y publicación del APK de prueba en GitHub Releases. |
 
-Los originales se conservan completos en archivos GZIP sin pérdida; los mayores se dividen en partes. `npm run restore` recupera cada GLB y verifica su SHA-256 contra `assets-originales/manifest.json`. El APK usa copias con geometría simplificada y texturas WebP de hasta 2048 px. Las colisiones se calculan sobre otra versión ligera de los mismos edificios: el cielo y la ciudad lejana son una imagen de fondo y no forman parte del recorrido.
+Los originales se conservan completos en archivos GZIP sin pérdida; los mayores se dividen en partes. `npm run restore` recupera cada GLB y verifica su SHA-256 contra `assets-originales/manifest.json`. El APK usa copias con geometría simplificada y texturas WebP de hasta 2048 px. Las colisiones se calculan sobre otra versión ligera de los mismos edificios, con cinco corredores de escalera medidos sobre sus peldaños y una ruta vertical para el tanque: el cielo y la ciudad lejana son una imagen de fondo y no forman parte del recorrido.
 
 ## Construcción
 
@@ -40,9 +41,9 @@ Entorno reproducible: Java 17, Gradle 8.9, Android Gradle Plugin 8.7.3, SDK 35, 
 
 Para desarrollo web: Node 22 o posterior, `npm ci`, `npm run dev` y abrir `http://127.0.0.1:8080`. `npm run assets` regenera las copias optimizadas a partir de los originales. `npm run vendor` actualiza las dependencias incluidas desde la versión fijada en `package-lock.json`. Para pruebas: `npx playwright install chromium` y `npm test`.
 
-## Alcance de esta primera versión
+## Versión 0.2.0
 
-Incluye cámara de seguimiento, iluminación cálida, sombras dinámicas, fondo de ciudad, personaje animado, movimiento, salto, escalones, trepar a bordes alcanzables, puntos de control, caída y reinicio, pausa, cronómetro y final del recorrido. Las siete animaciones originales permanecen en los recursos. Las animaciones de desplazamiento se adaptan al controlador para evitar que el movimiento del esqueleto se sume dos veces.
+Incluye cámara de seguimiento, iluminación cálida, sombras dinámicas, fondo de ciudad, personaje animado, movimiento, salto, escalones, trepar a bordes alcanzables, puntos de control, caída y reinicio, pausa, cronómetro y final del recorrido. Las siete animaciones originales se usan en juego según velocidad, superficie, borde, escalera o aterrizaje. Las animaciones de desplazamiento se adaptan al controlador para evitar que el movimiento del esqueleto se sume dos veces.
 
 La reconstrucción 3D tiene pequeñas diferencias respecto a la ilustración, incluidas barandas, huecos y proporciones; la imagen de referencia se conserva para las siguientes iteraciones. Esta versión no implementa todavía carreras por paredes, balanceo colgando ni simulación de manos/pies con cinemática inversa. El rendimiento final debe comprobarse en el teléfono de destino.
 
