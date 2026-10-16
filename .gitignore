@@ -9,4 +9,8 @@ node_modules/
 *.jks
 test-results/
 assets-originales/*.glb
+assets-originales/*.glb.gz
+!assets-originales/human+character+3d+model.glb.gz
+distribucion/*.apk
+distribucion/*.sha256
 

@@ -1,0 +1,109 @@
+[
+  {
+    "filename": "brick building 3d model.glb",
+    "archive": "brick building 3d model.glb.gz",
+    "bytes": 67280972,
+    "compressedBytes": 35363341,
+    "sha256": "cf9715c0bc520b948792fb39672c3ad5b9ce9371d0e19590a03abf5a1dbe0b07",
+    "parts": [
+      "brick building 3d model.glb.gz.part-00",
+      "brick building 3d model.glb.gz.part-01",
+      "brick building 3d model.glb.gz.part-02",
+      "brick building 3d model.glb.gz.part-03",
+      "brick building 3d model.glb.gz.part-04"
+    ]
+  },
+  {
+    "filename": "concrete building 3d model.glb",
+    "archive": "concrete building 3d model.glb.gz",
+    "bytes": 68923448,
+    "compressedBytes": 35154755,
+    "sha256": "052f3b865959d397e7f2995369731d4ea61e35354e1de4956dd74986f2901194",
+    "parts": [
+      "concrete building 3d model.glb.gz.part-00",
+      "concrete building 3d model.glb.gz.part-01",
+      "concrete building 3d model.glb.gz.part-02",
+      "concrete building 3d model.glb.gz.part-03",
+      "concrete building 3d model.glb.gz.part-04"
+    ]
+  },
+  {
+    "filename": "concrete office building 3d model.glb",
+    "archive": "concrete office building 3d model.glb.gz",
+    "bytes": 65624056,
+    "compressedBytes": 33729821,
+    "sha256": "12f033f03484b6cd833edb8d40263fffae56bac1f7613c04428f398f32ea7ba3",
+    "parts": [
+      "concrete office building 3d model.glb.gz.part-00",
+      "concrete office building 3d model.glb.gz.part-01",
+      "concrete office building 3d model.glb.gz.part-02",
+      "concrete office building 3d model.glb.gz.part-03",
+      "concrete office building 3d model.glb.gz.part-04"
+    ]
+  },
+  {
+    "filename": "human+character+3d+model.glb",
+    "archive": "human+character+3d+model.glb.gz",
+    "bytes": 10697756,
+    "compressedBytes": 9343834,
+    "sha256": "a7d5e823bc4ad1d724f7dfd25f8b460db26b3bf90ec8acd3a1b50f8f71850305",
+    "parts": [
+      "human+character+3d+model.glb.gz"
+    ]
+  },
+  {
+    "filename": "industrial rooftop 3d model.glb",
+    "archive": "industrial rooftop 3d model.glb.gz",
+    "bytes": 66794116,
+    "compressedBytes": 33777160,
+    "sha256": "b990e3604a338051d297abef8989cb591df626ecdf62f64f84b9fd83ddf88723",
+    "parts": [
+      "industrial rooftop 3d model.glb.gz.part-00",
+      "industrial rooftop 3d model.glb.gz.part-01",
+      "industrial rooftop 3d model.glb.gz.part-02",
+      "industrial rooftop 3d model.glb.gz.part-03",
+      "industrial rooftop 3d model.glb.gz.part-04"
+    ]
+  },
+  {
+    "filename": "industrial warehouse 3d model.glb",
+    "archive": "industrial warehouse 3d model.glb.gz",
+    "bytes": 68253152,
+    "compressedBytes": 35761085,
+    "sha256": "a7c0ce3a5c27a019343c998a09a9989fba010fa6724bc3d98ad8561884850caf",
+    "parts": [
+      "industrial warehouse 3d model.glb.gz.part-00",
+      "industrial warehouse 3d model.glb.gz.part-01",
+      "industrial warehouse 3d model.glb.gz.part-02",
+      "industrial warehouse 3d model.glb.gz.part-03",
+      "industrial warehouse 3d model.glb.gz.part-04"
+    ]
+  },
+  {
+    "filename": "modern office building 3d model.glb",
+    "archive": "modern office building 3d model.glb.gz",
+    "bytes": 67272760,
+    "compressedBytes": 35150820,
+    "sha256": "8ed2429b87e056624947229d8c867d2c3133c136afcfbd63d5da5e5067929466",
+    "parts": [
+      "modern office building 3d model.glb.gz.part-00",
+      "modern office building 3d model.glb.gz.part-01",
+      "modern office building 3d model.glb.gz.part-02",
+      "modern office building 3d model.glb.gz.part-03",
+      "modern office building 3d model.glb.gz.part-04"
+    ]
+  },
+  {
+    "filename": "office building 3d model.glb",
+    "archive": "office building 3d model.glb.gz",
+    "bytes": 65779428,
+    "compressedBytes": 33024283,
+    "sha256": "af6f686be5ec17c04f6c8d92f4caee0ffa9be53513c6ed3d980966381fd00fb3",
+    "parts": [
+      "office building 3d model.glb.gz.part-00",
+      "office building 3d model.glb.gz.part-01",
+      "office building 3d model.glb.gz.part-02",
+      "office building 3d model.glb.gz.part-03"
+    ]
+  }
+]

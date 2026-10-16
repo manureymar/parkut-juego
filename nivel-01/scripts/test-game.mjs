@@ -24,6 +24,16 @@ console.log('jump',(await page.evaluate(()=>window.parkut.getState())).position)
 await page.waitForFunction(()=>window.parkut.getState().grounded,{},{timeout:15000});await page.locator('#pause').click();await page.screenshot({path:path.join(out,'05-pause.png')});
 const pausedAt=(await page.evaluate(()=>window.parkut.getState())).elapsed;await page.waitForTimeout(600);assert.equal((await page.evaluate(()=>window.parkut.getState())).elapsed,pausedAt);
 await page.locator('#resume').click();
+// Real browser touch events: keep the joystick held while pressing jump.
+await page.evaluate(()=>window.parkut.test.reset());
+const rects=await page.evaluate(()=>{const center=id=>{const b=document.getElementById(id).getBoundingClientRect();return {x:b.x+b.width/2,y:b.y+b.height/2};};return {joy:center('joystick'),jump:center('jump')};});
+const cdp=await page.context().newCDPSession(page),originZ=(await page.evaluate(()=>window.parkut.getState())).position[2];
+await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{...rects.joy,id:1}]});
+const touch={x:rects.joy.x,y:rects.joy.y-35,id:1};await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[touch]});
+await page.waitForFunction(z=>window.parkut.getState().position[2]<z-2,originZ,{timeout:30000});
+await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[touch,{...rects.jump,id:2}]});
+await page.waitForFunction(()=>window.parkut.getState().position[1]>1,{},{timeout:15000});
+await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});console.log('multitouch joystick + jump: PASS');
 // Falling must recover at the last safe checkpoint.
 await page.evaluate(()=>window.parkut.test.teleport(40,-9,0));await page.waitForFunction(()=>{const s=window.parkut.getState();return s.position[0]<5&&s.position[1]>-1;},{},{timeout:15000});
 // The goal is a real location on the final roof, not a UI-only completion button.

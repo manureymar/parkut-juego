@@ -13,9 +13,19 @@ for item in manifest:
     if target.exists() and hashlib.sha256(target.read_bytes()).hexdigest() == item["sha256"]:
         print("Verified:", item["filename"])
         continue
+    archive = folder / item["archive"]
+    joined = not archive.exists()
+    if joined:
+        archive = folder / (item["archive"] + ".joining")
+        with archive.open("wb") as dest:
+            for part in item["parts"]:
+                with (folder / part).open("rb") as source:
+                    shutil.copyfileobj(source, dest)
     tmp = target.with_suffix(".glb.restoring")
-    with gzip.open(folder / item["archive"], "rb") as source, tmp.open("wb") as dest:
+    with gzip.open(archive, "rb") as source, tmp.open("wb") as dest:
         shutil.copyfileobj(source, dest)
+    if joined:
+        archive.unlink()
     if hashlib.sha256(tmp.read_bytes()).hexdigest() != item["sha256"]:
         tmp.unlink()
         raise RuntimeError("Checksum mismatch: " + item["filename"])
