@@ -2,7 +2,7 @@
 
 Primer nivel de un juego de parkour en tercera persona, diseñado en vertical para Android. Usa el personaje con esqueleto y los siete edificios entregados por el propietario del proyecto.
 
-**[Descargar el APK de prueba desde Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
+**[Descargar el APK de prueba](https://github.com/manureymar/parkut-juego/raw/refs/heads/main/distribucion/Parkut-Nivel01.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases) · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
 
 ## Jugar
 
@@ -21,14 +21,14 @@ Sigue las marcas amarillas. Cada azotea alcanzada guarda un punto de control dur
 
 | Carpeta | Contenido |
 |---|---|
-| `assets-originales/` | Los ocho GLB originales, la imagen de referencia y el panorama generado. |
+| `assets-originales/` | Los ocho GLB originales comprimidos sin pérdida (.glb.gz), la referencia y el panorama. |
 | `nivel-01/web/` | Juego WebGL 2, interfaz, controles y recursos optimizados para el APK. |
 | `nivel-01/android/` | Aplicación Android con WebView y recursos locales; configuración Gradle. |
 | `nivel-01/scripts/` | Preparación reproducible de geometría, texturas, colisiones y verificación. |
 | `docs/` | Inventario de recursos, decisiones de integración y resultados de verificación. |
 | `.github/workflows/android.yml` | Compilación automática y publicación del APK de prueba en GitHub Releases. |
 
-Los originales se conservan completos. El APK usa copias con geometría simplificada y texturas WebP de hasta 2048 px. Las colisiones se calculan sobre otra versión ligera de los mismos edificios: el cielo y la ciudad lejana son una imagen de fondo y no forman parte del recorrido.
+Los originales se conservan completos en archivos GZIP sin pérdida. `npm run restore` recupera cada GLB y verifica su SHA-256 contra `assets-originales/manifest.json`. El APK usa copias con geometría simplificada y texturas WebP de hasta 2048 px. Las colisiones se calculan sobre otra versión ligera de los mismos edificios: el cielo y la ciudad lejana son una imagen de fondo y no forman parte del recorrido.
 
 ## Construcción
 
@@ -36,7 +36,7 @@ El código del juego y las dependencias Three.js que ejecuta están incluidos en
 
 Para reconstruir el APK sin instalar herramientas en tu ordenador, abre **Actions → Compilar APK de Parkut → Run workflow**. Cada compilación correcta crea un APK firmado de prueba y su suma SHA-256 en Releases. No se utiliza una clave de publicación de Google Play. Al cambiar la clave de depuración entre entornos, Android puede requerir desinstalar una prueba anterior antes de instalar la siguiente.
 
-Entorno reproducible: Java 17, Gradle 8.9, Android Gradle Plugin 8.7.3, SDK 35, Build Tools 35.0.0. Desde `nivel-01/android`, ejecuta `gradle assembleDebug`. El resultado queda en `app/build/outputs/apk/debug/app-debug.apk`.
+Entorno reproducible: Java 17, Gradle 8.9, Android Gradle Plugin 8.7.3, SDK 35, Build Tools 35.0.0. Desde `nivel-01/android`, ejecuta `gradle assembleDebug`. El resultado queda en `app/build/outputs/apk/debug/app-debug.apk`. También se conserva una copia compilada en `distribucion/Parkut-Nivel01.apk`.
 
 Para desarrollo web: Node 22 o posterior, `npm ci`, `npm run dev` y abrir `http://127.0.0.1:8080`. `npm run assets` regenera las copias optimizadas a partir de los originales. `npm run vendor` actualiza las dependencias incluidas desde la versión fijada en `package-lock.json`. Para pruebas: `npx playwright install chromium` y `npm test`.
 

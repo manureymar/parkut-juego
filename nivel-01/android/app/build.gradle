@@ -13,6 +13,6 @@ android {
     buildFeatures { buildConfig true }
     buildTypes { debug { debuggable true }; release { minifyEnabled false } }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
-    androidResources { noCompress += ['glb', 'webp'] }
+    androidResources { noCompress += ['webp'] }
 }
 dependencies { implementation 'androidx.webkit:webkit:1.12.1' }

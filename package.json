@@ -7,9 +7,10 @@
   },
   "scripts": {
     "dev": "node nivel-01/scripts/server.mjs",
-    "assets": "node nivel-01/scripts/prepare-assets.mjs && node nivel-01/scripts/prepare-colliders.mjs",
+    "assets": "python3 nivel-01/scripts/restore-originals.py && node nivel-01/scripts/prepare-assets.mjs && node nivel-01/scripts/prepare-colliders.mjs",
     "vendor": "node nivel-01/scripts/vendor.mjs",
-    "test": "node nivel-01/scripts/test-physics.mjs && node nivel-01/scripts/test-game.mjs"
+    "test": "node nivel-01/scripts/test-physics.mjs && node nivel-01/scripts/test-game.mjs",
+    "restore": "python3 nivel-01/scripts/restore-originals.py"
   },
   "repository": {
     "type": "git",

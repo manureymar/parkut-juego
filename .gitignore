@@ -8,4 +8,5 @@ node_modules/
 *.keystore
 *.jks
 test-results/
+assets-originales/*.glb
 
