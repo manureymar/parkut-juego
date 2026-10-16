@@ -2,7 +2,7 @@
 
 Primer nivel de un juego de parkour en tercera persona, diseñado en vertical para Android. Usa el personaje con esqueleto y los siete edificios entregados por el propietario del proyecto.
 
-**[Descargar el APK de prueba](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-2/Parkut-Nivel01.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
+**[Descargar el APK de prueba](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-4/Parkut-Nivel01.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
 
 ## Jugar
 
@@ -35,7 +35,7 @@ Los originales se conservan completos en archivos GZIP sin pérdida; los mayores
 
 El código del juego y las dependencias Three.js que ejecuta están incluidos en el repositorio. No hay dependencias de CDN en tiempo de ejecución. La app es una aplicación Android que contiene un juego WebGL 2; no es un proyecto Unity ni Godot.
 
-Para reconstruir el APK sin instalar herramientas en tu ordenador, abre **Actions → Compilar APK de Parkut → Run workflow**. Cada compilación correcta crea un APK firmado de prueba y su suma SHA-256 en Releases. No se utiliza una clave de publicación de Google Play. Al cambiar la clave de depuración entre entornos, Android puede requerir desinstalar una prueba anterior antes de instalar la siguiente.
+Para reconstruir el APK sin instalar herramientas en tu ordenador, abre **Actions → Compilar APK de Parkut → Run workflow**. Cada compilación correcta crea un APK firmado de prueba y su suma SHA-256 en Releases. No se utiliza una clave de publicación de Google Play. Esta actualización cambia la firma de la primera prueba: desinstala el APK anterior si Android rechaza la instalación por conflicto de firma. A partir de la compilación 4, el workflow conserva la clave de pruebas en una caché para reutilizarla en las siguientes compilaciones.
 
 Entorno reproducible: Java 17, Gradle 8.9, Android Gradle Plugin 8.7.3, SDK 35, Build Tools 35.0.0. Desde `nivel-01/android`, ejecuta `gradle assembleDebug`. El resultado queda en `app/build/outputs/apk/debug/app-debug.apk`. El APK compilado se conserva en GitHub Releases.
 

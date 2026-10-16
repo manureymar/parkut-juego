@@ -26,7 +26,7 @@
 - Sin errores JavaScript en la prueba de interfaz.
 - Joystick táctil y salto simultáneos comprobados con eventos multitáctiles del navegador.
 - Compilación Android `assembleDebug` completada; firma APK v2 verificada con `apksigner`.
-- Compilación reproducida con éxito en GitHub Actions y APK publicado en [nivel-01-build-2](https://github.com/manureymar/parkut-juego/releases/tag/nivel-01-build-2).
+- Compilación reproducida con éxito en GitHub Actions y APK publicado en [nivel-01-build-4](https://github.com/manureymar/parkut-juego/releases/tag/nivel-01-build-4).
 
 Los resultados numéricos de las pruebas están en `physics-test-results.json`. Las capturas del juego real están en `vista-nivel-01.png` y `pantalla-inicio.png`.
 
