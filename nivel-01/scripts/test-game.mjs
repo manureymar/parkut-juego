@@ -1,0 +1,34 @@
+import {chromium} from 'playwright';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {startServer} from './server.mjs';
+const root=path.resolve(import.meta.dirname,'../..'),out=path.join(root,'test-results');await fs.mkdir(out,{recursive:true});
+const server=await startServer();
+const browser=await chromium.launch({headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});
+const errors=[];page.on('pageerror',e=>{errors.push(e.message);console.error('PAGE ERROR',e.message);});page.on('console',m=>{if(m.type()==='error')console.error(m.text());});
+await page.goto('http://127.0.0.1:8080/?test=1');
+await page.waitForFunction(()=>window.parkut?.getState().loaded,{},{timeout:120000});
+await page.waitForTimeout(1500);await page.screenshot({path:path.join(out,'01-intro.png')});
+const initial=await page.evaluate(()=>window.parkut.getState());console.log('loaded',initial.assets.length,'buildings',initial.bones,'bones');assert.equal(initial.assets.length,7);assert.equal(initial.bones,65);
+await page.locator('#start').click();await page.waitForTimeout(500);await page.screenshot({path:path.join(out,'02-gameplay.png')});
+await page.evaluate(()=>window.parkut.test.setQuality('low'));
+const startZ=(await page.evaluate(()=>window.parkut.getState())).position[2];
+await page.keyboard.down('KeyW');await page.waitForFunction(z=>window.parkut.getState().position[2]<z-4,startZ,{timeout:30000});
+const moved=await page.evaluate(()=>window.parkut.getState());console.log('move',moved.position,moved.animation);assert(moved.position[2]<startZ-4);
+await page.screenshot({path:path.join(out,'03-running.png')});
+await page.keyboard.up('KeyW');
+await page.keyboard.press('Space');await page.waitForFunction(()=>window.parkut.getState().position[1]>1,{},{timeout:15000});await page.screenshot({path:path.join(out,'04-jump.png')});
+console.log('jump',(await page.evaluate(()=>window.parkut.getState())).position);
+await page.waitForFunction(()=>window.parkut.getState().grounded,{},{timeout:15000});await page.locator('#pause').click();await page.screenshot({path:path.join(out,'05-pause.png')});
+const pausedAt=(await page.evaluate(()=>window.parkut.getState())).elapsed;await page.waitForTimeout(600);assert.equal((await page.evaluate(()=>window.parkut.getState())).elapsed,pausedAt);
+await page.locator('#resume').click();
+// Falling must recover at the last safe checkpoint.
+await page.evaluate(()=>window.parkut.test.teleport(40,-9,0));await page.waitForFunction(()=>{const s=window.parkut.getState();return s.position[0]<5&&s.position[1]>-1;},{},{timeout:15000});
+// The goal is a real location on the final roof, not a UI-only completion button.
+await page.evaluate(()=>{const t=window.parkut.test,g=t.goal,p=t.ground(g.x,g.z);t.teleport(p[0],p[1]+.05,p[2]);});
+await page.waitForFunction(()=>window.parkut.getState().completed,{},{timeout:15000});await page.screenshot({path:path.join(out,'06-finish.png')});
+console.log('pause, respawn, finish: PASS');
+await fs.writeFile(path.join(out,'browser-errors.json'),JSON.stringify(errors,null,2));
+await browser.close();server.close();if(errors.length)process.exitCode=1;

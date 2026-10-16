@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+.gradle/
+**/build/
+!nivel-01/web/vendor/build/
+!nivel-01/web/vendor/build/**
+**/local.properties
+*.keystore
+*.jks
+test-results/
+

@@ -1,0 +1,84 @@
+[
+  {
+    "id": "runner",
+    "source": "human+character+3d+model.glb",
+    "trianglesOriginal": 19732,
+    "triangles": 19732,
+    "bytes": 4024660,
+    "animations": [
+      "dive",
+      "walk",
+      "climb",
+      "run",
+      "subir escalera",
+      "jump_down",
+      "subir escalera recta hacia arriba"
+    ],
+    "joints": [
+      65
+    ]
+  },
+  {
+    "id": "roof-01",
+    "source": "concrete office building 3d model.glb",
+    "trianglesOriginal": 1788374,
+    "triangles": 152000,
+    "bytes": 6664272,
+    "animations": [],
+    "joints": []
+  },
+  {
+    "id": "roof-02",
+    "source": "industrial rooftop 3d model.glb",
+    "trianglesOriginal": 1854179,
+    "triangles": 157604,
+    "bytes": 7031600,
+    "animations": [],
+    "joints": []
+  },
+  {
+    "id": "roof-03",
+    "source": "industrial warehouse 3d model.glb",
+    "trianglesOriginal": 1884203,
+    "triangles": 160153,
+    "bytes": 6556556,
+    "animations": [],
+    "joints": []
+  },
+  {
+    "id": "roof-04",
+    "source": "concrete building 3d model.glb",
+    "trianglesOriginal": 1931378,
+    "triangles": 164165,
+    "bytes": 6690176,
+    "animations": [],
+    "joints": []
+  },
+  {
+    "id": "roof-05",
+    "source": "modern office building 3d model.glb",
+    "trianglesOriginal": 1859595,
+    "triangles": 158057,
+    "bytes": 6453484,
+    "animations": [],
+    "joints": []
+  },
+  {
+    "id": "roof-06",
+    "source": "brick building 3d model.glb",
+    "trianglesOriginal": 1812602,
+    "triangles": 154071,
+    "bytes": 6958200,
+    "animations": [],
+    "joints": []
+  },
+  {
+    "id": "roof-07",
+    "source": "office building 3d model.glb",
+    "trianglesOriginal": 1852987,
+    "triangles": 157503,
+    "bytes": 6574692,
+    "animations": [],
+    "joints": []
+  }
+]
