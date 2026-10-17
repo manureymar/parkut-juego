@@ -22,4 +22,4 @@
 
 Todos los GLB nuevos se archivan sin pérdida en `assets-originales/ciudad-modelos/`. El reposo original permanece en `assets-originales/pendientes/` y ya está integrado. La aplicación incluye sus recursos y funciona sin descargar modelos durante la partida.
 
-Versión Android 0.3.0, código 3. El APK de prueba se publica desde GitHub Actions con la clave de pruebas conservada desde la compilación 4.
+Versión Android 0.3.0, código 3. El APK de prueba se publica desde GitHub Actions con una ruta explícita para la clave de pruebas. La caché anterior apuntaba a una ubicación que no contenía la clave usada por Gradle; esta versión corrige esa configuración y requiere reinstalación sobre las pruebas anteriores.

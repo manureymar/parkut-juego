@@ -18,8 +18,8 @@ jobs:
       - name: Conservar firma de pruebas entre compilaciones
         uses: actions/cache@v4
         with:
-          path: ~/.android/debug.keystore
-          key: parkut-android-debug-signing-v1
+          path: ~/.android/parkut-debug.keystore
+          key: parkut-android-debug-signing-v2
       - uses: android-actions/setup-android@v3
         with:
           packages: 'platform-tools'
@@ -29,9 +29,15 @@ jobs:
           gradle-version: '8.9'
       - name: Preparar SDK
         run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - name: Preparar firma de pruebas
+        run: |
+          mkdir -p "$HOME/.android"
+          if [ ! -f "$HOME/.android/parkut-debug.keystore" ]; then
+            keytool -genkeypair -keystore "$HOME/.android/parkut-debug.keystore" -storepass android -keypass android -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 -dname 'CN=Parkut Debug,O=Parkut,C=US' -noprompt
+          fi
       - name: Compilar aplicación de prueba
         working-directory: nivel-01/android
-        run: gradle --no-daemon assembleDebug
+        run: gradle --no-daemon assembleDebug -PparkutSigningStore="$HOME/.android/parkut-debug.keystore"
       - name: Preparar APK y checksum
         run: |
           mkdir -p distribucion
