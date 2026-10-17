@@ -1,0 +1,13 @@
+{
+  "game_name": "Jumping in the City",
+  "status": "approved",
+  "approved_at": "2026-10-16T23:38:22-05:00",
+  "user_confirmation": "listo este se queda",
+  "file": "jumping-in-the-city-icon-final.png",
+  "source_upload": "bbf2323f-9f67-4188-8271-d5d92f7a4abe.png",
+  "design_version": 4,
+  "sha256": "2082b679b0e6943f63b1fb18e52cd8704ed4c07a72f3afaf4a4c5fe66783f376",
+  "width": 1254,
+  "height": 1254,
+  "integration_status": "pending_next_apk"
+}

@@ -2,6 +2,10 @@
 
 Nombre del juego indicado por el usuario: **Jumping in the City** (Saltando en la ciudad).
 
+## Ícono definitivo aprobado
+
+El usuario aprobó esta composición el 16 de octubre de 2026: «listo este se queda». El archivo definitivo es **`jumping-in-the-city-icon-final.png`**, copia exacta de la imagen adjunta que confirmó. Corresponde al diseño de la versión 4: salto lateral en contrapicado, suela en primer plano y azotea de aterrizaje visible. Usar este archivo para la próxima integración del launcher. `seleccion-final.json` registra el archivo y su checksum. La aprobación del arte no significa que ya esté incluido en la APK 0.3.0 publicada.
+
 ## Versión 4 — contrapicado y aterrizaje visible
 
 `jumping-in-the-city-icon-v4.png` replantea el salto de izquierda a derecha con cámara baja, perspectiva cinematográfica y la suela del zapato grande en primer plano. La azotea de llegada ocupa el primer plano derecho y queda directamente debajo del pie adelantado. Conserva el personaje y el entorno de referencia. Prompt exacto en `prompt-v4.json`. Propuesta de arte pendiente de integrar en una futura compilación.
