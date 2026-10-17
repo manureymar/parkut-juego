@@ -1,0 +1,74 @@
+{
+  "images": [
+    {
+      "file": "01-canela-shorts-mezclilla.png",
+      "title": "Mujer canela con shorts de mezclilla",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 1164759,
+      "bytes": 1626325,
+      "sha256": "523cbc2f8b23c802bb2dfa2512131d070e8ec1ba8f12b7a27c1537881ebcc6d5"
+    },
+    {
+      "file": "02-triguena-shorts-cargo.png",
+      "title": "Mujer trigueña con shorts cargo",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 1130561,
+      "bytes": 1635717,
+      "sha256": "67bf531d2dc77d13eb1023724890ccfd8954a2cd36d5c83f43f5ea56f6ab02bf"
+    },
+    {
+      "file": "03-rubia-vestido-coral.png",
+      "title": "3. Rubia con vestido coral",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 1153421,
+      "bytes": 1511105,
+      "sha256": "8ecd932781b5ed9f7112064c363596ad24fbe88b997f8d8e93f55575b246b942"
+    },
+    {
+      "file": "04-morena-deportiva-lila.png",
+      "title": "4. Morena con ropa deportiva",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 1136618,
+      "bytes": 1571525,
+      "sha256": "be68dae76a12172f2a9045b504a6ae4f1506752677bc84e41f8ccc3163672234"
+    },
+    {
+      "file": "05-triguena-jeans-top-negro.png",
+      "title": "5. Trigueña de cabello dorado con jeans",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 1105996,
+      "bytes": 1817162,
+      "sha256": "acf157d97330219f430c13016c770c2851eebc58416d3db2195bd557fc17049a"
+    }
+  ]
+}
