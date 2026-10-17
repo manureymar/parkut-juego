@@ -1,0 +1,90 @@
+{
+  "version": "0.3.0",
+  "errors": [],
+  "normalJump": [
+    {
+      "y": 1.0634503991862037,
+      "animation": "jump"
+    },
+    {
+      "y": 1.7928948436306476,
+      "animation": "jump"
+    },
+    {
+      "y": 2.264144843630647,
+      "animation": "jump"
+    },
+    {
+      "y": 2.477200399186202,
+      "animation": "jump"
+    },
+    {
+      "y": 2.432061510297313,
+      "animation": "jump"
+    },
+    {
+      "y": 2.1287281769639788,
+      "animation": "jump"
+    },
+    {
+      "y": 1.5672003991862,
+      "animation": "jump"
+    },
+    {
+      "y": 0.7474781769639771,
+      "animation": "jump"
+    },
+    {
+      "y": 0.0758115102973149,
+      "animation": "jump"
+    },
+    {
+      "y": 0.0758115102973149,
+      "animation": "jump"
+    },
+    {
+      "y": 0.0758115102973149,
+      "animation": "idle"
+    },
+    {
+      "y": 0.0758115102973149,
+      "animation": "idle"
+    }
+  ],
+  "traffic": {
+    "count": 72,
+    "types": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "stopped": 7
+  },
+  "ladderIK": [
+    {
+      "bone": "mixamorigLeftHand",
+      "error": 0.0038696905065216804,
+      "reach": 0.465846049469796,
+      "distance": 0.33495238570771685
+    },
+    {
+      "bone": "mixamorigLeftFoot",
+      "error": 0.007429890670942585,
+      "reach": 0.8231112780028786,
+      "distance": 0.7906763870041018
+    },
+    {
+      "bone": "mixamorigRightHand",
+      "error": 0.004938468855655882,
+      "reach": 0.45121588199424445,
+      "distance": 0.323310470738908
+    },
+    {
+      "bone": "mixamorigRightFoot",
+      "error": 0.0041676711610042685,
+      "reach": 0.8219337985274924,
+      "distance": 0.35893937608827325
+    }
+  ]
+}

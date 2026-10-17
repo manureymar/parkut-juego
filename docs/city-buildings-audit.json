@@ -1,0 +1,20 @@
+[
+  {
+    "source": "roof-01",
+    "target": "city-building-1",
+    "triangles": 10255,
+    "bytes": 598300
+  },
+  {
+    "source": "roof-04",
+    "target": "city-building-2",
+    "triangles": 7000,
+    "bytes": 381532
+  },
+  {
+    "source": "roof-06",
+    "target": "city-building-3",
+    "triangles": 9118,
+    "bytes": 586996
+  }
+]

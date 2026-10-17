@@ -9,7 +9,7 @@ for(const [i,r]of STAIRS.entries()){
  out.push({test:`stairs-${i}`,passed:n<800,maxY,target:r.b.y,position:p.position.toArray(),states:[...states]});console.log(out.at(-1));assert(n<800&&maxY>r.b.y-.2&&states.has('stairs'),'Stair ascent failed');
 }
 const l=LADDERS[0];spawn(l.base.x,l.base.z+.15,l.base.y+.3);step(60);step(150,{x:0,z:-1});assert(tr.active?.type==='ladder','Tank ladder must attach from forward input');const frozen=p.position.clone();step(120);assert(p.position.distanceTo(frozen)<.001,'Stopped ladder must hold');for(let i=0;i<600&&tr.active;i++)tr.step(1/120,{x:0,z:-1});step(60);out.push({test:'tank-ladder',position:p.position.toArray(),target:l.exit.toArray(),history:tr.history});console.log(out.at(-1));assert(p.position.y>l.exit.y-.5,'Tank exit must be on top');
-spawn(-2,4);p.position.y+=3.4;p.grounded=false;tr.fallTop=p.position.y;let rolled=false;for(let i=0;i<280;i++){tr.step(1/120,{x:0,z:0});if(tr.animation?.mode==='roll')rolled=true;}out.push({test:'landing-roll',rolled});assert(rolled,'Hard fall must use dive roll');
+spawn(-2,4);p.position.y+=3.4;p.grounded=false;tr.fallTop=p.position.y;tr.takeoffY=p.position.y;let rolled=false;for(let i=0;i<280;i++){tr.step(1/120,{x:0,z:0});if(tr.animation?.mode==='roll')rolled=true;}out.push({test:'landing-roll',rolled});assert(rolled,'Hard fall must use dive roll');
 // Auto-jump must cross the first gap without a jump/action command.
 spawn(1.5,LEVEL[0].exitZ+3);step(190,{x:0,z:-1});out.push({test:'automatic-gap',p:p.position.toArray(),history:tr.history});console.log(out.at(-1));assert(p.position.z<LEVEL[1].entryZ-.5&&p.position.y>-1,'Automatic gap jump');
 // A container's edge should start a mantle using forward intent only.

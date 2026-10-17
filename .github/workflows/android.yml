@@ -48,4 +48,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="nivel-01-build-${GITHUB_RUN_NUMBER}"
-          gh release create "$TAG" distribucion/* --title "Parkut · Nivel 01 · prueba ${GITHUB_RUN_NUMBER}" --notes "Parkut 0.2.0: apoyo estable, maniobras automáticas, escalera del tanque, rodada y nueva iluminación. Android 8.0 o superior. Código y recursos incluidos en el repositorio. Compilación $GITHUB_SHA." --prerelease --target "$GITHUB_SHA"
+          gh release create "$TAG" distribucion/* --title "Parkut · Nivel 01 · prueba ${GITHUB_RUN_NUMBER}" --notes "Parkut 0.3.0: ciudad con tráfico, cámara libre, salto y reposo originales, escaleras alineadas y recorrido ajustado. Android 8.0 o superior. Código y recursos incluidos en el repositorio. Compilación $GITHUB_SHA." --prerelease --target "$GITHUB_SHA"

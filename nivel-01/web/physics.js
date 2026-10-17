@@ -14,7 +14,7 @@ export class RunnerPhysics {
  }
  requestJump(){this.jumpBuffer=.16;}
  step(dt,input,speed=6.4){
-  this.landed=false;this.stepHeight=0;this.jumpBuffer-=dt;
+  this.landed=false;this.stepHeight=0;this.jumpBuffer-=dt;let jumped=false;
   if(this.grounded)this.coyote=.12;else this.coyote-=dt;
   const wasGrounded=this.grounded,oldY=this.position.y;
   this.target.set(input.x,0,input.z);if(this.target.length()>1)this.target.normalize();this.target.multiplyScalar(speed);
@@ -22,7 +22,7 @@ export class RunnerPhysics {
   // A resting capsule has a stable support: gravity must not slide it across the
   // tiny triangles in a reconstructed grate or repeatedly kick it up/down.
   if(this.grounded&&this.target.lengthSq()<.0001&&Math.hypot(this.velocity.x,this.velocity.z)<.035&&this.jumpBuffer<=0){this.velocity.set(0,0,0);return {landed:false,impact:0,stepHeight:0};}
-  if(this.jumpBuffer>0&&this.coyote>0){this.velocity.y=10.4;this.grounded=false;this.coyote=0;this.jumpBuffer=0;}
+  if(this.jumpBuffer>0&&this.coyote>0){this.velocity.y=10.4;this.grounded=false;this.coyote=0;this.jumpBuffer=0;jumped=true;}
   if(!this.grounded)this.velocity.y-=22*dt;else this.velocity.y=0;
   const impact=this.velocity.y;
   this.position.x+=this.velocity.x*dt;this.position.z+=this.velocity.z*dt;this.position.y+=this.velocity.y*dt;
@@ -51,7 +51,7 @@ export class RunnerPhysics {
   }
   if(!this.grounded&&wasGrounded&&this.velocity.y===0)this.velocity.y=-22*dt;
   this.sync();this.landed=this.grounded&&!wasGrounded&&impact<-2;
-  return {landed:this.landed,impact,stepHeight:this.stepHeight};
+  return {landed:this.landed,impact,stepHeight:this.stepHeight,jumped};
  }
  mantleTarget(direction){
   const dir=direction.clone().setY(0).normalize();if(dir.lengthSq()<.5)return null;

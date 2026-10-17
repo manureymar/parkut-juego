@@ -12,7 +12,8 @@ export const STAIRS=[
  ramp('roof-07',[.143,.628,.164],[.143,.742,.009],.030),
 ];
 export const LADDERS=[{
- id:'tank',base:point('roof-02',[-.025,.763,-.192]),top:point('roof-02',[-.025,.933,-.214]),exit:point('roof-02',[-.057,.942,-.254]),facing:new Vector3(0,0,-1),width:.90,
+ id:'tank',base:point('roof-02',[-.025,.763,-.192]),top:point('roof-02',[-.025,.925,-.192]),exit:point('roof-02',[-.057,.942,-.254]),facing:new Vector3(-.526,0,-.85).normalize(),width:.90,
+ rungOrigin:point('roof-02',[-.024,.78,-.2095]),rungStep:.02*27,
 }];
 export function stairSurface(x,z){
  for(const r of STAIRS){const dx=r.b.x-r.a.x,dz=r.b.z-r.a.z,l2=dx*dx+dz*dz,t=((x-r.a.x)*dx+(z-r.a.z)*dz)/l2;
@@ -23,7 +24,7 @@ export function stairSurface(x,z){
 }
 export class Traversal {
  constructor(physics){this.physics=physics;this.active=null;this.cooldown=0;this.last=null;this.history=[];this.rollTime=0;this.rollDuration=.95;this.fallTop=0;this.fallSpeed=0;this.autoJumpCooldown=0;}
- reset(){this.active=null;this.cooldown=.35;this.rollTime=0;this.fallTop=this.physics.position.y;this.fallSpeed=0;this.autoJumpCooldown=0;}
+ reset(){this.active=null;this.cooldown=.35;this.rollTime=0;this.fallTop=this.physics.position.y;this.takeoffY=this.physics.position.y;this.fallSpeed=0;this.autoJumpCooldown=0;}
  record(type){this.last=type;if(!this.history.includes(type))this.history.push(type);}
  tryAttach(input){
   const p=this.physics.position,intent=new Vector3(input.x,0,input.z);if(intent.length()<.25||this.cooldown>0||this.rollTime>0)return false;
@@ -66,12 +67,13 @@ export class Traversal {
   const speed=Math.hypot(p.velocity.x,p.velocity.z);
   const rolling=this.rollTime>0;if(rolling)this.rollTime=Math.max(0,this.rollTime-dt);
   let motion=input;if(rolling){const d=this.rollDirection||new Vector3(0,0,-1),ahead=p.position.clone().addScaledVector(d,.8);if(p.ground(ahead.x,ahead.z,p.position.y+.4,.9))motion={x:d.x*.65,z:d.z*.65};}
-  const r=p.step(dt,motion,rolling?3.0:6.4);
+  const wasGrounded=p.grounded,previousY=p.position.y,r=p.step(dt,motion,rolling?3.0:6.4);
+  if(wasGrounded&&!p.grounded||r.jumped)this.takeoffY=previousY;
   if(!p.grounded){this.fallTop=Math.max(this.fallTop,p.position.y);this.fallSpeed=Math.max(this.fallSpeed,-p.velocity.y);}
-  if(r.landed){const drop=this.fallTop-p.position.y;if((r.impact<-8||drop>1.7)&&this.cooldown===0){this.rollTime=this.rollDuration;this.rollDirection=new Vector3(p.velocity.x,0,p.velocity.z);if(this.rollDirection.length()<.2)this.rollDirection.set(0,0,-1);else this.rollDirection.normalize();this.record('dive');}this.fallTop=p.position.y;this.fallSpeed=0;}
+  if(r.landed){const drop=(this.takeoffY??this.fallTop)-p.position.y;if((r.impact<-13.5||drop>1.7)&&this.cooldown===0){this.rollTime=this.rollDuration;this.rollDirection=new Vector3(p.velocity.x,0,p.velocity.z);if(this.rollDirection.length()<.2)this.rollDirection.set(0,0,-1);else this.rollDirection.normalize();this.record('dive');}this.fallTop=p.position.y;this.fallSpeed=0;}
   if(p.grounded&&!r.landed)this.fallTop=p.position.y;
   if(p.onStairs&&speed>.2)this.record('stairs');
   return r;
  }
- get animation(){const a=this.active;if(a?.type==='ladder')return {mode:'ladder',phase:a.phase,progress:a.t};if(a)return {mode:'climb',progress:a.elapsed/a.duration};if(this.rollTime>0)return {mode:'roll',progress:1-this.rollTime/this.rollDuration};return null;}
+ get animation(){const a=this.active;if(a?.type==='ladder')return {mode:'ladder',phase:a.phase,progress:a.t,ladder:a.ladder};if(a)return {mode:'climb',progress:a.elapsed/a.duration};if(this.rollTime>0)return {mode:'roll',progress:1-this.rollTime/this.rollDuration};return null;}
 }

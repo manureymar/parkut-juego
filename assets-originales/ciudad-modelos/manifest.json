@@ -1,0 +1,198 @@
+[
+  {
+    "original": "street road segment 3d model.glb",
+    "bytes": 68187452,
+    "sha256": "58776267d6e3ff3ef56dbb659fd9b533f25af33da35bfb2492ca457121d8f51b",
+    "gzip_bytes": 30616654,
+    "parts": [
+      {
+        "file": "01.glb.gz.part01",
+        "bytes": 8388608,
+        "sha256": "4036005451f38b6b4843ee21caaa3dd7bbef6b94d02a5ab16dbbb79650084c56"
+      },
+      {
+        "file": "01.glb.gz.part02",
+        "bytes": 8388608,
+        "sha256": "907c793a4641a7ffa8510633177f8a53b4a9f7210d3d011a7cb63725cff34d30"
+      },
+      {
+        "file": "01.glb.gz.part03",
+        "bytes": 8388608,
+        "sha256": "203f500b5537c0633673801dacdc6717e2a1d0715c567483a90f110e055611fc"
+      },
+      {
+        "file": "01.glb.gz.part04",
+        "bytes": 5450830,
+        "sha256": "ed9839f842929123feb984e71adb62014264a6246d4765dbe283204d04d89cb8"
+      }
+    ]
+  },
+  {
+    "original": "street intersection 3d model.glb",
+    "bytes": 79641036,
+    "sha256": "bb6e1b1fa21ae8d24f043086adde33ad7b517720599a26df2b6cfd3e89e3844b",
+    "gzip_bytes": 41845318,
+    "parts": [
+      {
+        "file": "02.glb.gz.part01",
+        "bytes": 8388608,
+        "sha256": "7ccf5565367e4966bdf3eb6a5517199cc394d9f8e0adcfacb23f9ddd3fdf25f3"
+      },
+      {
+        "file": "02.glb.gz.part02",
+        "bytes": 8388608,
+        "sha256": "2e9230578e4b300e0b9cfd6614e96c14ad59a397fc93f5c57dc5686d2347315f"
+      },
+      {
+        "file": "02.glb.gz.part03",
+        "bytes": 8388608,
+        "sha256": "6f7db54a6cd8c95d3baad10265835cffdc3cfc08ea6c875899cb1caddbd97b34"
+      },
+      {
+        "file": "02.glb.gz.part04",
+        "bytes": 8388608,
+        "sha256": "85cfa9d5302cfd3d25f6330f0f6ac1661fb01c76b05b59a7533393a9dcc05ae4"
+      },
+      {
+        "file": "02.glb.gz.part05",
+        "bytes": 8290886,
+        "sha256": "a880c7739981e8e1f6a7953331c994ee5233ae645f0ec7a07a8ed13b249d4f7a"
+      }
+    ]
+  },
+  {
+    "original": "red car 3d model.glb",
+    "bytes": 65176896,
+    "sha256": "f8631077448c13e2f0f42d950da17653756f8ecebaa88a26a4adbb07369a73a0",
+    "gzip_bytes": 33287641,
+    "parts": [
+      {
+        "file": "03.glb.gz.part01",
+        "bytes": 8388608,
+        "sha256": "fde0d6494af828d400e45771507936952aa5467086f01afdd3b86d3e30a152cb"
+      },
+      {
+        "file": "03.glb.gz.part02",
+        "bytes": 8388608,
+        "sha256": "60802233a02333c9bf03f113eeaa3259f078e754b289763e4ea7f748434de986"
+      },
+      {
+        "file": "03.glb.gz.part03",
+        "bytes": 8388608,
+        "sha256": "ddd474dbb81f141560e9c4caafab89b10ad66407ad02c8047c2ae5601f21e6fb"
+      },
+      {
+        "file": "03.glb.gz.part04",
+        "bytes": 8121817,
+        "sha256": "905afa8a5d67502f11f7a3622ecd00717ef1746800f49e5dc0f121e368afbf4b"
+      }
+    ]
+  },
+  {
+    "original": "yellow taxi car 3d model.glb",
+    "bytes": 63808096,
+    "sha256": "650358e32871f28ca8b62eb7faff4f5f947418aad613fbfa38e98490939388ba",
+    "gzip_bytes": 32439748,
+    "parts": [
+      {
+        "file": "04.glb.gz.part01",
+        "bytes": 8388608,
+        "sha256": "9cb1608fb887f0e50e3844bb31c0d44e394adf94b3c61424c53bbce1c65e6341"
+      },
+      {
+        "file": "04.glb.gz.part02",
+        "bytes": 8388608,
+        "sha256": "5ecfabbe3d6f199171844c1c0f68a0c84d783c81c807115d265f1f590ce662b9"
+      },
+      {
+        "file": "04.glb.gz.part03",
+        "bytes": 8388608,
+        "sha256": "0c45fa644eab3bc5852238c6dc9c99e79b4cba8a0bd850946abf6dc3ec4b74c6"
+      },
+      {
+        "file": "04.glb.gz.part04",
+        "bytes": 7273924,
+        "sha256": "8989425737b9f7f3c2c10a1b5d5168fe8bdb22483b3df5c9e2ccab16b68c5f1a"
+      }
+    ]
+  },
+  {
+    "original": "blue pickup truck 3d model.glb",
+    "bytes": 66026264,
+    "sha256": "ec5ada8d7a3be3b897d875c63a91fa8dda4ec76275880845aca66513822f434e",
+    "gzip_bytes": 33616490,
+    "parts": [
+      {
+        "file": "05.glb.gz.part01",
+        "bytes": 8388608,
+        "sha256": "22cc000e5b0cb410aae8ca1c1d1714c17455a94f2644c79f8dc4d3229fbb7d90"
+      },
+      {
+        "file": "05.glb.gz.part02",
+        "bytes": 8388608,
+        "sha256": "297e95e3ec6a0ef2889638abe726bdb9be70211a3ada093b1fe66c14d434b39a"
+      },
+      {
+        "file": "05.glb.gz.part03",
+        "bytes": 8388608,
+        "sha256": "498a45c766b21e94d3b037d0ae07dc532218225535e35fd80dde5330ef88ea8a"
+      },
+      {
+        "file": "05.glb.gz.part04",
+        "bytes": 8388608,
+        "sha256": "9a0a621518234170e74a373bac7c9de318dc5f63b85bffcdcd496a9fc8fb26c6"
+      },
+      {
+        "file": "05.glb.gz.part05",
+        "bytes": 62058,
+        "sha256": "35bc7002d9f522a8622986575ea062c0fffa2d258912e1211f18bcbbdd446cca"
+      }
+    ]
+  },
+  {
+    "original": "white cargo van 3d model.glb",
+    "bytes": 62469296,
+    "sha256": "fd9e311821255c77c3f60efdc84d50d380f31abafdf4c98806cd15d1adb1c4d6",
+    "gzip_bytes": 31553132,
+    "parts": [
+      {
+        "file": "06.glb.gz.part01",
+        "bytes": 8388608,
+        "sha256": "fd8681e64b4d5076149e9cb96508aefb905b2220bdd54651c8e22ec50736c1bf"
+      },
+      {
+        "file": "06.glb.gz.part02",
+        "bytes": 8388608,
+        "sha256": "bbe248830889783bf4ecbfd9372f6419e17bdcd49b4c2f062357b7d56d22c94c"
+      },
+      {
+        "file": "06.glb.gz.part03",
+        "bytes": 8388608,
+        "sha256": "41e70e8622298842099b904e10612815d46dcba8fe701c746411c91c618614e3"
+      },
+      {
+        "file": "06.glb.gz.part04",
+        "bytes": 6387308,
+        "sha256": "5367908d3a4357b664e9b977764062823100ca47af7bed0668d600b0ad208a85"
+      }
+    ]
+  },
+  {
+    "original": "human+character+3d+model+salto+parcourt.glb",
+    "bytes": 10187032,
+    "sha256": "b00282d05e7d3873b80afcfc15f68b1f3ac2095d855cb4b898dd88869651c461",
+    "gzip_bytes": 9097998,
+    "parts": [
+      {
+        "file": "07.glb.gz.part01",
+        "bytes": 8388608,
+        "sha256": "a8c2dc6b7411f9051f71237e80022f689e166940896aa7fbf16984a2e572fba3"
+      },
+      {
+        "file": "07.glb.gz.part02",
+        "bytes": 709390,
+        "sha256": "657faed0634b957f1fefbf1343bc1f10740b2243276cc5555b15bc7976bb3f02"
+      }
+    ]
+  }
+]

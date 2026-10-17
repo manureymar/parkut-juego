@@ -1,0 +1,14 @@
+{
+  "cars": 72,
+  "simulatedSeconds": 120,
+  "minGap": 2.2,
+  "stopped": true,
+  "resumed": true,
+  "redCrossings": 0,
+  "types": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

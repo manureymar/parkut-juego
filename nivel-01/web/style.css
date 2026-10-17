@@ -3,3 +3,5 @@
 #hint{top:180px;bottom:auto;font-size:10px;max-width:84%}#checkpoint{top:222px}@media(min-width:700px){#hint{top:auto;bottom:65px}}@media(max-height:650px){#hint{top:159px;bottom:auto}#checkpoint{top:196px}}
 
 #movement-state{position:absolute;right:0;bottom:150px;color:#dce8eb;font-size:8px;letter-spacing:1.1px;background:#172f3e8c;border:1px solid #ffffff28;border-radius:4px;padding:8px 10px;max-width:175px;pointer-events:none}#movement-state.performing{color:var(--gold);border-color:#f3ca7677}.vignette{background:linear-gradient(180deg,#10283c17,transparent 26%,transparent 65%,#12253530),radial-gradient(ellipse at center,transparent 48%,#18283118)}
+
+.view-buttons{display:flex;gap:9px;pointer-events:auto}#recenter svg{width:21px;height:21px}

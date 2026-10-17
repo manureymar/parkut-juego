@@ -7,9 +7,11 @@ const root=path.resolve(import.meta.dirname,'../..'),out=path.join(root,'test-re
 const server=await startServer();
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});
+page.setDefaultTimeout(60000);
 const errors=[];page.on('pageerror',e=>{errors.push(e.message);console.error('PAGE ERROR',e.message);});page.on('console',m=>{if(m.type()==='error')console.error(m.text());});
 await page.goto('http://127.0.0.1:8080/?test=1');
 await page.waitForFunction(()=>window.parkut?.getState().loaded,{},{timeout:120000});
+await page.evaluate(()=>window.parkut.test.setQuality('low'));
 await page.waitForTimeout(1500);await page.screenshot({path:path.join(out,'01-intro.png')});
 const initial=await page.evaluate(()=>window.parkut.getState());console.log('loaded',initial.assets.length,'buildings',initial.bones,'bones');assert.equal(initial.assets.length,7);assert.equal(initial.bones,65);
 await page.locator('#start').click();await page.waitForTimeout(500);await page.screenshot({path:path.join(out,'02-gameplay.png')});

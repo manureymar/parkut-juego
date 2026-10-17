@@ -1,20 +1,21 @@
 # PARKUT · Distrito del río
 
-Primer nivel de un juego de parkour en tercera persona, diseñado en vertical para Android. Usa el personaje con esqueleto y los siete edificios entregados por el propietario del proyecto.
+Primer nivel de un juego de parkour en tercera persona, diseñado en vertical para Android. Usa el personaje con esqueleto, los siete edificios, las dos carreteras y los cuatro vehículos entregados por el propietario del proyecto.
 
-**[Descargar el APK de prueba](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-4/Parkut-Nivel01.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
+**[Descargar el APK de prueba](https://github.com/manureymar/parkut-juego/releases)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
 
 ## Jugar
 
 Instala `Parkut-Nivel01.apk` en Android 8.0 o posterior, con WebView actualizado y soporte de OpenGL ES 3.0 / WebGL 2. El APK incluye los modelos, el código, las texturas y el panorama; no descarga recursos al jugar y no requiere cuenta.
 
-- Joystick: caminar o correr según cuánto lo desplaces.
+- Joystick: caminar o correr según cuánto lo desplaces, siguiendo la orientación de la cámara.
+- Arrastra sobre el escenario para girar la cámara y mirar alrededor. El botón de cámara vuelve a centrarla en el recorrido.
 - **Saltar**: control manual opcional para saltar cuando tú lo decidas.
 - **Parkour automático**: al dirigirte al obstáculo subes las escaleras, trepas bordes alcanzables y usas la escalera vertical del tanque. Suelta el joystick para detenerte en la escalera; muévelo hacia atrás para bajar.
 - Los seis saltos entre azoteas se activan al avanzar hacia el borde. Tras una caída fuerte, el personaje usa automáticamente la zambullida y rodada para amortiguar. El hueco largo sigue siendo un peligro: usa su cornisa.
 - **Correr**: activar o desactivar el avance continuo; dirige con el joystick.
 - Pausa: continuar, reiniciar, cambiar entre calidad alta y fluida, y activar sonido.
-- En ordenador: WASD o flechas, Espacio para saltar, R para carrera continua, Esc para pausa.
+- En ordenador: WASD o flechas, Espacio para saltar, R para carrera continua, C para centrar la cámara, Esc para pausa. Arrastra con el ratón para mirar.
 
 Sigue las marcas amarillas. Cada azotea alcanzada guarda un punto de control durante la partida. En el edificio del hueco central, el recorrido pasa por la cornisa izquierda. La puerta iluminada del último edificio es el final.
 
@@ -22,30 +23,34 @@ Sigue las marcas amarillas. Cada azotea alcanzada guarda un punto de control dur
 
 | Carpeta | Contenido |
 |---|---|
-| `assets-originales/` | Los ocho GLB originales comprimidos sin pérdida (GZIP dividido en partes), la referencia y el panorama. |
+| `assets-originales/` | Modelos originales y animaciones comprimidos sin pérdida (GZIP dividido en partes), la referencia y el panorama. |
 | `nivel-01/web/` | Juego WebGL 2, interfaz, controles y recursos optimizados para el APK. |
 | `nivel-01/android/` | Aplicación Android con WebView y recursos locales; configuración Gradle. |
 | `nivel-01/scripts/` | Preparación reproducible de geometría, texturas, colisiones y verificación. |
 | `docs/` | Inventario de recursos, decisiones de integración y resultados de verificación. |
 | `.github/workflows/android.yml` | Compilación automática y publicación del APK de prueba en GitHub Releases. |
 
-Los originales se conservan completos en archivos GZIP sin pérdida; los mayores se dividen en partes. `npm run restore` recupera cada GLB y verifica su SHA-256 contra `assets-originales/manifest.json`. El APK usa copias con geometría simplificada y texturas WebP de hasta 2048 px. Las colisiones se calculan sobre otra versión ligera de los mismos edificios, con cinco corredores de escalera medidos sobre sus peldaños y una ruta vertical para el tanque: el cielo y la ciudad lejana son una imagen de fondo y no forman parte del recorrido.
+Los originales se conservan completos en archivos GZIP sin pérdida; los mayores se dividen en partes. `npm run restore` recupera cada GLB y verifica su SHA-256 contra `assets-originales/manifest.json`. El APK usa copias con geometría simplificada y texturas WebP de hasta 2048 px. Las colisiones se calculan sobre otra versión ligera de los mismos edificios, con cinco corredores de escalera medidos sobre sus peldaños y una ruta vertical para el tanque: el cielo y la ciudad lejana forman un panorama; las calles, el tráfico y los edificios cercanos son geometría 3D ambiental fuera del recorrido. Los originales nuevos se restauran con `python3 nivel-01/scripts/restore-city-originals.py` y su propio manifiesto de hashes.
 
 ## Construcción
 
 El código del juego y las dependencias Three.js que ejecuta están incluidos en el repositorio. No hay dependencias de CDN en tiempo de ejecución. La app es una aplicación Android que contiene un juego WebGL 2; no es un proyecto Unity ni Godot.
 
-Para reconstruir el APK sin instalar herramientas en tu ordenador, abre **Actions → Compilar APK de Parkut → Run workflow**. Cada compilación correcta crea un APK firmado de prueba y su suma SHA-256 en Releases. No se utiliza una clave de publicación de Google Play. Esta actualización cambia la firma de la primera prueba: desinstala el APK anterior si Android rechaza la instalación por conflicto de firma. A partir de la compilación 4, el workflow conserva la clave de pruebas en una caché para reutilizarla en las siguientes compilaciones.
+Para reconstruir el APK sin instalar herramientas en tu ordenador, abre **Actions → Compilar APK de Parkut → Run workflow**. Cada compilación correcta crea un APK firmado de prueba y su suma SHA-256 en Releases. No se utiliza una clave de publicación de Google Play. El workflow conserva la clave de pruebas desde la compilación 4 para reutilizarla en las siguientes compilaciones.
 
 Entorno reproducible: Java 17, Gradle 8.9, Android Gradle Plugin 8.7.3, SDK 35, Build Tools 35.0.0. Desde `nivel-01/android`, ejecuta `gradle assembleDebug`. El resultado queda en `app/build/outputs/apk/debug/app-debug.apk`. El APK compilado se conserva en GitHub Releases.
 
-Para desarrollo web: Node 22 o posterior, `npm ci`, `npm run dev` y abrir `http://127.0.0.1:8080`. `npm run assets` regenera las copias optimizadas a partir de los originales. `npm run vendor` actualiza las dependencias incluidas desde la versión fijada en `package-lock.json`. Para pruebas: `npx playwright install chromium` y `npm test`.
+Para desarrollo web: Node 22 o posterior, `npm ci`, `npm run dev` y abrir `http://127.0.0.1:8080`. `npm run assets` regenera las copias optimizadas a partir de los originales. `npm run vendor` actualiza las dependencias incluidas desde la versión fijada en `package-lock.json`. Para pruebas: `npx playwright install chromium`, `npm test` y `npm run test:v03`.
 
-## Versión 0.2.0
+## Versión 0.3.0
 
-Incluye cámara de seguimiento, iluminación cálida, sombras dinámicas, fondo de ciudad, personaje animado, movimiento, salto, escalones, trepar a bordes alcanzables, puntos de control, caída y reinicio, pausa, cronómetro y final del recorrido. Las siete animaciones originales se usan en juego según velocidad, superficie, borde, escalera o aterrizaje. Las animaciones de desplazamiento se adaptan al controlador para evitar que el movimiento del esqueleto se sume dos veces.
+Integra el reposo y el salto nuevos, nueve clips de animación, cámara libre, alineación de manos y pies con los peldaños del tanque, seis conexiones ajustadas y marcas de aterrizaje. La rodada se activa tras caídas fuertes; el salto normal tiene su propia recepción.
 
-La reconstrucción 3D tiene pequeñas diferencias respecto a la ilustración, incluidas barandas, huecos y proporciones; la imagen de referencia se conserva para las siguientes iteraciones. Esta versión no implementa todavía carreras por paredes, balanceo colgando ni simulación de manos/pies con cinemática inversa. El rendimiento final debe comprobarse en el teléfono de destino.
+La ciudad usa 28 módulos de carretera, 54 edificios de fondo y 72 vehículos en ambos sentidos. Los cuatro modelos se distribuyen sin repeticiones consecutivas en un carril, con variaciones de pintura. Los coches mantienen distancia, frenan ante semáforos y vuelven a arrancar. En esta versión circulan por las avenidas principales; los ramales completan la ambientación. Los vehículos no tienen ruedas articuladas independientes.
+
+Incluye iluminación cálida, sombras, bruma, partículas ambientales, puntos de control, caída y reinicio, pausa, cronómetro y final. Los originales se conservan completos; el APK usa copias simplificadas. Consulta [los cambios](docs/cambios-0.3.0.md) y [la verificación](docs/verificacion.md).
+
+La reconstrucción 3D conserva las irregularidades de los modelos entregados. No se implementan todavía carreras por paredes ni balanceo colgando. El rendimiento final debe comprobarse en el teléfono de destino; la opción de calidad fluida reduce resolución y sombras.
 
 ## Recursos y licencias
 

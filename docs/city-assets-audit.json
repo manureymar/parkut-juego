@@ -1,0 +1,60 @@
+[
+  {
+    "file": "street road segment 3d model.glb",
+    "id": "city-road",
+    "originalTriangles": 1954436,
+    "triangles": 18000,
+    "textureSize": 1024,
+    "bytes": 869360
+  },
+  {
+    "file": "street intersection 3d model.glb",
+    "id": "city-intersection",
+    "originalTriangles": 1933494,
+    "triangles": 19997,
+    "textureSize": 1024,
+    "bytes": 920316
+  },
+  {
+    "file": "red car 3d model.glb",
+    "id": "traffic-compact",
+    "originalTriangles": 1976933,
+    "triangles": 7355,
+    "textureSize": 512,
+    "bytes": 449748
+  },
+  {
+    "file": "yellow taxi car 3d model.glb",
+    "id": "traffic-taxi",
+    "originalTriangles": 1939602,
+    "triangles": 4396,
+    "textureSize": 512,
+    "bytes": 314468
+  },
+  {
+    "file": "blue pickup truck 3d model.glb",
+    "id": "traffic-pickup",
+    "originalTriangles": 1974277,
+    "triangles": 6743,
+    "textureSize": 512,
+    "bytes": 423148
+  },
+  {
+    "file": "white cargo van 3d model.glb",
+    "id": "traffic-van",
+    "originalTriangles": 1897133,
+    "triangles": 6809,
+    "textureSize": 512,
+    "bytes": 405324
+  },
+  {
+    "file": "human+character+3d+model+reposo.glb",
+    "id": "idle",
+    "channels": 195
+  },
+  {
+    "file": "human+character+3d+model+salto+parcourt.glb",
+    "id": "jump",
+    "channels": 195
+  }
+]
