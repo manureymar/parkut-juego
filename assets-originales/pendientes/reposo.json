@@ -1,0 +1,17 @@
+{
+  "archivo_original": "human+character+3d+model+reposo.glb",
+  "archivo_guardado": "human+character+3d+model+reposo.glb.gz",
+  "formato": "glTF 2.0 binario, comprimido con GZIP sin pérdida",
+  "bytes_originales": 10449156,
+  "sha256_original": "63eb41ab261eaff425b270ebb4acc8822e5107788266ff79da0c24dd2748aa92",
+  "sha256_guardado": "588450a6cb58379bd6cc639f6885154f7bfb5acd6e5f14b1eeb27db892c2e8c1",
+  "animaciones": [
+    {
+      "nombre": "idle",
+      "duracion_segundos": 15.333333333333334,
+      "canales": 195
+    }
+  ],
+  "huesos": 65,
+  "estado": "Pendiente de integración. El usuario pidió conservarlo y esperar los demás archivos antes de modificar el juego."
+}
