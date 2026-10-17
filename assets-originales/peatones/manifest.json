@@ -1,0 +1,94 @@
+[
+  {
+    "id": "citizen-01",
+    "file": "woman+character+3d+model.glb",
+    "bytes": 9375924,
+    "sha256": "4fced1e23ca4d3169472feced2b5e38a770e0e46cf0f11c0bc3bc57ccd1a45e9",
+    "encoding": "gzip",
+    "parts": [
+      "citizen-01.glb.gz.part01",
+      "citizen-01.glb.gz.part02",
+      "citizen-01.glb.gz.part03",
+      "citizen-01.glb.gz.part04"
+    ]
+  },
+  {
+    "id": "citizen-02",
+    "file": "person+3d+model.glb",
+    "bytes": 9079932,
+    "sha256": "fa6e62d7516bd5fc8a1ad01b8c391f04fbfdaa5003398b8424887c1086363fb6",
+    "encoding": "gzip",
+    "parts": [
+      "citizen-02.glb.gz.part01",
+      "citizen-02.glb.gz.part02",
+      "citizen-02.glb.gz.part03",
+      "citizen-02.glb.gz.part04"
+    ]
+  },
+  {
+    "id": "citizen-03",
+    "file": "woman+3d+model (1).glb",
+    "bytes": 10312852,
+    "sha256": "c52fc437fa2248fbc4f45b21664f7b50a3321d86835efd7bd937b89de05310cf",
+    "encoding": "gzip",
+    "parts": [
+      "citizen-03.glb.gz.part01",
+      "citizen-03.glb.gz.part02",
+      "citizen-03.glb.gz.part03",
+      "citizen-03.glb.gz.part04"
+    ]
+  },
+  {
+    "id": "citizen-04",
+    "file": "female+model+3d+model.glb",
+    "bytes": 10797772,
+    "sha256": "6d76caa831063b1fa19f76d47b68a8935221f11c15500268b1ffd75e5a34243a",
+    "encoding": "gzip",
+    "parts": [
+      "citizen-04.glb.gz.part01",
+      "citizen-04.glb.gz.part02",
+      "citizen-04.glb.gz.part03",
+      "citizen-04.glb.gz.part04",
+      "citizen-04.glb.gz.part05"
+    ]
+  },
+  {
+    "id": "citizen-05",
+    "file": "female+human+3d+model.glb",
+    "bytes": 9539944,
+    "sha256": "4e5f5e8927194b85623ef9d2913a8246ab29e9557c2924055a2dd009e049f16d",
+    "encoding": "gzip",
+    "parts": [
+      "citizen-05.glb.gz.part01",
+      "citizen-05.glb.gz.part02",
+      "citizen-05.glb.gz.part03",
+      "citizen-05.glb.gz.part04"
+    ]
+  },
+  {
+    "id": "citizen-06",
+    "file": "woman+3d+model.glb",
+    "bytes": 9788088,
+    "sha256": "2f3504dea517c68b54e506b4b2a69a7ac5082cb5917d0ecdd05fa38e94558ccc",
+    "encoding": "gzip",
+    "parts": [
+      "citizen-06.glb.gz.part01",
+      "citizen-06.glb.gz.part02",
+      "citizen-06.glb.gz.part03",
+      "citizen-06.glb.gz.part04"
+    ]
+  },
+  {
+    "id": "citizen-07",
+    "file": "adult+human+3d+model.glb",
+    "bytes": 9731988,
+    "sha256": "3768916b1f363b7c137d9eee14f2b7536126e9637ce0e3c2314be6902676b990",
+    "encoding": "gzip",
+    "parts": [
+      "citizen-07.glb.gz.part01",
+      "citizen-07.glb.gz.part02",
+      "citizen-07.glb.gz.part03",
+      "citizen-07.glb.gz.part04"
+    ]
+  }
+]
