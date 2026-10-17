@@ -10,9 +10,9 @@
   "width": 1254,
   "height": 1254,
   "integration_status": "integrated_and_verified_in_apk",
-  "integration_version": "0.4.0",
+  "integration_version": "0.5.0",
   "application_id": "com.parkut.game",
-  "integration_release": "https://github.com/manureymar/parkut-juego/releases/tag/nivel-01-build-7",
-  "integration_apk": "https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-7/Jumping-in-the-City-v0.4.0.apk",
-  "integration_source_commit": "2b501b732cf75b33e7f3644129d6aa8cb0a5d7dc"
+  "integration_release": "https://github.com/manureymar/parkut-juego/releases/tag/nivel-01-build-8",
+  "integration_apk": "https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-8/Jumping-in-the-City-v0.5.0.apk",
+  "integration_source_commit": "84af4f4babd6ee1b4f5f24eeb2228ad7beb49f02"
 }

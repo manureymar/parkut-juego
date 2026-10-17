@@ -11,7 +11,11 @@
 
 Resultados: [recorrido completo](parkour-route-verification.json), [acciones](parkour-v05-verification.json), [agarres finales](parkour-grip-verification.json), [inventario](parkour-assets-audit.json). Alcance, controles y limitaciones: [cambios 0.5.0](cambios-0.5.0.md).
 
-Las pruebas de juego se hicieron en Chromium con renderizado de software. Falta comprobar esta versión en un teléfono Android físico. La verificación de la APK publicada se añadirá al terminar GitHub Actions.
+Las pruebas de juego se hicieron en Chromium con renderizado de software. Falta comprobar esta versión en un teléfono Android físico. La [compilación 8](https://github.com/manureymar/parkut-juego/actions/runs/39015370290) terminó correctamente y publicó la [APK 0.5.0](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-8/Jumping-in-the-City-v0.5.0.apk). Código compilado: `84af4f4babd6ee1b4f5f24eeb2228ad7beb49f02`.
+
+Se descargó la APK publicada y se verificó de nuevo: 58.454.576 bytes, 89 recursos web idénticos al repositorio, firma válida, nombre e icono correctos. El certificado coincide con 0.4.0 y permite actualizarla sin desinstalar. Informe: [apk-0.5.0-verification.json](apk-0.5.0-verification.json).
+
+SHA-256: `c85ef49938d0854cb72d4d3d7efb2a237326c72e522141a4a2f899349c4a9f0a`.
 
 ---
 
