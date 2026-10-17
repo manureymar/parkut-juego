@@ -1,0 +1,80 @@
+{
+  "images": [
+    {
+      "file": "01-policia.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 1095171,
+      "object_bbox": [
+        125,
+        9,
+        896,
+        1476
+      ],
+      "bytes": 1619149,
+      "sha256": "764a3e61e48b7e7ac20c298f7efec3aaf300670326948f92b4c3ad3aec683183"
+    },
+    {
+      "file": "02-senora-mayor.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 1024242,
+      "object_bbox": [
+        98,
+        23,
+        927,
+        1482
+      ],
+      "bytes": 1918531,
+      "sha256": "b6405f308611484036ad28cc8945000c6254d5d68c02b8c5affda55a35348a7a"
+    },
+    {
+      "file": "03-cocinero-hot-dogs.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 991506,
+      "object_bbox": [
+        92,
+        21,
+        931,
+        1485
+      ],
+      "bytes": 1791757,
+      "sha256": "b6c70cab33f511ff897b2e47f5780a23006825d4ce822aff872db58180e98b27"
+    },
+    {
+      "file": "04-carrito-hot-dogs.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 793439,
+      "object_bbox": [
+        3,
+        6,
+        1021,
+        1521
+      ],
+      "bytes": 2354309,
+      "sha256": "dfceea182bcfbcf79871650153e87f00bdb044f5e7b5b8bca0262ee966418a0e"
+    }
+  ]
+}
