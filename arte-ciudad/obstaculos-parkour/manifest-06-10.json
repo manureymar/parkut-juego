@@ -1,0 +1,99 @@
+{
+  "images": [
+    {
+      "file": "06-barras-aereas.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_pixels": 1181909,
+      "object_bbox": [
+        41,
+        43,
+        1226,
+        1216
+      ],
+      "bytes": 1019719,
+      "sha256": "d8082680addade24dca50ffd110a5f032b981798b773e3fce5b7ce35fd9a6a4d"
+    },
+    {
+      "file": "07-muro-rebote.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_pixels": 838293,
+      "object_bbox": [
+        14,
+        209,
+        1240,
+        1036
+      ],
+      "bytes": 1935558,
+      "sha256": "c1fda340c4b3f8ba4679e8107efb4384103ad67efb8438d2b0b9010a4aff1a7d"
+    },
+    {
+      "file": "08-plataformas-precision.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_pixels": 1245721,
+      "object_bbox": [
+        35,
+        225,
+        1219,
+        1069
+      ],
+      "bytes": 903902,
+      "sha256": "567216689f4972d32abd08ac6d984f8b065e7670c14070ed2e4ecf26ef045dd1"
+    },
+    {
+      "file": "09-red-escalada.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_pixels": 996209,
+      "object_bbox": [
+        31,
+        10,
+        1225,
+        1239
+      ],
+      "bytes": 1593143,
+      "sha256": "47f5f7c4984fa35e227dab2082bfb5d9c9a393a1229732e23483e0d4d0bebbdb"
+    },
+    {
+      "file": "10-viga-equilibrio.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_pixels": 1212464,
+      "object_bbox": [
+        66,
+        92,
+        1180,
+        1184
+      ],
+      "bytes": 935455,
+      "sha256": "491fdd32960590e7d1a0debb6afeb3a31c9bdd534ea0b105e45cb1f262379f66"
+    }
+  ]
+}
