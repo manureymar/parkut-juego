@@ -1,4 +1,34 @@
-# Verificación del primer nivel — 0.3.0
+# Verificación del primer nivel — 0.4.0
+
+## Peatones y ciudad
+
+- Siete modelos originales conservados sin pérdida y comprobados mediante SHA-256; sus 38 clips se conservan en las copias optimizadas.
+- 28 peatones con esqueleto y mezclador independientes, fases iniciales, velocidades, pausas y actividades individuales aleatorias.
+- Simulación de 15 minutos: 2.277 transiciones, los 38 clips ejercitados y separación mínima de seguimiento de 1,35 m. Semilla reproducible y avance independiente de la tasa de fotogramas.
+- Revisión de 190 poses de los 38 clips: separación mínima respecto al suelo de 0,00478 m y máxima de 0,018 m en las poses muestreadas; sin penetración en esas muestras.
+- Aceras continuas, suelo opaco, jardines, 60 árboles 2D, ocho bancos, tres estanques y 60 edificios ambientales. Se mantienen los 28 módulos de carretera y 72 vehículos.
+- Chromium a 390 × 844: 28 comprobaciones de apoyo sobre la geometría real, actividades independientes, pausa, calidad alta/fluida, cámara libre y salto normal con recepción sin rodada.
+- Sin errores JavaScript, de shaders ni de descarga; los recursos se sirven localmente. Las vistas de calles, peatones y jardines se inspeccionaron visualmente.
+
+Resultados: [simulación](pedestrian-simulation-verification.json), [animaciones](pedestrian-animation-verification.json), [ciudad integrada](city-v04-verification.json) y [auditoría de recursos](pedestrian-assets-audit.json). El alcance y las funciones pendientes de otras etapas están en [cambios 0.4.0](cambios-0.4.0.md).
+
+## Android y publicación
+
+[GitHub Actions, compilación 7](https://github.com/manureymar/parkut-juego/actions/runs/39009962162) terminó correctamente. El código compilado es `2b501b732cf75b33e7f3644129d6aa8cb0a5d7dc`. Java 17, Gradle 8.9 y SDK 35; versión 0.4.0, código 4, Android 8.0 o posterior.
+
+[Descargar Jumping in the City 0.4.0](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-7/Jumping-in-the-City-v0.4.0.apk). Tamaño: 48.860.630 bytes. SHA-256:
+
+`4b3bf2166da4026c9be8aca60095104e4fdb6f353a33ea6233dcca3a04a51d9b`
+
+Se descargó la APK publicada y se volvió a verificar: los 68 archivos web empaquetados coinciden byte a byte con el repositorio, la firma es válida, el nombre visible es **Jumping in the City** y contiene los recursos Android del icono final aprobado. Los detalles están en [apk-0.4.0-verification.json](apk-0.4.0-verification.json) y también se adjuntan a la publicación.
+
+El certificado coincide con el de 0.3.0 y se conserva `com.parkut.game`, por lo que esta APK puede actualizar la 0.3.0 sin desinstalarla. Es una compilación de prueba firmada; la conservación de la firma en futuras compilaciones depende de la caché de Actions.
+
+No se ha probado esta actualización en un teléfono Android físico. Chromium utilizó renderizado de software; no permite asegurar FPS de una GPU móvil. El rendimiento y la respuesta táctil final deben comprobarse en el teléfono de destino.
+
+---
+
+# Historial de verificación — 0.3.0
 
 ## Personaje y recorrido
 

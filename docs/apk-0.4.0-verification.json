@@ -1,0 +1,356 @@
+{
+  "version": "0.4.0",
+  "versionCode": 4,
+  "applicationId": "com.parkut.game",
+  "applicationLabel": "Jumping in the City",
+  "minSdk": 26,
+  "bytes": 48860630,
+  "sha256": "4b3bf2166da4026c9be8aca60095104e4fdb6f353a33ea6233dcca3a04a51d9b",
+  "signatureVerified": true,
+  "certificateSha256": "8c1afcdc53b1f8ab49ea82878c6948187dc2f9a05783956392ffcdffb03f9ee7",
+  "sameCertificateAsV03": true,
+  "approvedIconSourceSha256": "2082b679b0e6943f63b1fb18e52cd8704ed4c07a72f3afaf4a4c5fe66783f376",
+  "embeddedResourcesVerified": 68,
+  "files": [
+    {
+      "file": "animation-lab.html",
+      "bytes": 3012,
+      "sha256": "840d14f14f462a6e75355639fe5372949c5f7c67fb4f7dbf971559cbf5b3040f"
+    },
+    {
+      "file": "animation.js",
+      "bytes": 8222,
+      "sha256": "23364021892d67d8c7cc0267d3b8dbd8c42a048629f9351e614d631232126e9c"
+    },
+    {
+      "file": "assets/app-icon.webp",
+      "bytes": 30926,
+      "sha256": "ec08d83c64251bbb8cc22f4cfced1d3437e7fbe66447d1f3323cbda9d2d42531"
+    },
+    {
+      "file": "assets/city-building-1.glb",
+      "bytes": 598300,
+      "sha256": "73e07cfe24eb2b17f1e00e27908a9eca9657008830dbbc74fc62afe31c2aee7a"
+    },
+    {
+      "file": "assets/city-building-2.glb",
+      "bytes": 381532,
+      "sha256": "9912a96515a832c5c476bf2e5ebcf169c34f787e0864be8e08a61eec28b6c132"
+    },
+    {
+      "file": "assets/city-building-3.glb",
+      "bytes": 586996,
+      "sha256": "59a313aff0b2f3d29511fab58437788009c4779f25baa062187c2dcff655fb34"
+    },
+    {
+      "file": "assets/city-intersection.glb",
+      "bytes": 920316,
+      "sha256": "ca0759baa5eeaf2b8122db3117514c6d3cf55d6b9687c824f6b97c9f00dd22a7"
+    },
+    {
+      "file": "assets/city-panorama.webp",
+      "bytes": 521230,
+      "sha256": "4e35dc935b98fcff2252330344a61fdf36a49859140629f76ec03742f316bee9"
+    },
+    {
+      "file": "assets/city-road.glb",
+      "bytes": 869360,
+      "sha256": "773c63cc4651f215f16d03ab6414a734e0c0538be1c3c58623d5e38318bd0d88"
+    },
+    {
+      "file": "assets/environment/facade.webp",
+      "bytes": 209418,
+      "sha256": "278109d9fa094a530eb1792627ee78d8e2f53c209eb144f0393cacfb13444a31"
+    },
+    {
+      "file": "assets/environment/garden.webp",
+      "bytes": 564014,
+      "sha256": "a8dfae82933af2bf01090c29e4edef7dcbbf02ff1050c4d1b79f8cd7d9ecbbe2"
+    },
+    {
+      "file": "assets/environment/sidewalk.webp",
+      "bytes": 353574,
+      "sha256": "495afd144cfa1080ecae1e5471564baffb684966f26449d0baf1d5e19bf69680"
+    },
+    {
+      "file": "assets/environment/tree.webp",
+      "bytes": 433952,
+      "sha256": "229d406f63f4b491d172899d511a8e39a543a26d4a4c1081b30b23bf5a7346fc"
+    },
+    {
+      "file": "assets/pedestrians/citizen-01.glb",
+      "bytes": 1792176,
+      "sha256": "29caa1f1bdba953744571bf5649e7f481641c2271b50fa2871471221f34120e3"
+    },
+    {
+      "file": "assets/pedestrians/citizen-02.glb",
+      "bytes": 1572424,
+      "sha256": "71254ad3bf1256415a97ff8187be6a02f83a9221a814f88ebea9a6a3304925d9"
+    },
+    {
+      "file": "assets/pedestrians/citizen-03.glb",
+      "bytes": 2299608,
+      "sha256": "2359500cf2e6f95e267f2bc11e899339c67b2ec11009d88b2f9f2d23c63bf28a"
+    },
+    {
+      "file": "assets/pedestrians/citizen-04.glb",
+      "bytes": 2083260,
+      "sha256": "55e1fbe8b5f02ad19a2c9b2eb1558849da788be01a023a53a2e660aca788b68e"
+    },
+    {
+      "file": "assets/pedestrians/citizen-05.glb",
+      "bytes": 1966140,
+      "sha256": "7b04d7a71594c0a61cbd886899394f11c6b8cc70c99b4710a4b64e65ea4c6bd9"
+    },
+    {
+      "file": "assets/pedestrians/citizen-06.glb",
+      "bytes": 1822448,
+      "sha256": "941cb21821f8f6dd649cbdd28c37c4ac340557b5970d32882d03724dee9fbdec"
+    },
+    {
+      "file": "assets/pedestrians/citizen-07.glb",
+      "bytes": 2074852,
+      "sha256": "b53606ee4a35b40ab3de6469b51335bc136c358db479d239154e3e99b4282262"
+    },
+    {
+      "file": "assets/pedestrians/manifest.json",
+      "bytes": 503539,
+      "sha256": "e8a901eea2f2ee2db0d03523ceffbd242c9e42f9b7b8a121c656030849b0f169"
+    },
+    {
+      "file": "assets/roof-01-collider.glb",
+      "bytes": 63728,
+      "sha256": "e2b6ed204ed966fc7fdb9670410f3e984ead3dd3389f6f921d0714a6d7876a1c"
+    },
+    {
+      "file": "assets/roof-01.glb",
+      "bytes": 6664272,
+      "sha256": "4900dbcaab4e98c24d990492cffc379e39b7dd17452bed52e7b637af57860458"
+    },
+    {
+      "file": "assets/roof-02-collider.glb",
+      "bytes": 69812,
+      "sha256": "f2a3dadcdc3eb220159ddca2a1a2b006fcf32d99662d3cd77d78c536b9f6a3dd"
+    },
+    {
+      "file": "assets/roof-02.glb",
+      "bytes": 7031600,
+      "sha256": "63a13288d4abae2a8fc7cf2d519d6d9ab717f9b4e76ce3ed2fe2af02ca57b3d5"
+    },
+    {
+      "file": "assets/roof-03-collider.glb",
+      "bytes": 67708,
+      "sha256": "dd4f64b911902c64faf94bda64175a90184836a183dbb56dbb319703f23dcf84"
+    },
+    {
+      "file": "assets/roof-03.glb",
+      "bytes": 6556556,
+      "sha256": "87bb969f2fc0cc106494eb7b35d26ae7362746e0bdd97fd01bb0cc7df2b526c2"
+    },
+    {
+      "file": "assets/roof-04-collider.glb",
+      "bytes": 69724,
+      "sha256": "abaf57679f4d677943f833bafef63afaf7abb8445b79651a50f73ee5b17e9f9c"
+    },
+    {
+      "file": "assets/roof-04.glb",
+      "bytes": 6690176,
+      "sha256": "c7649fe85ecd4965b9f5f08de3dd88de965f3c897595937e7c8653e27a3e5712"
+    },
+    {
+      "file": "assets/roof-05-collider.glb",
+      "bytes": 67160,
+      "sha256": "795eedc35ab358b66ca54b4e949098145b78ec6d2fb062f536da1eb2729d72fd"
+    },
+    {
+      "file": "assets/roof-05.glb",
+      "bytes": 6453484,
+      "sha256": "dfb7c78815e737ea6140e0e2a2dc958d7fd114836fa12ae1c4501409ab52db2d"
+    },
+    {
+      "file": "assets/roof-06-collider.glb",
+      "bytes": 64604,
+      "sha256": "d196835c42e720bc6d16b38269976a76b776f78755db89a322cb0c9befc7e371"
+    },
+    {
+      "file": "assets/roof-06.glb",
+      "bytes": 6958200,
+      "sha256": "870a2092d5e89f027a286e6931d5680707aa94da9d08ae1f0940e6d76dc33685"
+    },
+    {
+      "file": "assets/roof-07-collider.glb",
+      "bytes": 66116,
+      "sha256": "af72c293b4ae975d62103570efd84db3ae0b8a4b04a1a80829f3596d71b0aeb5"
+    },
+    {
+      "file": "assets/roof-07.glb",
+      "bytes": 6574692,
+      "sha256": "700351e435be5f004d9b4c0dbf741bf8e79c0fa765dc65586e6b5e7cf355b3e3"
+    },
+    {
+      "file": "assets/runner.glb",
+      "bytes": 4452428,
+      "sha256": "41ab798c52f3cd9d42f4c0acc743ce742f38d69c403b1c46cd6c237b76c37153"
+    },
+    {
+      "file": "assets/traffic-compact.glb",
+      "bytes": 449748,
+      "sha256": "0901d9187edd0d896ba3488f41fc48fad8c9b12612007b2163803bb8ed4dd5fe"
+    },
+    {
+      "file": "assets/traffic-pickup.glb",
+      "bytes": 423148,
+      "sha256": "8e12eeff70bb83b8b0e95ed7a920450a0e33eb166e39fe709f30df6aa5729a2c"
+    },
+    {
+      "file": "assets/traffic-taxi.glb",
+      "bytes": 314468,
+      "sha256": "a2e3adb263ddad4a9893c743edaf06d0e3f673cc4c2681c52ba8578f4f90e749"
+    },
+    {
+      "file": "assets/traffic-van.glb",
+      "bytes": 405324,
+      "sha256": "cebdb7b2f73d0e2b5fae369c4d24978e38ec32604abad95722160e56e4b7236e"
+    },
+    {
+      "file": "atmosphere.js",
+      "bytes": 2511,
+      "sha256": "4aca86d8cf3ac0c05811a3974c781f9dfc5a4ab930b71ad1c37ceb69b751f162"
+    },
+    {
+      "file": "audio.js",
+      "bytes": 1451,
+      "sha256": "957c411d267eebb88e78bc38c73aad065c74cf71236c23864fce9b159178038e"
+    },
+    {
+      "file": "camera.js",
+      "bytes": 2561,
+      "sha256": "89b66dcfdafda68a6f6d30282be2795461c3b5646e3c0ad82f42a9118f49c0c6"
+    },
+    {
+      "file": "city-landscape.js",
+      "bytes": 7351,
+      "sha256": "15e8c8143b667ad7ed3f8a33077725b7736a2935d6e099904f126fa876830e07"
+    },
+    {
+      "file": "city.js",
+      "bytes": 11266,
+      "sha256": "7d0429d6a99411315422c648efe44efc650d7f22129dcabce5a71a10d5dd7546"
+    },
+    {
+      "file": "controls.js",
+      "bytes": 2866,
+      "sha256": "577394f7ec679a732d04c8a2d7e517282f3014bdccd35d59757cab4e160fdbf2"
+    },
+    {
+      "file": "game.js",
+      "bytes": 19403,
+      "sha256": "7e1ee2a336421cf028f3772c99a279eaa27acac325ff7c3da0d011722a26673e"
+    },
+    {
+      "file": "index.html",
+      "bytes": 5045,
+      "sha256": "e2003d52e08dc508546210108f4c4ac68c4f4ba9b6c27ef77318bad6a2508c62"
+    },
+    {
+      "file": "inspect.html",
+      "bytes": 2359,
+      "sha256": "ca74c7f2253c27b9e42472b191f50d4f6008f546ac2f0aa8711358714804b72a"
+    },
+    {
+      "file": "level.js",
+      "bytes": 1682,
+      "sha256": "8b4e4852e8aae31870c7542e5b864f6e651446899ae74981f8fe92d4d4c9ea39"
+    },
+    {
+      "file": "pedestrian-animation.js",
+      "bytes": 3335,
+      "sha256": "276711d993b2316b17ae939179c5d61d5e81675b1c27b8182f60bccaa1fb81fa"
+    },
+    {
+      "file": "pedestrian-lab.html",
+      "bytes": 2432,
+      "sha256": "55fbc30fed4a760333867375b296dfb76b3c8b623433892f39f7e8c71abe3d65"
+    },
+    {
+      "file": "pedestrian-simulation.js",
+      "bytes": 5268,
+      "sha256": "16570b39f01d016beb31caad974cad9c834b631d5c19f5134f3276117742c2ed"
+    },
+    {
+      "file": "pedestrians.js",
+      "bytes": 4109,
+      "sha256": "5d228dcae6ae1b3f789257513b1ebb899f0d4552c2d99147462c44caffd13a71"
+    },
+    {
+      "file": "physics.js",
+      "bytes": 5366,
+      "sha256": "4714147d8447ce6816aff9d87bc50f5deca54a1680db5848fa5d93aa9e694bd9"
+    },
+    {
+      "file": "style.css",
+      "bytes": 11281,
+      "sha256": "302cb348a6cd2d5326babe16ea18ff644d688fb484073a62019242d677b8d5c6"
+    },
+    {
+      "file": "traffic.js",
+      "bytes": 2115,
+      "sha256": "294d5f69bc2f38ea199e623d7313c8cfc0cf94117bfc6025394d3c69e8ae359a"
+    },
+    {
+      "file": "traversal.js",
+      "bytes": 6265,
+      "sha256": "cb043c4fa38083ec7ba0a645f6ee99f191ede42ec5e1210e293901f8ebc385ad"
+    },
+    {
+      "file": "vendor/LICENSE",
+      "bytes": 1081,
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    },
+    {
+      "file": "vendor/build/three.core.js",
+      "bytes": 1403455,
+      "sha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20"
+    },
+    {
+      "file": "vendor/build/three.module.js",
+      "bytes": 603113,
+      "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a"
+    },
+    {
+      "file": "vendor/examples/jsm/environments/RoomEnvironment.js",
+      "bytes": 4899,
+      "sha256": "c20f0b4677f6128a138d7152b85cbef9091f4f45cdfa05adca04d40c1697c7ae"
+    },
+    {
+      "file": "vendor/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114739,
+      "sha256": "67ac5551fdafa6e349bd80c8f8e5e39c136d6b2fb1ad647db9abb21dc86f9e4a"
+    },
+    {
+      "file": "vendor/examples/jsm/math/Capsule.js",
+      "bytes": 3543,
+      "sha256": "be54c3c58483a7f6b0184dbc6ffdcea58ac13515a7d9fd19ed675b9edfc5f319"
+    },
+    {
+      "file": "vendor/examples/jsm/math/Octree.js",
+      "bytes": 14863,
+      "sha256": "f71364b8d033e03acef6d33c81198e11595f8053cdceffaf77d3040c541eb536"
+    },
+    {
+      "file": "vendor/examples/jsm/objects/Sky.js",
+      "bytes": 7257,
+      "sha256": "a19982b69e496e52d4cd7072029f0a8e5277203cbebf2277a23267e90b705640"
+    },
+    {
+      "file": "vendor/examples/jsm/utils/BufferGeometryUtils.js",
+      "bytes": 35539,
+      "sha256": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751"
+    },
+    {
+      "file": "vendor/examples/jsm/utils/SkeletonUtils.js",
+      "bytes": 11062,
+      "sha256": "0761b1e003917b215d25dd81439d854b36034b5a57ce84c2cfe3b02428d7b253"
+    }
+  ]
+}

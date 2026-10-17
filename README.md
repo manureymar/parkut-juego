@@ -2,11 +2,11 @@
 
 Primer nivel de un juego de parkour en tercera persona, diseñado en vertical para Android. Usa el personaje con esqueleto, los siete edificios, las dos carreteras, los cuatro vehículos y los siete modelos de peatones entregados por el propietario del proyecto.
 
-**[Descargar el APK 0.3.0 de prueba](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-6/Parkut-Nivel01.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
+**[Descargar el APK 0.4.0 de prueba](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-7/Jumping-in-the-City-v0.4.0.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
 
 ## Jugar
 
-Instala `Parkut-Nivel01.apk` en Android 8.0 o posterior, con WebView actualizado y soporte de OpenGL ES 3.0 / WebGL 2. El APK incluye los modelos, el código, las texturas y el panorama; no descarga recursos al jugar y no requiere cuenta.
+Instala `Jumping-in-the-City-v0.4.0.apk` en Android 8.0 o posterior, con WebView actualizado y soporte de OpenGL ES 3.0 / WebGL 2. El APK incluye los modelos, el código, las texturas y el panorama; no descarga recursos al jugar y no requiere cuenta.
 
 - Joystick: caminar o correr según cuánto lo desplaces, siguiendo la orientación de la cámara.
 - Arrastra sobre el escenario para girar la cámara y mirar alrededor. El botón de cámara vuelve a centrarla en el recorrido.
@@ -36,7 +36,7 @@ Los originales se conservan completos en archivos GZIP sin pérdida; los mayores
 
 El código del juego y las dependencias Three.js que ejecuta están incluidos en el repositorio. No hay dependencias de CDN en tiempo de ejecución. La app es una aplicación Android que contiene un juego WebGL 2; no es un proyecto Unity ni Godot.
 
-Para reconstruir el APK sin instalar herramientas en tu ordenador, abre **Actions → Compilar Jumping in the City → Run workflow**. Cada compilación correcta crea un APK firmado de prueba y su suma SHA-256 en Releases. No se utiliza una clave de publicación de Google Play. Se corrige la conservación de la clave de pruebas con una ruta de firma explícita. Esta versión necesita desinstalar la APK anterior si Android indica conflicto de firma; se reinicia la partida local. La clave se guarda en la caché de Actions para reutilizarla mientras esa caché siga disponible.
+Para reconstruir el APK sin instalar herramientas en tu ordenador, abre **Actions → Compilar Jumping in the City → Run workflow**. Cada compilación correcta crea un APK firmado de prueba y su suma SHA-256 en Releases. No se utiliza una clave de publicación de Google Play. Se corrige la conservación de la clave de pruebas con una ruta de firma explícita. La APK 0.4.0 conserva el identificador y la firma de la 0.3.0: se puede instalar como actualización de esa versión. La clave se guarda en la caché de Actions para reutilizarla mientras esa caché siga disponible.
 
 Entorno reproducible: Java 17, Gradle 8.9, Android Gradle Plugin 8.7.3, SDK 35, Build Tools 35.0.0. Desde `nivel-01/android`, ejecuta `gradle assembleDebug`. El resultado queda en `app/build/outputs/apk/debug/app-debug.apk`. El APK compilado se conserva en GitHub Releases.
 
@@ -48,7 +48,7 @@ Integra 28 peatones con los siete modelos y sus 38 clips, rutinas individuales, 
 
 Los personajes originales completos están en `assets-originales/peatones/`. Se restauran con `python3 nivel-01/scripts/restore-pedestrians.py`. `npm run assets:pedestrians` prepara las versiones para Android. Pruebas: `npm run test:pedestrians`, `npm run test:v04` y `node nivel-01/scripts/review-pedestrians.mjs`.
 
-Consulta [los cambios y su alcance](docs/cambios-0.4.0.md). La nueva APK se publicará automáticamente en Releases al completar los controles de compilación y verificación; el enlace de descarga de la cabecera se actualiza después de comprobar la publicación.
+Consulta [los cambios y su alcance](docs/cambios-0.4.0.md). La [APK 0.4.0 compilada y verificada](https://github.com/manureymar/parkut-juego/releases/tag/nivel-01-build-7) pesa 48,9 MB. La descarga publicada coincide con el SHA-256 y sus 68 recursos web coinciden byte a byte con el repositorio. La firma es la misma de 0.3.0. Consulta [la verificación](docs/verificacion.md); falta la prueba en un teléfono físico.
 
 ## Versión 0.3.0 (historial)
 
