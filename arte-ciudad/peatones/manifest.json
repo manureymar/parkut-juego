@@ -1,0 +1,57 @@
+[
+  {
+    "file": "01-joven-camiseta-azul.png",
+    "title": "Peatón 1 — joven con camiseta azul petróleo",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "bytes": 1617397,
+    "sha256": "2500c70bbc7f270846336381e4b2f78019f4c80e7095907907f20246ac66b028",
+    "transparentPixels": 1141605,
+    "status": "Referencia 2D; pendiente de modelado, rig y animaciones."
+  },
+  {
+    "file": "02-mujer-sudadera-granate.png",
+    "title": "Peatón 2 — mujer con sudadera granate",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "bytes": 1522471,
+    "sha256": "c515360f909c135e365f31a7e9c8ffc89b38d38b659a760098e0513929f4df6e",
+    "transparentPixels": 1144358,
+    "status": "Referencia 2D; pendiente de modelado, rig y animaciones."
+  },
+  {
+    "file": "03-hombre-camisa-azul.png",
+    "title": "Peatón 3 — hombre con camisa de trabajo",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "bytes": 1653773,
+    "sha256": "0f2d000b85ed22aa8b36027729aad31f302b5928f4b477bb44a8bf927f27757c",
+    "transparentPixels": 1122077,
+    "status": "Referencia 2D; pendiente de modelado, rig y animaciones."
+  },
+  {
+    "file": "04-mujer-chaqueta-verde.png",
+    "title": "Peatón 4 — mujer con chaqueta verde",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "bytes": 1689021,
+    "sha256": "181520c8f552ab2a8e213a3d86da0b30dbeaa50c4f2e1aeef26ea1ea3a7d3e9d",
+    "transparentPixels": 1109784,
+    "status": "Referencia 2D; pendiente de modelado, rig y animaciones."
+  },
+  {
+    "file": "05-hombre-mayor-polo-ocre.png",
+    "title": "Peatón 5 — hombre mayor con polo ocre",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "bytes": 1715647,
+    "sha256": "477de148003421ff4f3e918b7eae95c13f4695b30b1bd480b390e437f2613b90",
+    "transparentPixels": 1069370,
+    "status": "Referencia 2D; pendiente de modelado, rig y animaciones."
+  }
+]
