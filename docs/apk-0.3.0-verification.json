@@ -1,0 +1,17 @@
+{
+  "version": "0.3.0",
+  "commit": "641295632dbb01c237fa5f038a0ef850d91a827d",
+  "workflowRun": 38998506542,
+  "release": "nivel-01-build-6",
+  "bytes": 37464387,
+  "sha256": "62f36ad0e191fe58eefe6efb4002af817ac61e783458e54e16d2ab010e2bc43a",
+  "runtimeFilesVerified": 49,
+  "runtimeMatchesSource": true,
+  "apkSignatureV2Verified": true,
+  "signerCertificateSha256": "8c1afcdc53b1f8ab49ea82878c6948187dc2f9a05783956392ffcdffb03f9ee7",
+  "signingCacheSaved": true,
+  "canUpgradeBuild4": false,
+  "androidVersionCode": 3,
+  "minimumAndroidSdk": 26,
+  "physicalAndroidDeviceTested": false
+}

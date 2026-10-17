@@ -24,6 +24,10 @@ Resultados: `physics-test-results.json`, `traversal-test-results.json`, `animati
 
 ## Android
 
-`assembleDebug` completado con Java 17, Gradle 8.9 y Android SDK 35. Versión 0.3.0, código 3. La descarga publicada se compila en GitHub Actions; su enlace y verificación de firma se registran al finalizar la publicación.
+`assembleDebug` completado localmente y en [GitHub Actions](https://github.com/manureymar/parkut-juego/actions/runs/38998506542), con Java 17, Gradle 8.9 y Android SDK 35. Versión 0.3.0, código 3.
+
+La [compilación 6](https://github.com/manureymar/parkut-juego/releases/tag/nivel-01-build-6) contiene un APK de 37.464.387 bytes. Su SHA-256 coincide con la descarga publicada; los 49 archivos de recursos del APK coinciden byte a byte con el código y los modelos del repositorio. Firma APK v2 verificada. Los detalles están en `apk-0.3.0-verification.json`.
+
+Se detectó que la ruta de la caché de firma anterior no contenía la clave usada por Gradle. La compilación 6 genera/restaura una clave en una ruta explícita y el registro confirma que se guardó correctamente en la caché. La firma cambia respecto a la compilación 4: es necesario desinstalar la APK anterior para instalar esta prueba, lo que borra sus datos locales. La reutilización posterior depende de la conservación de esa caché de GitHub.
 
 No se ha probado esta actualización en un teléfono Android físico. El navegador usa renderizado de software: su tasa de imágenes no representa la de una GPU móvil. El rendimiento y la respuesta táctil final deben comprobarse en el teléfono de destino. **Calidad: fluida** reduce la resolución interna y desactiva sombras dinámicas.

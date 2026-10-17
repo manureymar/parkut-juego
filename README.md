@@ -2,7 +2,7 @@
 
 Primer nivel de un juego de parkour en tercera persona, diseñado en vertical para Android. Usa el personaje con esqueleto, los siete edificios, las dos carreteras y los cuatro vehículos entregados por el propietario del proyecto.
 
-**[Descargar el APK de prueba](https://github.com/manureymar/parkut-juego/releases)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
+**[Descargar el APK 0.3.0 de prueba](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-6/Parkut-Nivel01.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
 
 ## Jugar
 
