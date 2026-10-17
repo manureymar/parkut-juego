@@ -1,0 +1,38 @@
+[
+  {
+    "repo_path": "arte-ciudad/carreteras-modulares/01-avenida-recta.png",
+    "label": "Avenida recta",
+    "size": 1756485,
+    "resolution": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "a438e442b2294aa41018c2d76fd2b20c3bb674a410fff6e439edc4ff9e4fd201",
+    "git_sha": "edc924fabc77b3b83047c32601a1940bc3414dab"
+  },
+  {
+    "repo_path": "arte-ciudad/carreteras-modulares/02-cruce-semaforos.png",
+    "label": "Cruce con semáforos",
+    "size": 1925359,
+    "resolution": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "029ac6c881514048a79774a06d72e8753d069e0c5153dc87aa41e2c4604883fe",
+    "git_sha": "1d9ae48bd53de729fe6c87405de34c07c675ee8c"
+  },
+  {
+    "repo_path": "arte-ciudad/carreteras-modulares/03-avenida-curva.png",
+    "label": "Avenida curva",
+    "size": 2089881,
+    "resolution": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "d1f0b99532f346d7986e24d0c336342af7f6a6362f9930dafdc7b09742876636",
+    "git_sha": "fd6a0c8482095e788e48183dcf9322159f0d23ec"
+  }
+]
