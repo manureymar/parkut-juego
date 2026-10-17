@@ -1,0 +1,99 @@
+{
+  "images": [
+    {
+      "file": "01-tubo-horizontal.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_pixels": 1310168,
+      "object_bbox": [
+        10,
+        270,
+        1248,
+        998
+      ],
+      "bytes": 709787,
+      "sha256": "a1bd86d7609bfa17df29e82fb52a4676c52b246a8823003c0e835d49d435905e"
+    },
+    {
+      "file": "02-pasarela-tablones.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_pixels": 1123588,
+      "object_bbox": [
+        25,
+        166,
+        1243,
+        1103
+      ],
+      "bytes": 1393810,
+      "sha256": "11995e972922b4b4c52832f6ea4fa38369925c4990ed0405274cd97f502aabce"
+    },
+    {
+      "file": "03-pila-neumaticos.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_pixels": 653983,
+      "object_bbox": [
+        168,
+        121,
+        1089,
+        1222
+      ],
+      "bytes": 2350851,
+      "sha256": "085baeb79bbdb8ae182980a46c6143770f913bd307d0ce7a2d141796459bbe50"
+    },
+    {
+      "file": "04-rampa-parkour.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_pixels": 1062814,
+      "object_bbox": [
+        33,
+        208,
+        1226,
+        1114
+      ],
+      "bytes": 1420314,
+      "sha256": "48ab8775f9125539ba614158a1a75d34d243407b0d2959d63c6f9b86fe200b02"
+    },
+    {
+      "file": "05-tubo-vertical-descenso.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 1443787,
+      "object_bbox": [
+        391,
+        32,
+        563,
+        1506
+      ],
+      "bytes": 1068386,
+      "sha256": "9d4b2e4dd90d1fd6a7a1b0136e4c7fb596b4168356ae31a70e1d1a634a1e471d"
+    }
+  ]
+}
