@@ -2,11 +2,11 @@
 
 Primer nivel de un juego de parkour en tercera persona, diseñado en vertical para Android. Usa el personaje con esqueleto, los siete edificios, las dos carreteras, los cuatro vehículos y los siete modelos de peatones entregados por el propietario del proyecto.
 
-**[Descargar el APK 0.5.0 de prueba](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-8/Jumping-in-the-City-v0.5.0.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
+**[Descargar el APK 0.5.1 de prueba](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-9/Jumping-in-the-City-v0.5.1.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
 
 ## Jugar
 
-Instala `Jumping-in-the-City-v0.5.0.apk` en Android 8.0 o posterior, con WebView actualizado y soporte de OpenGL ES 3.0 / WebGL 2. El APK incluye los modelos, el código, las texturas y el panorama; no descarga recursos al jugar y no requiere cuenta.
+Instala `Jumping-in-the-City-v0.5.1.apk` en Android 8.0 o posterior, con WebView actualizado y soporte de OpenGL ES 3.0 / WebGL 2. El APK incluye los modelos, el código, las texturas y el panorama; no descarga recursos al jugar y no requiere cuenta.
 
 - Joystick: caminar o correr según cuánto lo desplaces, siguiendo la orientación de la cámara.
 - Arrastra sobre el escenario para girar la cámara y mirar alrededor. El botón de cámara vuelve a centrarla en el recorrido.
@@ -40,11 +40,17 @@ Los originales se conservan completos en archivos GZIP sin pérdida; los mayores
 
 El código del juego y las dependencias Three.js que ejecuta están incluidos en el repositorio. No hay dependencias de CDN en tiempo de ejecución. La app es una aplicación Android que contiene un juego WebGL 2; no es un proyecto Unity ni Godot.
 
-Para reconstruir el APK sin instalar herramientas en tu ordenador, abre **Actions → Compilar Jumping in the City → Run workflow**. Cada compilación correcta crea un APK firmado de prueba y su suma SHA-256 en Releases. No se utiliza una clave de publicación de Google Play. Se corrige la conservación de la clave de pruebas con una ruta de firma explícita. La APK 0.5.0 conserva el identificador y la firma de las versiones 0.3.0 y 0.4.0: se puede instalar como actualización. La clave se guarda en la caché de Actions para reutilizarla mientras esa caché siga disponible.
+Para reconstruir el APK sin instalar herramientas en tu ordenador, abre **Actions → Compilar Jumping in the City → Run workflow**. Cada compilación correcta crea un APK firmado de prueba y su suma SHA-256 en Releases. No se utiliza una clave de publicación de Google Play. Se corrige la conservación de la clave de pruebas con una ruta de firma explícita. La APK 0.5.1 conserva el identificador y la firma de las versiones 0.3.0, 0.4.0 y 0.5.0: se puede instalar como actualización. La clave se guarda en la caché de Actions para reutilizarla mientras esa caché siga disponible.
 
 Entorno reproducible: Java 17, Gradle 8.9, Android Gradle Plugin 8.7.3, SDK 35, Build Tools 35.0.0. Desde `nivel-01/android`, ejecuta `gradle assembleDebug`. El resultado queda en `app/build/outputs/apk/debug/app-debug.apk`. El APK compilado se conserva en GitHub Releases.
 
 Para desarrollo web: Node 22 o posterior, `npm ci`, `npm run dev` y abrir `http://127.0.0.1:8080`. `npm run assets` regenera las copias optimizadas a partir de los originales. `npm run vendor` actualiza las dependencias incluidas desde la versión fijada en `package-lock.json`. Para pruebas: `npx playwright install chromium`, `npm test` y `npm run test:v03`.
+
+## Versión 0.5.1
+
+Correcciones del video de prueba: suelo y bordillos ajustados, colisiones con coches y peatones que ceden el paso, saltos con apoyo, tubos accesibles desde ambos extremos, ventanas escalables, agarres estables, red continua y cámara protegida al caer.
+
+[APK compilada](https://github.com/manureymar/parkut-juego/releases/tag/nivel-01-build-9): 59,1 MB. Firma conservada y 92 recursos verificados contra el código. [Análisis por momentos del video y pruebas](docs/revision-video-0.5.1.md). Pendiente de prueba en teléfono físico.
 
 ## Versión 0.5.0
 

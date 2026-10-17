@@ -1,6 +1,12 @@
 # Verificación 0.5.1
 
-La revisión del video, cambios, pruebas y límites están en [revision-video-0.5.1.md](revision-video-0.5.1.md). Los informes de versiones anteriores se conservan a continuación.
+La revisión del video, cambios, pruebas y límites están en [revision-video-0.5.1.md](revision-video-0.5.1.md). La [compilación 9](https://github.com/manureymar/parkut-juego/actions/runs/39056754007) terminó correctamente y publicó la [APK 0.5.1](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-9/Jumping-in-the-City-v0.5.1.apk).
+
+Se descargó el artefacto compilado y su APK coincide con el SHA-256 del archivo publicado en la Release. Se verificaron de nuevo los 92 recursos web contra el código local, la versión 0.5.1 / código 6, el nombre, el icono y la firma. Certificado idéntico al de 0.5.0. Tamaño: 59.102.743 bytes. Código compilado: `dbfe9efe847d60bcaa987b824365b4f819697e08`.
+
+SHA-256: `5a4ccb1c61933bc4cb05eec9361fa29d6c5c54e5cf3f24ab4b07e3030dd766f9`.
+
+[Informe del APK](apk-0.5.1-verification.json). Esta compilación aún requiere una prueba en un teléfono Android físico. Los informes de versiones anteriores se conservan a continuación.
 
 ---
 
