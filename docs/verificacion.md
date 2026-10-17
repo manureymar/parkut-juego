@@ -1,3 +1,9 @@
+# Verificación 0.5.1
+
+La revisión del video, cambios, pruebas y límites están en [revision-video-0.5.1.md](revision-video-0.5.1.md). Los informes de versiones anteriores se conservan a continuación.
+
+---
+
 # Verificación del primer nivel — 0.5.0
 
 - Diez GLB originales archivados sin pérdida en GitHub, restaurados y comprobados por SHA-256. Los dos packs del humano son duplicados y contienen cuatro clips; no contienen Parkour Jump.

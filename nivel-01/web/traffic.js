@@ -10,7 +10,10 @@ export class TrafficSimulation {
   for(let k=0;k<steps;k++){this.time+=step;const next=[];
    for(const car of this.cars){const r=this.routes[car.lane];let gap=Infinity;
     for(const other of this.cars)if(other!==car&&other.lane===car.lane){const d=(other.s-car.s+r.length)%r.length-other.length;if(d<gap)gap=d;}
-    let stopDistance=Infinity;for(const stop of r.stops){const d=stop.s-car.s-car.length/2;if(d>=-.3&&this.phase(stop)==='red')stopDistance=Math.min(stopDistance,Math.max(0,d));else if(d>car.speed*car.speed/5+2&&this.phase(stop)==='amber')stopDistance=Math.min(stopDistance,d);}
+    let stopDistance=Infinity;
+    const pos=this.position(car);car.yielding=false;
+    for(const o of this.obstacles||[]){if(o.y<-27||o.y>-21||Math.abs(o.x-pos.x)>(car.width||2.2)/2+(o.radius||.34))continue;const d=(o.z-pos.z)*r.direction-car.length/2-(o.radius||.34)-.45;if(d>=-car.length){stopDistance=Math.min(stopDistance,Math.max(0,d));car.yielding=true;}}
+    for(const stop of r.stops){const d=stop.s-car.s-car.length/2;if(d>=-.3&&this.phase(stop)==='red')stopDistance=Math.min(stopDistance,Math.max(0,d));else if(d>car.speed*car.speed/5+2&&this.phase(stop)==='amber')stopDistance=Math.min(stopDistance,d);}
     const available=Math.min(Math.max(0,gap-2.2),stopDistance),safeSpeed=Math.sqrt(2*3.2*available),desired=Math.min(car.cruise,safeSpeed);
     const acceleration=desired<car.speed?3.5:1.25,speed=car.speed+clamp(desired-car.speed,-acceleration*step,acceleration*step);
     const advance=Math.min(speed*step,available);next.push({car,s:car.s+advance,speed:advance<speed*step?.0:speed});

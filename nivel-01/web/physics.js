@@ -3,7 +3,7 @@ import {Capsule} from './vendor/examples/jsm/math/Capsule.js';
 import {stairSurface} from './traversal.js';
 const SKIN=.025;
 export class RunnerPhysics {
- constructor(octree){this.world=octree;this.position=new Vector3();this.velocity=new Vector3();this.radius=.27;this.height=1.70;this.capsule=new Capsule(new Vector3(),new Vector3(),this.radius);this.grounded=false;this.coyote=0;this.jumpBuffer=0;this.landed=false;this.stepHeight=0;this.onStairs=false;this.ray=new Ray();this.tmp=new Vector3();this.target=new Vector3();}
+ constructor(octree){this.world=octree;this.position=new Vector3();this.velocity=new Vector3();this.radius=.32;this.height=1.86;this.capsule=new Capsule(new Vector3(),new Vector3(),this.radius);this.grounded=false;this.coyote=0;this.jumpBuffer=0;this.landed=false;this.stepHeight=0;this.onStairs=false;this.ray=new Ray();this.tmp=new Vector3();this.target=new Vector3();}
  sync(bodyOnly=false){this.capsule.start.copy(this.position).y+=this.radius+(bodyOnly ? .23 : 0);this.capsule.end.copy(this.position).y+=this.height-this.radius;}
  teleport(p){this.position.copy(p);this.velocity.set(0,0,0);this.grounded=false;this.coyote=0;this.jumpBuffer=0;this.sync();}
  ground(x,z,top,maxDistance=100){
@@ -18,12 +18,12 @@ export class RunnerPhysics {
  step(dt,input,speed=6.4){
   this.landed=false;this.stepHeight=0;this.jumpBuffer-=dt;let jumped=false;
   if(this.grounded)this.coyote=.12;else this.coyote-=dt;
-  const wasGrounded=this.grounded,oldY=this.position.y;
+  const wasGrounded=this.grounded,oldY=this.position.y;this.previousPosition=this.position.clone();
   this.target.set(input.x,0,input.z);if(this.target.length()>1)this.target.normalize();this.target.multiplyScalar(speed);
   const blend=1-Math.exp(-(this.grounded?20:6)*dt);this.velocity.x+=(this.target.x-this.velocity.x)*blend;this.velocity.z+=(this.target.z-this.velocity.z)*blend;
   // A resting capsule has a stable support: gravity must not slide it across the
   // tiny triangles in a reconstructed grate or repeatedly kick it up/down.
-  if(this.grounded&&this.target.lengthSq()<.0001&&Math.hypot(this.velocity.x,this.velocity.z)<.035&&this.jumpBuffer<=0){this.velocity.set(0,0,0);return {landed:false,impact:0,stepHeight:0};}
+  if(this.grounded&&this.target.lengthSq()<.0001&&Math.hypot(this.velocity.x,this.velocity.z)<.035&&this.jumpBuffer<=0){this.velocity.set(0,0,0);this.resolveDynamic();return {landed:false,impact:0,stepHeight:0};}
   if(this.jumpBuffer>0&&this.coyote>0){this.velocity.y=10.4;this.grounded=false;this.coyote=0;this.jumpBuffer=0;jumped=true;}
   if(!this.grounded)this.velocity.y-=22*dt;else this.velocity.y=0;
   const impact=this.velocity.y;
@@ -40,13 +40,14 @@ export class RunnerPhysics {
   // Ground is resolved by a swept vertical support query, walls by the capsule.
   // Excluding the sole while supported avoids converting slope noise into drift.
   this.sync(wasGrounded&&this.velocity.y<=0);this.grounded=false;
-  if(!this.onStairs)for(let i=0;i<4;i++){
+  for(let i=0;i<8;i++){
    const h=this.world.capsuleIntersect(this.capsule);if(!h)break;
-   if(h.normal.y>.45){if(this.velocity.y<=0){this.position.y+=h.normal.y*h.depth+SKIN;this.velocity.y=0;this.grounded=true;}this.sync(true);break;}
+   if(h.normal.y>.45){if(this.onStairs)break;if(this.velocity.y<=0){this.position.y+=h.normal.y*h.depth+SKIN;this.velocity.y=0;this.grounded=true;}this.sync(true);break;}
    const n=h.normal.clone();if(wasGrounded&&n.y>0)n.y=0;n.normalize();
    const dot=this.velocity.dot(n);if(dot<0)this.velocity.addScaledVector(n,-dot);
    this.tmp.copy(n).multiplyScalar(h.depth+.001);this.position.add(this.tmp);this.capsule.translate(this.tmp);
   }
+  this.resolveDynamic();
   support=this.ground(this.position.x,this.position.z,Math.max(oldY,this.position.y)+.12,Math.max(.8,oldY-this.position.y+.8));
   if(this.velocity.y<=0&&support){const gap=this.position.y-support.position.y;
    if(gap<= (wasGrounded ? .38 : .08)&&support.position.y<=oldY+.45){this.position.y=support.position.y+SKIN;this.velocity.y=0;this.grounded=true;this.onStairs=!!support.stairs;}
@@ -55,13 +56,39 @@ export class RunnerPhysics {
   this.sync();this.landed=this.grounded&&!wasGrounded&&impact<-2;
   return {landed:this.landed,impact,stepHeight:this.stepHeight,jumped};
  }
+ // Dynamic bodies yield in their simulations; this contact constraint also
+ // prevents the player walking into a stopped car or a stationary citizen.
+ resolveDynamic(){
+  const p=this.position;if(p.y>-19)return;for(const o of this.dynamicBodies?.()||[]){if(p.y+this.height<o.y+.05||p.y>o.y+o.height-.05)continue;
+   let nx,nz,depth;if(o.radius){const dx=p.x-o.x,dz=p.z-o.z,d=Math.hypot(dx,dz),sum=this.radius+o.radius;if(d>=sum)continue;nx=d>1e-5?dx/d:1;nz=d>1e-5?dz/d:0;depth=sum-d;}
+   else{const dx=p.x-o.x,dz=p.z-o.z,cx=Math.max(-o.halfX,Math.min(o.halfX,dx)),cz=Math.max(-o.halfZ,Math.min(o.halfZ,dz)),vx=dx-cx,vz=dz-cz,d=Math.hypot(vx,vz);if(d>=this.radius)continue;if(d>1e-5){nx=vx/d;nz=vz/d;depth=this.radius-d;}else{const ax=o.halfX-Math.abs(dx),az=o.halfZ-Math.abs(dz);if(ax<az){nx=Math.sign(dx)||1;nz=0;depth=ax+this.radius;}else{nx=0;nz=Math.sign(dz)||1;depth=az+this.radius;}}}
+   p.x+=nx*(depth+.002);p.z+=nz*(depth+.002);const dot=this.velocity.x*nx+this.velocity.z*nz;if(dot<0){this.velocity.x-=nx*dot;this.velocity.z-=nz*dot;}
+  }this.sync();
+ }
+ clearanceAt(p,tolerance=.035){const test=new Capsule(p.clone().add(new Vector3(0,this.radius+.06,0)),p.clone().add(new Vector3(0,this.height-this.radius,0)),this.radius),hit=this.world.capsuleIntersect(test);this.clearanceDebug={point:p.toArray(),hit:hit?{depth:hit.depth,normal:hit.normal.toArray()}:null};return !hit||hit.depth<tolerance;}
+ clearArc(start,end,top){
+  const a=start.clone().setY(top),b=end.clone().setY(top),count=Math.max(8,Math.ceil(a.distanceTo(b)/.12));
+  for(let i=0;i<=count;i++)if(!this.clearanceAt(a.clone().lerp(b,i/count)))return false;
+  for(let y=start.y+.15;y<top;y+=.15)if(!this.clearanceAt(start.clone().setY(y)))return false;
+  return this.clearanceAt(end,.055);
+ }
+ vaultTarget(direction){
+  this.vaultDebug={};
+  if(!this.grounded)return null;const dir=direction.clone().setY(0).normalize(),p=this.position;let wall=null;
+  for(let h=.40;h<=1.32;h+=.055){this.ray.origin.copy(p).y+=h;this.ray.direction.copy(dir);const hit=this.world.rayIntersect(this.ray);if(hit&&hit.distance<.95&&Math.abs(hit.triangle.getNormal(this.tmp).y)<.65&&(!wall||hit.distance<wall.distance))wall=hit;}
+  if(!wall){this.vaultDebug.reason='no-wall';return null;}this.vaultDebug.wall=wall.position.toArray();let top=null,end=null,thickness=0;
+  for(let s=.02;s<2.1;s+=.08){const q=wall.position.clone().addScaledVector(dir,s),g=this.ground(q.x,q.z,p.y+1.55,2.4);if(!g)continue;const rise=g.position.y-p.y;if(rise>1.40){this.vaultDebug.reason="too-high";return null;}if(rise>.42){if(!top||g.position.y>top.y)top=g.position.clone();thickness=s;}
+   else if(top&&s>thickness+.40){end=g.position.clone().add(new Vector3(0,.025,0));break;}}
+  this.vaultDebug={...this.vaultDebug,top:top?.toArray(),end:end?.toArray(),thickness};if(!top||!end||thickness>1.35||Math.abs(end.y-p.y)>.4){this.vaultDebug.reason="landing";return null;}
+  const peak=top.y+.20;if(!this.clearArc(p,end,peak)){this.vaultDebug.reason="clearance";this.vaultDebug.clearance=this.clearanceDebug;return null;}
+  const pre=wall.position.clone().addScaledVector(dir,-this.radius-.10).setY(p.y);if(!this.clearArc(pre,end,peak))return null;return {end,pre,peak,hand:top.clone().addScaledVector(dir,-.08).addScaledVector(new Vector3(-dir.z,0,dir.x),.18).add(new Vector3(0,.035,0)),dir};
+ }
  mantleTarget(direction){
   const dir=direction.clone().setY(0).normalize();if(dir.lengthSq()<.5)return null;
   this.ray.origin.copy(this.position).y+=.85;this.ray.direction.copy(dir);const wall=this.world.rayIntersect(this.ray);if(!wall||wall.distance>.80)return null;
   const p=wall.position.clone().addScaledVector(dir,.65),h=this.ground(p.x,p.z,this.position.y+3.05,3.3);if(!h)return null;
   const rise=h.position.y-this.position.y;if(rise<.50||rise>2.85)return null;
   p.y=h.position.y+SKIN;
-  const test=new Capsule(p.clone().add(new Vector3(0,.35,0)),p.clone().add(new Vector3(0,1.43,0)),.25),hit=this.world.capsuleIntersect(test);
-  if(hit&&hit.depth>.10)return null;return {end:p,rise};
+  if(!this.clearanceAt(p,.04)||!this.clearArc(this.position,p,Math.max(p.y,this.position.y)+.20))return null;return {end:p,rise};
  }
 }

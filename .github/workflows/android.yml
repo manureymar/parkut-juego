@@ -15,7 +15,9 @@ jobs:
         with:
           node-version: '22'
       - name: Verificar rutas y actividades de peatones
-        run: node nivel-01/scripts/test-pedestrians.mjs
+        run: |
+          node nivel-01/scripts/test-pedestrians.mjs
+          node nivel-01/scripts/test-dynamic-v051.mjs
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -46,17 +48,17 @@ jobs:
       - name: Preparar APK y checksum
         run: |
           mkdir -p distribucion
-          cp nivel-01/android/app/build/outputs/apk/debug/app-debug.apk distribucion/Jumping-in-the-City-v0.5.0.apk
+          cp nivel-01/android/app/build/outputs/apk/debug/app-debug.apk distribucion/Jumping-in-the-City-v0.5.1.apk
           cd distribucion
-          sha256sum Jumping-in-the-City-v0.5.0.apk > Jumping-in-the-City-v0.5.0.apk.sha256
+          sha256sum Jumping-in-the-City-v0.5.1.apk > Jumping-in-the-City-v0.5.1.apk.sha256
       - name: Verificar firma y recursos del APK
         run: |
-          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs distribucion/Jumping-in-the-City-v0.5.0.apk > distribucion/signature.txt
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging distribucion/Jumping-in-the-City-v0.5.0.apk > distribucion/package-info.txt
-          python3 nivel-01/scripts/verify-apk.py distribucion/Jumping-in-the-City-v0.5.0.apk --signature distribucion/signature.txt --badging distribucion/package-info.txt --out distribucion/apk-0.5.0-verification.json
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs distribucion/Jumping-in-the-City-v0.5.1.apk > distribucion/signature.txt
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging distribucion/Jumping-in-the-City-v0.5.1.apk > distribucion/package-info.txt
+          python3 nivel-01/scripts/verify-apk.py distribucion/Jumping-in-the-City-v0.5.1.apk --signature distribucion/signature.txt --badging distribucion/package-info.txt --out distribucion/apk-0.5.1-verification.json
       - uses: actions/upload-artifact@v4
         with:
-          name: Jumping-in-the-City-v0.5.0-APK
+          name: Jumping-in-the-City-v0.5.1-APK
           path: distribucion/*
           retention-days: 90
       - name: Publicar descarga de prueba
@@ -64,4 +66,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="nivel-01-build-${GITHUB_RUN_NUMBER}"
-          gh release create "$TAG" distribucion/* --title "Jumping in the City · Nivel 01 · prueba ${GITHUB_RUN_NUMBER}" --notes "Jumping in the City 0.5.0: nuevo recorrido escalonado, ocho obstáculos 3D, barras, cornisas, tubos hasta la calle, red de regreso, carrera por pared y mortal; conserva peatones, ciudad e icono aprobados. Android 8.0 o superior. Código y recursos incluidos en el repositorio. Compilación $GITHUB_SHA." --prerelease --target "$GITHUB_SHA"
+          gh release create "$TAG" distribucion/* --title "Jumping in the City · Nivel 01 · prueba ${GITHUB_RUN_NUMBER}" --notes "Jumping in the City 0.5.1: correcciones de colisiones y altura de calles, tráfico y peatones que ceden el paso, salto con apoyo, tubos bidireccionales, ventanas escalables, agarres estables, red continua y cámara protegida. Android 8.0 o superior. Código y recursos incluidos en el repositorio. Compilación $GITHUB_SHA." --prerelease --target "$GITHUB_SHA"

@@ -20,8 +20,8 @@ export async function createPedestrians(group,loader,landscape,progress=()=>{}){
   actors.push({pivot,model,animation,phone,person,accumulator:1,lastRevision:-1});
  }
  let visible=0,quality='high';
- const update=(dt,anchor)=>{
-  simulation.update(dt);visible=0;
+ const update=(dt,anchor,runner=null)=>{
+  simulation.obstacles=runner&&Math.abs(runner.position.y-landscape.pedestrianHeight())<2?[{...runner.position,radius:runner.radius}]:[];simulation.update(dt);visible=0;
   for(const actor of actors){const p=actor.person,pos=routePosition(simulation.routes[p.route],p.s),distance=Math.hypot(pos.x-anchor.x,pos.z-anchor.z);actor.pivot.visible=distance<(quality==='high'?145:95);actor.accumulator+=dt;
    if(!actor.pivot.visible)continue;visible++;actor.pivot.position.set(pos.x,landscape.pedestrianHeight(pos.x,pos.z),pos.z);
    const old=actor.pivot.rotation.y,delta=Math.atan2(Math.sin(pos.yaw-old),Math.cos(pos.yaw-old));actor.pivot.rotation.y+=delta*(dt===0?1:1-Math.exp(-dt*9));
@@ -34,5 +34,5 @@ export async function createPedestrians(group,loader,landscape,progress=()=>{}){
   }
  };
  update(0,new T.Vector3());
- return {update,simulation,actors,setQuality:q=>{quality=q;},get state(){return {total:simulation.people.length,visible,models:profiles.length,sourceAnimations:profiles.reduce((n,p)=>n+p.clips.length,0),activities:[...new Set(simulation.people.map(p=>p.clip.name))]};},debug:()=>simulation.snapshot()};
+ return {update,simulation,actors,position:p=>routePosition(simulation.routes[p.route],p.s),setQuality:q=>{quality=q;},get state(){return {total:simulation.people.length,visible,models:profiles.length,sourceAnimations:profiles.reduce((n,p)=>n+p.clips.length,0),activities:[...new Set(simulation.people.map(p=>p.clip.name))]};},debug:()=>simulation.snapshot()};
 }

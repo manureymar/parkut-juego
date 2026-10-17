@@ -13,12 +13,15 @@ Instala `Jumping-in-the-City-v0.5.0.apk` en Android 8.0 o posterior, con WebView
 - **Saltar**: control manual opcional para saltar cuando tú lo decidas.
 - **Parkour automático**: al dirigirte al obstáculo subes las escaleras, trepas bordes alcanzables y usas la escalera vertical del tanque. Suelta el joystick para detenerte en la escalera; muévelo hacia atrás para bajar.
 - El recorrido combina cruces por barras, saltos y pasos estrechos. Acércate y avanza para usar tubos y redes. En una cornisa, muévete lateralmente; usa Saltar para subir si hay espacio, o aléjate de la pared para soltarte.
+- **Usar objeto** (E): aparece junto a tubos, redes y barras. Permite entrar, detenerse y continuar; en tubos, joystick arriba sube y abajo baja. En las ventanas señaladas, Saltar o SUBIR VENTANA pasa al siguiente borde.
 - **Mortal** (F): voltereta hacia atrás. Saltar y avanzar junto a una pared permite correr brevemente por ella.
 - **Correr**: activar o desactivar el avance continuo; dirige con el joystick.
 - Pausa: continuar, volver al último punto de control, reiniciar, cambiar entre calidad alta y fluida, y activar sonido.
 - En ordenador: WASD o flechas, Espacio para saltar, R para carrera continua, C para centrar la cámara, Esc para pausa. Arrastra con el ratón para mirar.
 
 Sigue las marcas y los anillos amarillos. Completa las ocho etapas en orden: siete azoteas y el paseo. Baja por el tubo hasta las personas y vuelve a subir por la red. Cada etapa alcanzada guarda un punto de control durante la partida. La puerta iluminada del último edificio es el final.
+
+Revisión de los errores filmados y resultados de la actualización: [0.5.1](docs/revision-video-0.5.1.md).
 
 ## Contenido del repositorio
 

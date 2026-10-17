@@ -29,7 +29,9 @@ export class RunnerAnimation {
   this.time+=dt;if(this.wasGrounded&&!grounded&&!action)this.normalJump=verticalSpeed>1;
   if(!this.wasGrounded&&grounded&&this.normalJump&&!action)this.landingTime=.20;
   this.wasGrounded=grounded;this.airTime=grounded?0:this.airTime+dt;this.landingTime=Math.max(0,this.landingTime-dt);let name,manual=null;
-  if(action?.mode==='pole'){name='pole_slide';manual=1.45+Math.sin(action.phase*2)*.08;}
+  if(action?.mode==='pole'){name=action.motion<-.02?'subir escalera recta hacia arriba':'pole_slide';manual=action.motion<-.02?1.15+(action.phase*.8)%3.2:1.45;}
+  else if(action?.mode==='vault'){name='jump';manual=action.progress<.5?THREE.MathUtils.lerp(2.58,1.85,THREE.MathUtils.smoothstep(action.progress,.25,.50)):THREE.MathUtils.lerp(1.85,2.75,THREE.MathUtils.smoothstep(action.progress,.65,1));}
+  else if(action?.mode==='window-transfer'){name='climb';manual=.65+action.progress*1.65;}
   else if(action?.mode==='monkey'){name='monkey_bar';manual=1.1+(action.phase%2.8);}
   else if(action?.mode==='ledge'){name='ledge_shimmy';manual=1.25+(action.phase%2.1);}
   else if(action?.mode==='net'){name='subir escalera recta hacia arriba';manual=1.15+(action.phase*1.15)%3.2;}
@@ -46,11 +48,17 @@ export class RunnerAnimation {
   this.play(name,action?.mode==='roll' ? .065 : .14);const a=this.actions[name];
   a.paused=manual!==null;
   if(manual!==null)a.time=manual;else a.timeScale=name==='run'?Math.max(.7,speed/4.45):name==='walk'?Math.max(.45,speed/1.25):name==='subir escalera'?Math.max(.8,speed/1.5):1;
+  for(const [key,b] of Object.entries(this.bones))if(/Hand/.test(key))b.quaternion.copy(this.bindRotations[key]);
   this.mixer.update(dt);
   // Stop finished fades; inactive clips must not keep modifying the rig.
   for(const [key,old] of Object.entries(this.actions))if(key!==name&&old.isRunning()&&old.getEffectiveWeight()<.0001)old.stop();
-  this.placeOnSupport();this.ikErrors=[];
+  if(!['monkey','pole','net','ledge'].includes(action?.mode))this.placeOnSupport();this.ikErrors=[];
   if(['monkey','pole','net','ledge'].includes(action?.mode))this.alignTraversal(action);
+  if(action?.mode==='vault'){
+   const f=THREE.MathUtils.smoothstep(action.progress,.09,.19)*(1-THREE.MathUtils.smoothstep(action.progress,.25,.34));
+   if(f>.01){this.solveChain([this.bones.RightArm,this.bones.RightForeArm,this.bones.RightHand],action.hand,f);this.gripHand('Right',action.dir,new THREE.Vector3(-action.dir.z,0,action.dir.x),false,true);}
+
+  }
   if(action?.mode==='wall'){this.model.rotation.z=action.side*.30;this.model.position.y+=.08;this.model.updateMatrixWorld(true);const side=Math.floor(action.phase*4)%2?'Left':'Right',root=this.model.parent.getWorldPosition(new THREE.Vector3()),foot=root.clone().addScaledVector(action.normal,-.32).addScaledVector(action.dir,.12);foot.y+=.42;this.solveChain([this.bones[side+'UpLeg'],this.bones[side+'Leg'],this.bones[side+'Foot']],foot,.9);}
   if(action?.mode==='flip'){
    // Rotate around the pelvis, never around the soles. The capsule follows
@@ -62,7 +70,7 @@ export class RunnerAnimation {
  }
  alignTraversal(a){
   const V=THREE.Vector3,root=this.model.parent.getWorldPosition(new V()),facing=a.dir.clone(),side=new V(-facing.z,0,facing.x),targets=[];
-  if(a.mode==='ledge'||a.mode==='monkey')for(const key of ['Hips','Spine','Spine1','Spine2'])if(this.bones[key])this.bones[key].quaternion.slerp(this.bindRotations[key],.92);
+  if(['ledge','monkey','net','pole'].includes(a.mode))for(const key of ['Hips','Spine','Spine1','Spine2'])if(this.bones[key])this.bones[key].quaternion.slerp(this.bindRotations[key],1);
   this.model.position.set(0,0,0);this.model.updateMatrixWorld(true);
   const hips=this.hips.getWorldPosition(new V());this.model.position.y=root.y+1.03-hips.y;this.model.updateMatrixWorld(true);
   if(a.mode==='monkey'){
@@ -83,19 +91,28 @@ export class RunnerAnimation {
   // Correct the torso against the actual grip plane before solving the arms.
   // This keeps both targets inside the imported rig's short 45 cm arm reach.
   const shoulders=this.bones.LeftArm.getWorldPosition(new V()).add(this.bones.RightArm.getWorldPosition(new V())).multiplyScalar(.5),middle=targets[0].clone().add(targets[1]).multiplyScalar(.5);
-  const hanging=a.mode==='monkey'||a.mode==='ledge',desired=middle.clone().addScaledVector(facing,hanging?-.04:-.25);desired.y-=hanging?.32:a.mode==='pole'?.08:.18;
+  const hanging=a.mode==='monkey'||a.mode==='ledge',desired=middle.clone().addScaledVector(facing,hanging?-.08:-.22);desired.y-=hanging?.32:.08;
   const shift=desired.sub(shoulders).applyQuaternion(this.model.parent.getWorldQuaternion(new THREE.Quaternion()).invert());this.model.position.add(shift);this.model.updateMatrixWorld(true);
   for(const [i,name] of ['Left','Right'].entries()){
-   if(a.mode==='net'){
-    const shoulder=this.bones[name+'Arm'].getWorldPosition(new V()),elbow=this.bones[name+'ForeArm'].getWorldPosition(new V()),wrist=this.bones[name+'Hand'].getWorldPosition(new V()),reach=(shoulder.distanceTo(elbow)+elbow.distanceTo(wrist))*.97;
-    if(shoulder.distanceTo(targets[i])>reach)targets[i].y+=targets[i].y>shoulder.y?-a.zone.rungStep:a.zone.rungStep;
-   }
+   targets[i].addScaledVector(facing,-.035);if(a.mode!=='pole')targets[i].y-=.055;
    this.solveChain([this.bones[name+'Arm'],this.bones[name+'ForeArm'],this.bones[name+'Hand']],targets[i],1);
+   this.gripHand(name,facing,side,a.mode==='pole');
+   if(a.mode==='monkey'||a.mode==='ledge'){
+    for(const part of ['UpLeg','Leg','Foot','ToeBase'])if(this.bones[name+part])this.bones[name+part].quaternion.copy(this.bindRotations[name+part]);this.model.updateMatrixWorld(true);
+    const hip=this.hips.getWorldPosition(new V()),foot=hip.clone().addScaledVector(side,i===0?-.14:.14).addScaledVector(facing,-.10+Math.sin(a.phase*2.2+i*.4)*.045);foot.y-=a.mode==='monkey'?.66:.71;this.solveChain([this.bones[name+'UpLeg'],this.bones[name+'Leg'],this.bones[name+'Foot']],foot,1);
+   }
    if(a.mode==='pole'||a.mode==='net'){
-    const foot=a.mode==='pole'?new V(a.zone.pole.x-.10,root.y+.35+(i===0?.12:0),a.zone.pole.z).addScaledVector(side,i===0?-.09:.09):new V(a.zone.planeX+.10,a.zone.start.y+Math.round((this.hips.getWorldPosition(new V()).y-.55+(i===0?.12:-.12)-a.zone.start.y)/a.zone.rungStep)*a.zone.rungStep,a.zone.start.z).addScaledVector(side,i===0?-.24:.24);
+    let foot;
+    if(a.mode==='pole'){
+     const step=.32,phase=(a.zone.length-a.distance)/step+i*.5,k=Math.floor(phase),swing=THREE.MathUtils.smoothstep(phase-k,.55,.97),climb=a.motion<-.02;
+     foot=new V(a.zone.pole.x,climb?a.zone.end.y+(k+1+swing)*step:root.y+.35+(i===0?.12:0),a.zone.pole.z).addScaledVector(facing,-.10).addScaledVector(side,i===0?-.09:.09);
+    }else{
+     const step=a.zone.rungStep,q=a.distance/step+(i===0?.5:0),k=Math.floor(q),swing=THREE.MathUtils.smoothstep(q-k,.55,.97);
+     foot=new V(a.zone.planeX+.10+Math.sin(swing*Math.PI)*.16,a.zone.start.y+(k+1+swing)*step,a.zone.start.z).addScaledVector(side,i===0?-.24:.24);
+    }
     this.solveChain([this.bones[name+'UpLeg'],this.bones[name+'Leg'],this.bones[name+'Foot']],foot,.85);
    }
-   for(const finger of ['Index','Middle','Ring','Pinky'])for(const n of [1,2,3]){const b=this.bones[name+'Hand'+finger+n];if(b)b.rotation.z+=(name==='Left'?1:-1)*.30;}
+   for(const finger of ['Index','Middle','Ring','Pinky'])for(const n of [1,2,3]){const b=this.bones[name+'Hand'+finger+n];if(b)b.rotateZ((name==='Left'?1:-1)*(n===1?.55:n===2?1.0:.70));}
   }
  }
  alignToLadder(action){
@@ -116,11 +133,23 @@ export class RunnerAnimation {
    this.solveChain([this.bones[side+'UpLeg'],this.bones[side+'Leg'],this.bones[side+'Foot']],foot,.8);
   }
  }
+ gripHand(name,facing,side,vertical=false,vault=false){
+  const V=THREE.Vector3,Q=THREE.Quaternion,M=THREE.Matrix4,hand=this.bones[name+'Hand'],middle=this.bones[name+'HandMiddle1'],index=this.bones[name+'HandIndex1'],pinky=this.bones[name+'HandPinky1'];if(!hand||!middle||!index||!pinky)return;
+  const forward=middle.position.clone().normalize(),across=index.position.clone().sub(pinky.position);across.addScaledVector(forward,-across.dot(forward)).normalize();const normal=new V().crossVectors(across,forward).normalize();
+  const desiredForward=vault?facing.clone():vertical?side.clone().multiplyScalar(name==='Left'?1:-1):new V(0,1,0).addScaledVector(facing,.18).normalize(),desiredAcross=vertical?new V(0,name==='Left'?-1:1,0):side.clone().multiplyScalar(name==='Left'?1:-1);desiredAcross.addScaledVector(desiredForward,-desiredAcross.dot(desiredForward)).normalize();
+  const desiredNormal=new V().crossVectors(desiredAcross,desiredForward).normalize(),local=new M().makeBasis(across,forward,normal),world=new M().makeBasis(desiredAcross,desiredForward,desiredNormal).multiply(local.invert()),q=new Q().setFromRotationMatrix(world);hand.quaternion.copy(hand.parent.getWorldQuaternion(new Q()).invert().multiply(q));hand.updateMatrixWorld(true);
+ }
  solveChain(chain,target,weight){
-  if(chain.some(b=>!b))return;const [upper,lower,end]=chain,tip=new THREE.Vector3(),origin=new THREE.Vector3(),from=new THREE.Vector3(),to=new THREE.Vector3(),q=new THREE.Quaternion(),worldQ=new THREE.Quaternion(),parentQ=new THREE.Quaternion();
-  this.model.updateMatrixWorld(true);const destination=end.getWorldPosition(tip).lerp(target,weight).clone();
-  for(let k=0;k<32;k++){for(const bone of [lower,upper]){bone.getWorldPosition(origin);end.getWorldPosition(tip);from.copy(tip).sub(origin).normalize();to.copy(destination).sub(origin).normalize();q.setFromUnitVectors(from,to);bone.getWorldQuaternion(worldQ);bone.parent.getWorldQuaternion(parentQ);bone.quaternion.copy(parentQ.invert().multiply(q.multiply(worldQ)));bone.updateMatrixWorld(true);}if(end.getWorldPosition(tip).distanceTo(destination)<.008)break;}
-  this.ikErrors.push({bone:end.name,error:end.getWorldPosition(tip).distanceTo(destination),reach:upper.getWorldPosition(origin).distanceTo(lower.getWorldPosition(from))+from.distanceTo(tip),distance:origin.distanceTo(destination)});
+  if(chain.some(b=>!b))return;const [upper,lower,end]=chain,V=THREE.Vector3,Q=THREE.Quaternion;
+  this.model.updateMatrixWorld(true);const a=upper.getWorldPosition(new V()),b=lower.getWorldPosition(new V()),c=end.getWorldPosition(new V()),destination=c.clone().lerp(target,weight),l1=a.distanceTo(b),l2=b.distanceTo(c),axis=destination.clone().sub(a),raw=axis.length(),d=THREE.MathUtils.clamp(raw,Math.abs(l1-l2)+.0001,l1+l2-.0001);axis.normalize();
+  // Analytical two-bone solve with an explicit bend plane. CCD changed elbow
+  // solutions each frame even when the same rung was held still.
+  const frame=this.model.parent.getWorldQuaternion(new Q()),forward=new V(0,0,1).applyQuaternion(frame),right=new V(1,0,0).applyQuaternion(frame),sign=/Left/.test(upper.name)?1:-1,isLeg=/Leg/.test(upper.name);
+  const bend=forward.clone().multiplyScalar(isLeg?.8:-.25).addScaledVector(right,sign*(isLeg?.12:.65));bend.y+=isLeg?.12:-.15;bend.addScaledVector(axis,-bend.dot(axis));if(bend.lengthSq()<1e-7)bend.set(0,0,1).addScaledVector(axis,-axis.z);bend.normalize();
+  const along=(l1*l1+d*d-l2*l2)/(2*d),height=Math.sqrt(Math.max(0,l1*l1-along*along)),elbow=a.clone().addScaledVector(axis,along).addScaledVector(bend,height);
+  const rotate=(bone,from,to)=>{const q=new Q().setFromUnitVectors(from.normalize(),to.normalize()),world=bone.getWorldQuaternion(new Q()),parent=bone.parent.getWorldQuaternion(new Q());bone.quaternion.copy(parent.invert().multiply(q.multiply(world)));bone.updateMatrixWorld(true);};
+  rotate(upper,b.clone().sub(a),elbow.clone().sub(a));const newB=lower.getWorldPosition(new V()),newC=end.getWorldPosition(new V());rotate(lower,newC.sub(newB),a.clone().addScaledVector(axis,d).sub(newB));
+  this.ikErrors.push({bone:end.name,error:end.getWorldPosition(new V()).distanceTo(destination),reach:l1+l2,distance:raw});
  }
  placeOnSupport(){
   this.model.position.set(0,0,0);(this.model.parent||this.model).updateMatrixWorld(true);let min=Infinity;

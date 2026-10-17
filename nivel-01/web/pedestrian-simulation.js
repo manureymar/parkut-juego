@@ -52,6 +52,8 @@ export class PedestrianSimulation {
     const clip=p.clip,advanceTime=Math.min(step*p.rate,p.remaining,clip.duration-p.clipTime),nextTime=p.clipTime+advanceTime,travel=(motionAt(clip,nextTime)-motionAt(clip,p.clipTime))*p.scale;
     let available=Infinity;const route=this.routes[p.route];
     for(const other of this.people)if(other!==p&&other.route===p.route){const gap=(other.s-p.s+route.length)%route.length;if(gap>1e-6)available=Math.min(available,Math.max(0,gap-1.35));}
+    const pos=routePosition(route,p.s),forward={x:Math.sin(pos.yaw),z:Math.cos(pos.yaw)};
+    for(const o of this.obstacles||[]){const dx=o.x-pos.x,dz=o.z-pos.z,along=dx*forward.x+dz*forward.z,lateral=Math.abs(dx*forward.z-dz*forward.x),radius=(o.radius||.34)+.38;if(along>-.2&&lateral<radius+.15)available=Math.min(available,Math.max(0,along-Math.sqrt(Math.max(0,(radius+.15)**2-lateral*lateral))));}
     const ratio=travel>1e-8?Math.min(1,available/travel):1;
     proposals.push({p,advanceTime:advanceTime*ratio,travel:Math.min(travel,available),blocked:ratio<.05});
    }

@@ -49,7 +49,7 @@ export class Traversal {
     if(a.t>=1&&movement>0){this.active={type:'exit',start:p.position.clone(),end:l.exit.clone(),dir:l.facing,elapsed:0,duration:.65};}
     else if(a.t<=0&&movement<0){p.position.copy(l.base).addScaledVector(l.facing,-.55);p.sync();this.active=null;this.cooldown=1;}
    }else{
-    a.elapsed+=dt;const t=Math.min(1,a.elapsed/a.duration),f=MathUtils.smoothstep(t,.12,1),v=MathUtils.smoothstep(t,0,.62);
+    a.elapsed+=dt;const t=Math.min(1,a.elapsed/a.duration),f=MathUtils.smoothstep(t,.50,.92),v=MathUtils.smoothstep(t,0,.48);
     p.position.copy(a.start).lerp(a.end,f);p.position.y=MathUtils.lerp(a.start.y,a.end.y,v)+Math.sin(t*Math.PI)*.16;p.velocity.set(0,0,0);p.grounded=false;p.sync();
     if(t>=1){this.active=null;this.cooldown=.65;p.position.copy(a.end);p.velocity.set(0,0,0);p.sync();}
    }

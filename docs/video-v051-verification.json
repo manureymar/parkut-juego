@@ -1,0 +1,403 @@
+{
+  "version": "0.5.1",
+  "road": [
+    {
+      "x": 24.5,
+      "z": -30,
+      "visual": -24.930725262356365,
+      "feet": -24.90535069931804,
+      "grounded": true,
+      "difference": 0.025374563038326414
+    },
+    {
+      "x": 24.5,
+      "z": -112,
+      "visual": -25.01970328143697,
+      "feet": -24.992595970857014,
+      "grounded": true,
+      "difference": 0.0271073105799573
+    },
+    {
+      "x": 27,
+      "z": -30,
+      "visual": -25.03606047830072,
+      "feet": -25.015954138251676,
+      "grounded": true,
+      "difference": 0.020106340049043325
+    },
+    {
+      "x": 27,
+      "z": -112,
+      "visual": -25.087854195914932,
+      "feet": -25.063913035039736,
+      "grounded": true,
+      "difference": 0.023941160875196488
+    },
+    {
+      "x": 29,
+      "z": -30,
+      "visual": -25.025795011890125,
+      "feet": -25.003425949929863,
+      "grounded": true,
+      "difference": 0.022369061960262115
+    },
+    {
+      "x": 29,
+      "z": -112,
+      "visual": -25.087309959437693,
+      "feet": -25.0597742120487,
+      "grounded": true,
+      "difference": 0.027535747388991894
+    },
+    {
+      "x": 31,
+      "z": -30,
+      "visual": -25.026247182528778,
+      "feet": -25.002768351717858,
+      "grounded": true,
+      "difference": 0.023478830810919504
+    },
+    {
+      "x": 31,
+      "z": -112,
+      "visual": -25.072620505049372,
+      "feet": -25.048356632588046,
+      "grounded": true,
+      "difference": 0.024263872461325775
+    },
+    {
+      "x": 34,
+      "z": -30,
+      "visual": -25.03321671525836,
+      "feet": -25.010521737744668,
+      "grounded": true,
+      "difference": 0.022694977513690873
+    },
+    {
+      "x": 34,
+      "z": -112,
+      "visual": -25.08664431407869,
+      "feet": -25.059803600524415,
+      "grounded": true,
+      "difference": 0.026840713554275197
+    },
+    {
+      "x": 36.5,
+      "z": -30,
+      "visual": -25.025543259292597,
+      "feet": -25.00313683951361,
+      "grounded": true,
+      "difference": 0.022406419778988607
+    },
+    {
+      "x": 36.5,
+      "z": -112,
+      "visual": -25.080317153966096,
+      "feet": -25.05314914646839,
+      "grounded": true,
+      "difference": 0.02716800749770698
+    }
+  ],
+  "poles": [
+    {
+      "id": "promenade-pole",
+      "bottom": false,
+      "context": {
+        "label": "DESLIZARSE",
+        "id": "promenade-pole",
+        "fromEnd": false
+      },
+      "attached": true,
+      "mode": "pole",
+      "position": [
+        18.7,
+        -25.13499984741211,
+        -22.43
+      ],
+      "grounded": true
+    },
+    {
+      "id": "promenade-pole",
+      "bottom": true,
+      "context": {
+        "label": "ESCALAR TUBO",
+        "id": "promenade-pole",
+        "fromEnd": true
+      },
+      "attached": true,
+      "mode": "pole",
+      "position": [
+        17,
+        2.655000114440918,
+        -22.43
+      ],
+      "grounded": true
+    },
+    {
+      "id": "return-pole",
+      "bottom": false,
+      "context": {
+        "label": "DESLIZARSE",
+        "id": "return-pole",
+        "fromEnd": false
+      },
+      "attached": true,
+      "mode": "pole",
+      "position": [
+        19,
+        -25.13499984741211,
+        -48.82999999999999
+      ],
+      "grounded": true
+    },
+    {
+      "id": "return-pole",
+      "bottom": true,
+      "context": {
+        "label": "ESCALAR TUBO",
+        "id": "return-pole",
+        "fromEnd": true
+      },
+      "attached": true,
+      "mode": "pole",
+      "position": [
+        17.2,
+        2.7550000190734862,
+        -48.82999999999999
+      ],
+      "grounded": true
+    }
+  ],
+  "windows": [
+    {
+      "route": 0,
+      "caught": "ledge",
+      "transfers": 19,
+      "last": "window-0-19",
+      "exit": true,
+      "position": [
+        5.83,
+        0.21477314233779907,
+        7.5600000000000005
+      ],
+      "grounded": true
+    },
+    {
+      "route": 1,
+      "caught": "ledge",
+      "transfers": 21,
+      "last": "window-1-21",
+      "exit": true,
+      "position": [
+        11.25,
+        2.9551798343658446,
+        -15.745
+      ],
+      "grounded": true
+    },
+    {
+      "route": 2,
+      "caught": "ledge",
+      "transfers": 20,
+      "last": "window-2-20",
+      "exit": true,
+      "position": [
+        11.469999999999999,
+        1.706620955467224,
+        -39.47999999999999
+      ],
+      "grounded": true
+    },
+    {
+      "route": 3,
+      "caught": "ledge",
+      "transfers": 19,
+      "last": "window-3-19",
+      "exit": true,
+      "position": [
+        5.83,
+        0.5183391511440277,
+        -64.60999999999999
+      ],
+      "grounded": true
+    },
+    {
+      "route": 4,
+      "caught": "ledge",
+      "transfers": 21,
+      "last": "window-4-21",
+      "exit": true,
+      "position": [
+        13.549999999999999,
+        1.817997360229492,
+        -93.30999999999997
+      ],
+      "grounded": true
+    },
+    {
+      "route": 5,
+      "caught": "ledge",
+      "transfers": 20,
+      "last": "window-5-20",
+      "exit": true,
+      "position": [
+        7.469999999999999,
+        0.9967777371406555,
+        -113.39999999999998
+      ],
+      "grounded": true
+    },
+    {
+      "route": 6,
+      "caught": "ledge",
+      "transfers": 21,
+      "last": "window-6-21",
+      "exit": true,
+      "position": [
+        11.83,
+        2.29803409576416,
+        -141.21999999999997
+      ],
+      "grounded": true
+    }
+  ],
+  "grips": [
+    {
+      "mode": "monkey",
+      "id": "sky-bars",
+      "handHoldDrift": 3.722145839155691e-15,
+      "elbowHoldDrift": 3.6418022968069345e-15,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 5.139834946774052e-9,
+          "reach": 0.46584576790993604,
+          "distance": 0.19908333620809993
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0000011774996560825793,
+          "reach": 0.8231108834848377,
+          "distance": 0.6222631660840566
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 1.18490700436054e-8,
+          "reach": 0.45121591761617175,
+          "distance": 0.3431421491736096
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0000012848388037355317,
+          "reach": 0.8219332879024495,
+          "distance": 0.6241836053936282
+        }
+      ]
+    },
+    {
+      "mode": "net",
+      "id": "return-net",
+      "handHoldDrift": 2.040878629308206e-14,
+      "elbowHoldDrift": 2.3832327871173822e-14,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 2.782668165762427e-8,
+          "reach": 0.46584605741833907,
+          "distance": 0.22508478626210227
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 7.506165359532526e-7,
+          "reach": 0.8231112199261126,
+          "distance": 0.3120082690994772
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 6.2487664500673964e-9,
+          "reach": 0.4512158178540202,
+          "distance": 0.2055653039117684
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 9.621608008547841e-7,
+          "reach": 0.8219338195665251,
+          "distance": 0.3740065392452158
+        }
+      ]
+    }
+  ],
+  "vaults": [
+    {
+      "object": [
+        -4.699999999999999,
+        0.04203876070628485,
+        -6.3
+      ],
+      "saw": true,
+      "position": [
+        -4.699999999999999,
+        0.036591110643787596,
+        -6.885963083280547
+      ],
+      "grounded": true
+    },
+    {
+      "object": [
+        -3.3999999999999986,
+        1.218302790697516,
+        -128.55999999999997
+      ],
+      "saw": true,
+      "position": [
+        -3.6738169322957854,
+        1.1538804067191595,
+        -129.0612185325644
+      ],
+      "grounded": true
+    }
+  ],
+  "street": [
+    {
+      "x": 19.1,
+      "z": -30,
+      "y": -25.13499984741211,
+      "grounded": true,
+      "drift": 0
+    },
+    {
+      "x": 20.3,
+      "z": -34,
+      "y": -25.13499984741211,
+      "grounded": true,
+      "drift": 0
+    },
+    {
+      "x": 0,
+      "z": 30,
+      "y": -25.13499984741211,
+      "grounded": true,
+      "drift": 0
+    },
+    {
+      "x": 48,
+      "z": -150,
+      "y": -25.13499984741211,
+      "grounded": true,
+      "drift": 0
+    },
+    {
+      "x": 63,
+      "z": 0,
+      "y": -25.120000457763673,
+      "grounded": true,
+      "drift": 0
+    }
+  ],
+  "wall": {
+    "frames": 14,
+    "duration": 0.7000000000000001,
+    "distance": 4.145016157616683
+  },
+  "errors": []
+}

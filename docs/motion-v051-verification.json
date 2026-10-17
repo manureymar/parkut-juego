@@ -1,0 +1,30 @@
+[
+  {
+    "mode": "monkey",
+    "maxHandPerFrame": 0.08989936750234483,
+    "maxElbowPerFrame": 0.08843659222746468,
+    "maxFootPerFrame": 0.04712272935549851,
+    "maxHandError": 1.0719416086484046e-7
+  },
+  {
+    "mode": "net",
+    "maxHandPerFrame": 0.06229851491977295,
+    "maxElbowPerFrame": 0.05368056112767217,
+    "maxFootPerFrame": 0.06511482313977797,
+    "maxHandError": 6.729748494704524e-8
+  },
+  {
+    "mode": "ledge",
+    "maxHandPerFrame": 0.06134648922954435,
+    "maxElbowPerFrame": 0.06796734367597015,
+    "maxFootPerFrame": 0.05197092493165161,
+    "maxHandError": 4.768783987748569e-8
+  },
+  {
+    "mode": "pole",
+    "maxHandPerFrame": 0.016666666666668384,
+    "maxElbowPerFrame": 0.01666666666667016,
+    "maxFootPerFrame": 0.016666666694026333,
+    "maxHandError": 1.9694326520569203e-8
+  }
+]

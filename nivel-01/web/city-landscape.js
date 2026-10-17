@@ -24,6 +24,8 @@ export async function createLandscape(group,streetY,lots){
  // A continuous opaque foundation closes every gap, including the spaces
  // between authored street modules. It receives fog instead of becoming transparent.
  plane(0,-80,1200,1200,streetY-.31,pavement,5);
+ plane(0,-75,46,620,top,pavement,5);
+ for(const side of [-1,1]){const branchZ=-69-side*8.18;for(const [a,b] of [[-385,branchZ-10],[branchZ+10,235]])plane(side*319.5,(a+b)/2,561,b-a,top,pavement,5);}
  const strips=[];
  for(const side of [-1,1]){
   const inner=side*19.1;plane(inner,-75,8.5,620,top,pavement);box(side*23.25,streetY-.3,-75,.24,.64,620);
@@ -42,8 +44,8 @@ export async function createLandscape(group,streetY,lots){
  }
  // Ground around distant towers is filled with grass and paved connections.
  for(const [i,lot] of lots.entries()){
-  plane(lot.x,lot.z,lot.w+5,lot.d+6,streetY+.035,garden,4);
-  plane(lot.x,lot.z+lot.d/2+4,lot.w+8,2.2,streetY+.05,pavement);
+  plane(lot.x,lot.z,lot.w+5,lot.d+6,top+.015,garden,4);
+  plane(lot.x,lot.z+lot.d/2+4,lot.w+8,2.2,top+.02,pavement);
   if(i%2===0)trees.push({x:lot.x-lot.w/2-1.3,z:lot.z+lot.d/2+1,h:5.1+i%3*.4});
  }
  // A small civic garden behind the first rooftop, visible when orbiting the camera.
@@ -73,19 +75,19 @@ export async function createLandscape(group,streetY,lots){
   box(x,top,z+2.1,.42,.72,.42,metal);benches++;
  }
  const walkMeshes=[];
- for(const [material,geometries] of batches){const mesh=new T.Mesh(mergeGeometries(geometries),material);mesh.name=material===garden?'Jardines planos':'Suelo urbano continuo';mesh.receiveShadow=true;group.add(mesh);if(material===pavement)walkMeshes.push(mesh);for(const geometry of geometries)geometry.dispose();}
+ for(const [material,geometries] of batches){const mesh=new T.Mesh(mergeGeometries(geometries),material);mesh.name=material===garden?'Jardines planos':'Suelo urbano continuo';mesh.receiveShadow=true;group.add(mesh);walkMeshes.push(mesh);for(const geometry of geometries)geometry.dispose();}
  const treeGeometry=new T.PlaneGeometry(2/3,1);treeGeometry.translate(0,.5,0);
  const treeMaterial=new T.MeshStandardMaterial({map:tree,alphaTest:.44,side:T.DoubleSide,roughness:1,envMapIntensity:.3});
  const foliage=new T.InstancedMesh(treeGeometry,treeMaterial,trees.length);foliage.name='Árboles con imágenes 2D';foliage.instanceMatrix.setUsage(T.DynamicDrawUsage);foliage.frustumCulled=false;group.add(foliage);
  const shadowGeometry=new T.CircleGeometry(1,16);shadowGeometry.rotateX(-Math.PI/2);
  const shadows=new T.InstancedMesh(shadowGeometry,new T.MeshBasicMaterial({color:0x263a2c,transparent:true,opacity:.15,depthWrite:false}),trees.length);group.add(shadows);
  const matrix=new T.Matrix4(),position=new T.Vector3(),quaternion=new T.Quaternion(),scale=new T.Vector3(),up=new T.Vector3(0,1,0);
- trees.forEach((item,i)=>{position.set(item.x,(Math.abs(item.x)>53?streetY+.04:top)+.03,item.z);quaternion.identity();scale.set(item.h*.27,1,item.h*.24);matrix.compose(position,quaternion,scale);shadows.setMatrixAt(i,matrix);});
+ trees.forEach((item,i)=>{position.set(item.x,(Math.abs(item.x)>53?top:top)+.03,item.z);quaternion.identity();scale.set(item.h*.27,1,item.h*.24);matrix.compose(position,quaternion,scale);shadows.setMatrixAt(i,matrix);});
  const routes=[];for(const cx of [-20.3,20.3,-43.1,43.1])for(const [a,b] of [[-165,-93],[-46,14]])routes.push(makeRoute(routes.length,cx,a,b));
  const update=(dt,anchor,camera)=>{
   waterUniform.value+=dt;
   for(const [i,item] of trees.entries()){
-   const distance=Math.hypot(item.x-anchor.x,item.z-anchor.z),size=distance<240?item.h:0;position.set(item.x,Math.abs(item.x)>53?streetY+.04:top,item.z);
+   const distance=Math.hypot(item.x-anchor.x,item.z-anchor.z),size=distance<240?item.h:0;position.set(item.x,Math.abs(item.x)>53?top:top,item.z);
    quaternion.setFromAxisAngle(up,Math.atan2((camera?.position.x??anchor.x)-item.x,(camera?.position.z??anchor.z)-item.z));scale.setScalar(size);matrix.compose(position,quaternion,scale);foliage.setMatrixAt(i,matrix);
   }
   foliage.instanceMatrix.needsUpdate=true;
