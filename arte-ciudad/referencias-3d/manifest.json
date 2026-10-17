@@ -1,0 +1,86 @@
+[
+  {
+    "repo_path": "arte-ciudad/referencias-3d/01-red-calles.png",
+    "label": "Red de calles",
+    "size": 2271686,
+    "resolution": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "sha256": "eb9996aa603881c7aaa4d7cb72380050348da117372c13c40e5518d3af001705",
+    "git_sha": "2d386e7c6ba4fb9036b8039ed11a8fdec1e36386"
+  },
+  {
+    "repo_path": "arte-ciudad/referencias-3d/02-auto-compacto-rojo.png",
+    "label": "Compacto rojo",
+    "size": 1964770,
+    "resolution": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "add21301c95fd9dfc62609f72bc6d6df4bd2be467c198313fc5063c75d74e931",
+    "git_sha": "9d0f7ce8fc2f79d347a37e8540c2c143fc58a8a4"
+  },
+  {
+    "repo_path": "arte-ciudad/referencias-3d/03-auto-sedan-plata.png",
+    "label": "Sedán plateado",
+    "size": 1930245,
+    "resolution": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "d692232b4f3542872303a938d0e6c3e4e0b25ee39022226fa5a99feadb23dc30",
+    "git_sha": "01fc913ca078a86f887802bd108b6b3d989480da"
+  },
+  {
+    "repo_path": "arte-ciudad/referencias-3d/04-auto-suv-verde.png",
+    "label": "SUV verde",
+    "size": 2002863,
+    "resolution": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "0bc73ce1e850cdfb403549ee924f1c73687449f525f04a1ae0ed5d792999d358",
+    "git_sha": "ea425363c4b27bf5b3772cd9a8dc70702bd02c0c"
+  },
+  {
+    "repo_path": "arte-ciudad/referencias-3d/05-auto-taxi-amarillo.png",
+    "label": "Taxi amarillo",
+    "size": 1900876,
+    "resolution": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "e865ecfd515935915dea8d2d84d2081c1a792e1ac8ac1387fd7713e4f2ce8478",
+    "git_sha": "623e116b0399492fc685e0f4f557ffe7d669a8dc"
+  },
+  {
+    "repo_path": "arte-ciudad/referencias-3d/06-auto-furgoneta-blanca.png",
+    "label": "Furgoneta blanca",
+    "size": 1862502,
+    "resolution": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "f400599cd1a2ef8a16570ddbfdce9d21c3487daad2a8c5e1eee7ae14488e7260",
+    "git_sha": "bf12d321ac13e024172b09b76c0c9a81fb6ab4a7"
+  },
+  {
+    "repo_path": "arte-ciudad/referencias-3d/07-auto-pickup-azul.png",
+    "label": "Pickup azul",
+    "size": 1834402,
+    "resolution": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "c7482769553ba9750c1ffe87b6b20ad64c51185b436a21e9c36dccc6065632c1",
+    "git_sha": "a47cfeed9f9c8e83527c482ee22917aaea6db51c"
+  }
+]
