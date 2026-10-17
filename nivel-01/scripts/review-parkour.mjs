@@ -1,0 +1,10 @@
+import {chromium} from 'playwright';import fs from 'node:fs/promises';import sharp from 'sharp';import {startServer} from './server.mjs';
+await fs.mkdir('test-results/parkour',{recursive:true});const server=await startServer(8091),browser=await chromium.launch({headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+try{const page=await browser.newPage({viewport:{width:480,height:480}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('http://127.0.0.1:8091/parkour-lab.html');await page.waitForFunction(()=>window.ready);
+const objects=['barrier','monkey-bars','platform','rope-net','walkway','pole','pipe-rail','ramp'],images=[],audit=[];
+for(const [i,id] of objects.entries()){const meta=await page.evaluate(id=>lab.load(id),id);audit.push({id,...meta});for(const [j,angle] of [.6,2.1].entries()){await page.evaluate(a=>lab.angle(a),angle);images.push({input:await sharp(await page.screenshot()).resize(300,300).toBuffer(),left:j*300+(i%2)*600,top:Math.floor(i/2)*300});}}
+await sharp({create:{width:1200,height:1200,channels:3,background:'#b3c4ca'}}).composite(images).jpeg({quality:88}).toFile('test-results/parkour/objects.jpg');
+const model=await page.evaluate(()=>lab.load('runner-traversal',true)),poses=[],frames=[];
+for(const [row,name] of ['pole_slide','ledge_shimmy','monkey_bar','ledge_grab','jump'].entries())for(const [col,time] of [.3,1.4,2.5,3.6,4.6].entries()){const bones=await page.evaluate(({name,time})=>lab.pose(name,time),{name,time});poses.push({name,time,bones});frames.push({input:await sharp(await page.screenshot()).resize(240,240).toBuffer(),left:col*240,top:row*240});}
+await sharp({create:{width:1200,height:1200,channels:3,background:'#b3c4ca'}}).composite(frames).jpeg({quality:90}).toFile('test-results/parkour/animations.jpg');await fs.writeFile('docs/parkour-visual-audit.json',JSON.stringify({objects:audit,model,poses,errors},null,2));console.log(JSON.stringify({objects:8,poses:poses.length,errors}));
+}finally{await browser.close();server.close();}

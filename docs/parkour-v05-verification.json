@@ -1,0 +1,1985 @@
+{
+  "version": "0.5.0",
+  "zoneTests": [
+    {
+      "id": "sky-bars",
+      "attached": true,
+      "hold": true,
+      "start": [
+        -2.46,
+        0.6507227514802751,
+        -8.540000000000001
+      ],
+      "landing": [
+        6.045,
+        0.6507227514802751,
+        -16.445
+      ],
+      "grounded": true,
+      "distanceToEnd": 0.025000001490116164
+    },
+    {
+      "id": "promenade-pole",
+      "attached": true,
+      "hold": true,
+      "start": [
+        17,
+        2.625000001490116,
+        -22.43
+      ],
+      "landing": [
+        18.7,
+        -25.13499984741211,
+        -22.43
+      ],
+      "grounded": true,
+      "distanceToEnd": 0.025000152587889346
+    },
+    {
+      "id": "return-net",
+      "attached": true,
+      "hold": true,
+      "start": [
+        18.6,
+        -25.13499984741211,
+        -45.42999999999999
+      ],
+      "landing": [
+        15.8,
+        2.725000381469726,
+        -45.42999999999999
+      ],
+      "grounded": true,
+      "distanceToEnd": 0.02500038146972594
+    },
+    {
+      "id": "return-pole",
+      "attached": true,
+      "hold": true,
+      "start": [
+        17.2,
+        2.725000001490116,
+        -48.82999999999999
+      ],
+      "landing": [
+        19,
+        -25.13499984741211,
+        -48.82999999999999
+      ],
+      "grounded": true,
+      "distanceToEnd": 0.025000152587889346
+    }
+  ],
+  "grips": [
+    {
+      "id": "sky-bars",
+      "phase": 0,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0005895046388493718,
+          "reach": 0.46584565666924627,
+          "distance": 0.23864412596422677
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0012423342697110186,
+          "reach": 0.4512158071536537,
+          "distance": 0.2584265491084558
+        }
+      ]
+    },
+    {
+      "id": "sky-bars",
+      "phase": 1,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.005032722502323669,
+          "reach": 0.4658457561076279,
+          "distance": 0.2420811377232332
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.004210245286463991,
+          "reach": 0.45121595640145484,
+          "distance": 0.11973383789488937
+        }
+      ]
+    },
+    {
+      "id": "sky-bars",
+      "phase": 2,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0032474675374931663,
+          "reach": 0.46584571511521167,
+          "distance": 0.3291736750198927
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.004740224237885995,
+          "reach": 0.451215949921436,
+          "distance": 0.2594681620139759
+        }
+      ]
+    },
+    {
+      "id": "sky-bars",
+      "phase": 3,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.006683305830951787,
+          "reach": 0.46584573299735976,
+          "distance": 0.4227657691672737
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.00383850522650003,
+          "reach": 0.45121593147395556,
+          "distance": 0.290454509337485
+        }
+      ]
+    },
+    {
+      "id": "sky-bars",
+      "phase": 4,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.006994296815321637,
+          "reach": 0.4658456958137993,
+          "distance": 0.34732327013062875
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.002012617993098157,
+          "reach": 0.4512159264641535,
+          "distance": 0.2853964114916622
+        }
+      ]
+    },
+    {
+      "id": "sky-bars",
+      "phase": 5,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0024172732188130846,
+          "reach": 0.46584572802886576,
+          "distance": 0.24698415295753828
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0013874945085335232,
+          "reach": 0.45121592214325823,
+          "distance": 0.25682366730850825
+        }
+      ]
+    },
+    {
+      "id": "sky-bars",
+      "phase": 6,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0023918655618909842,
+          "reach": 0.4658457931196912,
+          "distance": 0.10039862717936132
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.001241706849609127,
+          "reach": 0.4512158920388576,
+          "distance": 0.25790866074863983
+        }
+      ]
+    },
+    {
+      "id": "sky-bars",
+      "phase": 7,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0027958844165891492,
+          "reach": 0.4658457195447398,
+          "distance": 0.26569916431908125
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.006392151167667162,
+          "reach": 0.45121596856188817,
+          "distance": 0.2512267423775435
+        }
+      ]
+    },
+    {
+      "id": "sky-bars",
+      "phase": 8,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.002590156807223002,
+          "reach": 0.46584572724643913,
+          "distance": 0.2774904271073371
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.004476750553401969,
+          "reach": 0.4512158947799131,
+          "distance": 0.337897173370662
+        }
+      ]
+    },
+    {
+      "id": "sky-bars",
+      "phase": 9,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0017433783115658457,
+          "reach": 0.4658457760151781,
+          "distance": 0.25956269055262304
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.003645946458798331,
+          "reach": 0.4512158933707435,
+          "distance": 0.33246534756669144
+        }
+      ]
+    },
+    {
+      "id": "sky-bars",
+      "phase": 10,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.003042170299157656,
+          "reach": 0.4658457088408348,
+          "distance": 0.21224997022145792
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0009337661355734429,
+          "reach": 0.4512158721643802,
+          "distance": 0.2084171918780878
+        }
+      ]
+    },
+    {
+      "id": "sky-bars",
+      "phase": 11,
+      "errors": []
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 0,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.004440502291002279,
+          "reach": 0.4658457832177959,
+          "distance": 0.27797011052634285
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0074063413571747345,
+          "reach": 0.8231108581889128,
+          "distance": 0.45272416207558075
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0041182722744433145,
+          "reach": 0.4512157316055282,
+          "distance": 0.33298303684370556
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.007512328512478647,
+          "reach": 0.8219341572967929,
+          "distance": 0.5528598113066752
+        }
+      ]
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 1,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0021156889415859725,
+          "reach": 0.4658459073800766,
+          "distance": 0.2741113037998859
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0019456252477693654,
+          "reach": 0.8231104285831847,
+          "distance": 0.43720333076537365
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.007079688386003433,
+          "reach": 0.4512158169040608,
+          "distance": 0.33895727145197685
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0035503565265865107,
+          "reach": 0.8219338767773741,
+          "distance": 0.5411190642219722
+        }
+      ]
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 2,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.00330904149754111,
+          "reach": 0.4658459381570391,
+          "distance": 0.27106121554030843
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.00183024739374897,
+          "reach": 0.823110249883531,
+          "distance": 0.4369400717330038
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.006019873962383582,
+          "reach": 0.45121584761634503,
+          "distance": 0.3415765987637223
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0036408784748343448,
+          "reach": 0.8219338157945821,
+          "distance": 0.5395512043875963
+        }
+      ]
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 3,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0033006682351021254,
+          "reach": 0.46584592234695976,
+          "distance": 0.2717561570842939
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.001839116089255414,
+          "reach": 0.8231102192794926,
+          "distance": 0.43702921942121453
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.005998204057112386,
+          "reach": 0.45121580338315914,
+          "distance": 0.341047919279266
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.003643990453654447,
+          "reach": 0.8219337862145255,
+          "distance": 0.5396692724992214
+        }
+      ]
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 4,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0032533654009455665,
+          "reach": 0.4658459284689675,
+          "distance": 0.27469378612724843
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0018904633566347669,
+          "reach": 0.8231102232031846,
+          "distance": 0.43762232394936007
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0059076618045773455,
+          "reach": 0.45121580788768134,
+          "distance": 0.33857279368024434
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0037007881595800263,
+          "reach": 0.8219337966250251,
+          "distance": 0.5409104792856955
+        }
+      ]
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 5,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.003264448692106634,
+          "reach": 0.46584592838519123,
+          "distance": 0.27579824681304393
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.001922144543089932,
+          "reach": 0.8231102005991225,
+          "distance": 0.43814017785075376
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.005854545168093924,
+          "reach": 0.4512158119395412,
+          "distance": 0.33745570453059087
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.003764241649538875,
+          "reach": 0.8219337996290534,
+          "distance": 0.5420014049365924
+        }
+      ]
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 6,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.003263036328465926,
+          "reach": 0.46584592811290226,
+          "distance": 0.27401140447590444
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0018746764038226284,
+          "reach": 0.8231102445614069,
+          "distance": 0.4374011206689924
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.005929492587558112,
+          "reach": 0.451215831551961,
+          "distance": 0.339194208528846
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.003676139986320789,
+          "reach": 0.8219338058976768,
+          "distance": 0.5404394265552854
+        }
+      ]
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 7,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0033064742440831046,
+          "reach": 0.4658459276183824,
+          "distance": 0.27128347270785663
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0018331015698593266,
+          "reach": 0.8231102373192268,
+          "distance": 0.4369686576510515
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.006013036849969092,
+          "reach": 0.45121582989059805,
+          "distance": 0.34140762976296923
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0036418764165264987,
+          "reach": 0.8219338040871565,
+          "distance": 0.5395889091894593
+        }
+      ]
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 8,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.003304901546556239,
+          "reach": 0.46584592360268207,
+          "distance": 0.27141499213723425
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.001834782626211814,
+          "reach": 0.8231102311174516,
+          "distance": 0.43698554012040136
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.006008949490680633,
+          "reach": 0.4512158209881373,
+          "distance": 0.34130759282448253
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0036424657650477327,
+          "reach": 0.8219337981578817,
+          "distance": 0.5396112455103828
+        }
+      ]
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 9,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0032600405750494213,
+          "reach": 0.46584592216258147,
+          "distance": 0.2742344798220082
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0018798752901476325,
+          "reach": 0.8231102317303919,
+          "distance": 0.4374735915718625
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0059225052677270296,
+          "reach": 0.4512158187198254,
+          "distance": 0.3389913336272956
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.003684186614804638,
+          "reach": 0.8219337981943835,
+          "distance": 0.5405933380369489
+        }
+      ]
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 10,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0032648615251271752,
+          "reach": 0.46584592921549706,
+          "distance": 0.2758169279995707
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0019227314482318115,
+          "reach": 0.8231102007900357,
+          "distance": 0.4381502678782725
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.005853491423838144,
+          "reach": 0.4512158126639023,
+          "distance": 0.3374358633312533
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0037655198726752066,
+          "reach": 0.8219338001978461,
+          "distance": 0.542022645490794
+        }
+      ]
+    },
+    {
+      "id": "promenade-pole",
+      "phase": 11,
+      "errors": []
+    },
+    {
+      "id": "return-net",
+      "phase": 0,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.004086174163524479,
+          "reach": 0.46584584044406896,
+          "distance": 0.2694909725771401
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.007883264176851082,
+          "reach": 0.8231116040605845,
+          "distance": 0.5160930858795261
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0025571989924946244,
+          "reach": 0.45121576690403387,
+          "distance": 0.28176239057730756
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.007588315760983129,
+          "reach": 0.82193459021565,
+          "distance": 0.5169079734429897
+        }
+      ]
+    },
+    {
+      "id": "return-net",
+      "phase": 1,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0028440978964383652,
+          "reach": 0.46584601331722053,
+          "distance": 0.31397017377881054
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0013342161422794053,
+          "reach": 0.8231114104388011,
+          "distance": 0.28404443146287217
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.00756483338761626,
+          "reach": 0.45121585732583713,
+          "distance": 0.34848031445378047
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.006490144976070901,
+          "reach": 0.8219345443704105,
+          "distance": 0.6324873052100054
+        }
+      ]
+    },
+    {
+      "id": "return-net",
+      "phase": 2,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.004681323550502602,
+          "reach": 0.46584595926606687,
+          "distance": 0.2832514504646459
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0025684230103428015,
+          "reach": 0.8231118647856217,
+          "distance": 0.3462532112994961
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.00519075104197235,
+          "reach": 0.4512158958601474,
+          "distance": 0.37586119009067853
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.007192631318563976,
+          "reach": 0.8219343169016136,
+          "distance": 0.6726793540635865
+        }
+      ]
+    },
+    {
+      "id": "return-net",
+      "phase": 3,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0025515601052413964,
+          "reach": 0.4658460028790261,
+          "distance": 0.2910960693987772
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.004721638416230749,
+          "reach": 0.8231112473265247,
+          "distance": 0.44689101315133967
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.007475556390434025,
+          "reach": 0.4512158441907445,
+          "distance": 0.41599320558326625
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.010525284736128371,
+          "reach": 0.8219334310812543,
+          "distance": 0.8214628073611657
+        }
+      ]
+    },
+    {
+      "id": "return-net",
+      "phase": 4,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.007415314282783443,
+          "reach": 0.4658460489490649,
+          "distance": 0.24970214638252486
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.002788701100860825,
+          "reach": 0.8231133328818314,
+          "distance": 0.5122719154680053
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0004425256715001567,
+          "reach": 0.45121585314282414,
+          "distance": 0.2965186300317031
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0032877512438553302,
+          "reach": 0.821934041473662,
+          "distance": 0.4792475907592169
+        }
+      ]
+    },
+    {
+      "id": "return-net",
+      "phase": 5,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.004162007311460435,
+          "reach": 0.46584606041515775,
+          "distance": 0.32069298875873353
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.001309753796359101,
+          "reach": 0.8231111822309387,
+          "distance": 0.316031602642466
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.004501009612027259,
+          "reach": 0.45121587641569527,
+          "distance": 0.3306429218462303
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.007968610068316914,
+          "reach": 0.8219356606149448,
+          "distance": 0.6685988018361815
+        }
+      ]
+    },
+    {
+      "id": "return-net",
+      "phase": 6,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.004386660217337046,
+          "reach": 0.46584603305567085,
+          "distance": 0.2791865885608503
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0022162376421570673,
+          "reach": 0.8231175846047035,
+          "distance": 0.36459205246984655
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.007244504966461942,
+          "reach": 0.45121586148193904,
+          "distance": 0.37394935839973414
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.005947865819638048,
+          "reach": 0.8219341197666405,
+          "distance": 0.6687204178071804
+        }
+      ]
+    },
+    {
+      "id": "return-net",
+      "phase": 7,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.003993088757895369,
+          "reach": 0.4658460243183826,
+          "distance": 0.252920823948936
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.00454270434319951,
+          "reach": 0.8231114819799623,
+          "distance": 0.49186942259983896
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0025576093168497185,
+          "reach": 0.4512158565207084,
+          "distance": 0.2949356924421788
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.004398088019594917,
+          "reach": 0.8219341354947073,
+          "distance": 0.4771223084417882
+        }
+      ]
+    },
+    {
+      "id": "return-net",
+      "phase": 8,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.003346576050690688,
+          "reach": 0.4658460083564111,
+          "distance": 0.29644734300572634
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.006208328696441533,
+          "reach": 0.8231112728253206,
+          "distance": 0.5142379900757192
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0074629125835582915,
+          "reach": 0.451215842527537,
+          "distance": 0.42843372356827847
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0033227351729453636,
+          "reach": 0.8219352905303442,
+          "distance": 0.5376755626619486
+        }
+      ]
+    },
+    {
+      "id": "return-net",
+      "phase": 9,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.003456161757917042,
+          "reach": 0.46584602412304466,
+          "distance": 0.28391612405933464
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0012319164230089044,
+          "reach": 0.8231107166883055,
+          "distance": 0.33648988338253927
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.006103563954797262,
+          "reach": 0.4512159059377405,
+          "distance": 0.3703953858813646
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0005845772528550085,
+          "reach": 0.8219342866812496,
+          "distance": 0.640927822020627
+        }
+      ]
+    },
+    {
+      "id": "return-net",
+      "phase": 10,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.005583272914677109,
+          "reach": 0.4658460346272235,
+          "distance": 0.32981776300000876
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.006441661319521787,
+          "reach": 0.8231111712121275,
+          "distance": 0.3579805854001938
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.004194582242952446,
+          "reach": 0.4512158592797244,
+          "distance": 0.3251795822987989
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.00695775698114597,
+          "reach": 0.8219341237457216,
+          "distance": 0.7260345543824354
+        }
+      ]
+    },
+    {
+      "id": "return-net",
+      "phase": 11,
+      "errors": []
+    },
+    {
+      "id": "return-pole",
+      "phase": 0,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.004440500680732391,
+          "reach": 0.465845783217817,
+          "distance": 0.2779701099813315
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.007406342196756698,
+          "reach": 0.8231108581888138,
+          "distance": 0.4527241572135364
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.004118272108450097,
+          "reach": 0.45121573160553313,
+          "distance": 0.3329830378241061
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.00751232922870848,
+          "reach": 0.8219341572967356,
+          "distance": 0.5528598079448596
+        }
+      ]
+    },
+    {
+      "id": "return-pole",
+      "phase": 1,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0021156903485701505,
+          "reach": 0.46584590738010556,
+          "distance": 0.27411130310955556
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0019456252008967759,
+          "reach": 0.8231104285829969,
+          "distance": 0.43720333015596746
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.007079687156062059,
+          "reach": 0.45121581690407897,
+          "distance": 0.3389572722965041
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.00355035665405573,
+          "reach": 0.8219338767772909,
+          "distance": 0.5411190628303808
+        }
+      ]
+    },
+    {
+      "id": "return-pole",
+      "phase": 2,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0033090414975399623,
+          "reach": 0.46584593815704045,
+          "distance": 0.27106121554031215
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.001830247393750418,
+          "reach": 0.8231102498835311,
+          "distance": 0.43694007173300603
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0060198739623856645,
+          "reach": 0.45121584761634403,
+          "distance": 0.34157659876372043
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0036408784748370045,
+          "reach": 0.8219338157945847,
+          "distance": 0.5395512043875963
+        }
+      ]
+    },
+    {
+      "id": "return-pole",
+      "phase": 3,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0033006682351009457,
+          "reach": 0.4658459223469563,
+          "distance": 0.27175615708429207
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.001839116089254887,
+          "reach": 0.8231102192794915,
+          "distance": 0.4370292194212136
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.005998204057112386,
+          "reach": 0.45121580338315814,
+          "distance": 0.34104791927926303
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0036439904536565617,
+          "reach": 0.8219337862145262,
+          "distance": 0.5396692724992214
+        }
+      ]
+    },
+    {
+      "id": "return-pole",
+      "phase": 4,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0032533654009534803,
+          "reach": 0.46584592846897166,
+          "distance": 0.27469378612724954
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0018904633566351027,
+          "reach": 0.8231102232031842,
+          "distance": 0.43762232394936074
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.0059076618045773455,
+          "reach": 0.45121580788768123,
+          "distance": 0.3385727936802459
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0037007881595835595,
+          "reach": 0.8219337966250271,
+          "distance": 0.5409104792856968
+        }
+      ]
+    },
+    {
+      "id": "return-pole",
+      "phase": 5,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.003264448692101754,
+          "reach": 0.46584592838518685,
+          "distance": 0.27579824681304577
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0019221445430912581,
+          "reach": 0.8231102005991183,
+          "distance": 0.4381401778507558
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.00585454516808893,
+          "reach": 0.45121581193954136,
+          "distance": 0.33745570453058704
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0037642416495370806,
+          "reach": 0.8219337996290512,
+          "distance": 0.5420014049365942
+        }
+      ]
+    },
+    {
+      "id": "return-pole",
+      "phase": 6,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0032630363284628567,
+          "reach": 0.46584592811289793,
+          "distance": 0.2740114044759044
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0018746764038226284,
+          "reach": 0.8231102445614036,
+          "distance": 0.43740112066899384
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.00592949258756341,
+          "reach": 0.4512158315519578,
+          "distance": 0.3391942085288482
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.003676139986322556,
+          "reach": 0.8219338058976766,
+          "distance": 0.5404394265552869
+        }
+      ]
+    },
+    {
+      "id": "return-pole",
+      "phase": 7,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0033064742440831046,
+          "reach": 0.46584592761838706,
+          "distance": 0.27128347270785785
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0018331015698610836,
+          "reach": 0.8231102373192289,
+          "distance": 0.4369686576510466
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.00601303684996761,
+          "reach": 0.45121582989060094,
+          "distance": 0.3414076297629766
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0036418764165226285,
+          "reach": 0.8219338040871585,
+          "distance": 0.5395889091894558
+        }
+      ]
+    },
+    {
+      "id": "return-pole",
+      "phase": 8,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0033049015465531416,
+          "reach": 0.4658459236026812,
+          "distance": 0.271414992137233
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0018347826262121263,
+          "reach": 0.8231102311174556,
+          "distance": 0.4369855401204046
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.006008949490680509,
+          "reach": 0.4512158209881385,
+          "distance": 0.34130759282447665
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0036424657650477375,
+          "reach": 0.8219337981578827,
+          "distance": 0.5396112455103863
+        }
+      ]
+    },
+    {
+      "id": "return-pole",
+      "phase": 9,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0032600405750451335,
+          "reach": 0.46584592216257925,
+          "distance": 0.27423447982200455
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0018798752901437873,
+          "reach": 0.8231102317303918,
+          "distance": 0.43747359157186155
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.005922505267730027,
+          "reach": 0.45121581871982197,
+          "distance": 0.3389913336272956
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0036841866148046715,
+          "reach": 0.8219337981943851,
+          "distance": 0.5405933380369489
+        }
+      ]
+    },
+    {
+      "id": "return-pole",
+      "phase": 10,
+      "errors": [
+        {
+          "bone": "mixamorigLeftHand",
+          "error": 0.0032648615251271752,
+          "reach": 0.46584592921549794,
+          "distance": 0.2758169279995707
+        },
+        {
+          "bone": "mixamorigLeftFoot",
+          "error": 0.0019227314482240232,
+          "reach": 0.8231102007900392,
+          "distance": 0.4381502678782718
+        },
+        {
+          "bone": "mixamorigRightHand",
+          "error": 0.005853491423842539,
+          "reach": 0.4512158126638982,
+          "distance": 0.3374358633312533
+        },
+        {
+          "bone": "mixamorigRightFoot",
+          "error": 0.0037655198726748193,
+          "reach": 0.8219338001978456,
+          "distance": 0.542022645490794
+        }
+      ]
+    },
+    {
+      "id": "return-pole",
+      "phase": 11,
+      "errors": []
+    }
+  ],
+  "street": [
+    {
+      "x": 20.3,
+      "z": -32,
+      "y": -25.13499984741211,
+      "grounded": true,
+      "drift": 0
+    },
+    {
+      "x": 20.3,
+      "z": -40,
+      "y": -25.13499984741211,
+      "grounded": true,
+      "drift": 0
+    },
+    {
+      "x": -20.3,
+      "z": 0,
+      "y": -25.13499984741211,
+      "grounded": true,
+      "drift": 0
+    },
+    {
+      "x": 43.1,
+      "z": -120,
+      "y": -25.13499984741211,
+      "grounded": true,
+      "drift": 0
+    }
+  ],
+  "jumps": [
+    {
+      "type": "normal",
+      "animation": "jump",
+      "height": 2.388333333333332
+    },
+    {
+      "type": "flip",
+      "action": "flip",
+      "progress": 0.42105263157894784
+    },
+    {
+      "type": "land",
+      "grounded": true,
+      "animation": "jump"
+    }
+  ],
+  "errors": [],
+  "ledge": {
+    "caught": "ledge",
+    "initial": [
+      -0.5205639520912032,
+      1.834734346559009,
+      -107.19641475967042
+    ],
+    "shimmy": [
+      -0.6124017736140621,
+      1.8401563644466394,
+      -107.95883704152685
+    ],
+    "action": "ledge",
+    "ik": [
+      {
+        "bone": "mixamorigLeftHand",
+        "error": 0.007842957759253363,
+        "reach": 0.4658458711701382,
+        "distance": 0.4604809918903695
+      },
+      {
+        "bone": "mixamorigRightHand",
+        "error": 0.015794408986893438,
+        "reach": 0.45121591209132317,
+        "distance": 0.46563975657987033
+      }
+    ],
+    "drop": {
+      "position": [
+        -1.6872225582922273,
+        0.8288608231845268,
+        -114.44590082709392
+      ],
+      "grounded": true
+    }
+  },
+  "wall": {
+    "action": "wall",
+    "position": [
+      -0.3417218244908861,
+      2.018575226062603,
+      -136.34788808609682
+    ],
+    "dismount": "flip",
+    "landing": {
+      "position": [
+        7.436016758796895,
+        2.9972940549482083,
+        -149.8286060116921
+      ],
+      "grounded": true
+    }
+  },
+  "final": {
+    "version": "0.5.0",
+    "loaded": true,
+    "errors": [],
+    "assets": [
+      "roof-01",
+      "roof-06",
+      "roof-02",
+      "roof-03",
+      "roof-07",
+      "roof-04",
+      "roof-05"
+    ],
+    "fps": 0,
+    "animations": [
+      {
+        "name": "dive",
+        "duration": 2.7083332538604736
+      },
+      {
+        "name": "walk",
+        "duration": 2.3333332538604736
+      },
+      {
+        "name": "climb",
+        "duration": 3.4583332538604736
+      },
+      {
+        "name": "run",
+        "duration": 1.25
+      },
+      {
+        "name": "subir escalera",
+        "duration": 4.958333492279053
+      },
+      {
+        "name": "jump_down",
+        "duration": 3.7083332538604736
+      },
+      {
+        "name": "subir escalera recta hacia arriba",
+        "duration": 4.958333492279053
+      },
+      {
+        "name": "idle",
+        "duration": 15.333333015441895
+      },
+      {
+        "name": "jump",
+        "duration": 4.958333492279053
+      },
+      {
+        "name": "pole_slide",
+        "duration": 4.958333492279053
+      },
+      {
+        "name": "ledge_shimmy",
+        "duration": 4.958333492279053
+      },
+      {
+        "name": "monkey_bar",
+        "duration": 4.958333492279053
+      },
+      {
+        "name": "ledge_grab",
+        "duration": 4.958333492279053
+      }
+    ],
+    "bones": 65,
+    "colliderTriangles": 55981,
+    "level": [
+      {
+        "id": "roof-01",
+        "name": "AZOTEA TÉCNICA",
+        "scale": 28,
+        "modelRoof": 0.767,
+        "height": 0,
+        "offsetX": -4,
+        "near": 0.365,
+        "far": -0.365,
+        "path": [
+          [
+            0,
+            0.27
+          ],
+          [
+            -0.035,
+            0.04
+          ],
+          [
+            -0.06,
+            -0.25
+          ],
+          [
+            0.055,
+            -0.33
+          ]
+        ],
+        "z": 0,
+        "y": -21.476,
+        "entryZ": 10.219999999999999,
+        "exitZ": -10.219999999999999,
+        "route": [
+          {
+            "x": -4,
+            "z": 7.5600000000000005
+          },
+          {
+            "x": -4.98,
+            "z": 1.12
+          },
+          {
+            "x": -5.68,
+            "z": -7
+          },
+          {
+            "x": -2.46,
+            "z": -9.24
+          }
+        ]
+      },
+      {
+        "id": "roof-06",
+        "name": "OBRAS EN ALTURA",
+        "scale": 29,
+        "modelRoof": 0.76,
+        "height": 0.6,
+        "offsetX": 3,
+        "near": 0.29,
+        "far": -0.3,
+        "path": [
+          [
+            0.105,
+            0.265
+          ],
+          [
+            0.105,
+            0.12
+          ],
+          [
+            0.1,
+            -0.08
+          ],
+          [
+            0.08,
+            -0.21
+          ],
+          [
+            0.072,
+            -0.275
+          ]
+        ],
+        "z": -23.43,
+        "y": -21.439999999999998,
+        "entryZ": -15.02,
+        "exitZ": -32.129999999999995,
+        "route": [
+          {
+            "x": 6.045,
+            "z": -15.745
+          },
+          {
+            "x": 6.045,
+            "z": -19.95
+          },
+          {
+            "x": 5.9,
+            "z": -25.75
+          },
+          {
+            "x": 5.32,
+            "z": -29.52
+          },
+          {
+            "x": 5.087999999999999,
+            "z": -31.405
+          }
+        ]
+      },
+      {
+        "id": "roof-02",
+        "name": "DISTRITO INDUSTRIAL",
+        "scale": 27,
+        "modelRoof": 0.688,
+        "height": 1.5,
+        "offsetX": 2,
+        "near": 0.4,
+        "far": -0.4,
+        "path": [
+          [
+            0.055,
+            0.35
+          ],
+          [
+            0.08,
+            0.1
+          ],
+          [
+            0.13,
+            -0.18
+          ],
+          [
+            0.13,
+            -0.32
+          ],
+          [
+            0.035,
+            -0.375
+          ]
+        ],
+        "z": -48.92999999999999,
+        "y": -17.075999999999997,
+        "entryZ": -38.129999999999995,
+        "exitZ": -59.72999999999999,
+        "route": [
+          {
+            "x": 3.4850000000000003,
+            "z": -39.47999999999999
+          },
+          {
+            "x": 4.16,
+            "z": -46.22999999999999
+          },
+          {
+            "x": 5.51,
+            "z": -53.78999999999999
+          },
+          {
+            "x": 5.51,
+            "z": -57.56999999999999
+          },
+          {
+            "x": 2.9450000000000003,
+            "z": -59.05499999999999
+          }
+        ]
+      },
+      {
+        "id": "roof-03",
+        "name": "LOS CONTENEDORES",
+        "scale": 28,
+        "modelRoof": 0.326,
+        "height": 0.3,
+        "offsetX": -4,
+        "near": 0.46,
+        "far": -0.45,
+        "path": [
+          [
+            0.05,
+            0.4
+          ],
+          [
+            0.085,
+            0.2
+          ],
+          [
+            -0.1,
+            -0.08
+          ],
+          [
+            0,
+            -0.4
+          ]
+        ],
+        "z": -75.80999999999999,
+        "y": -8.828,
+        "entryZ": -62.929999999999986,
+        "exitZ": -88.40999999999998,
+        "route": [
+          {
+            "x": -2.5999999999999996,
+            "z": -64.60999999999999
+          },
+          {
+            "x": -1.6199999999999997,
+            "z": -70.21
+          },
+          {
+            "x": -6.800000000000001,
+            "z": -78.04999999999998
+          },
+          {
+            "x": -4,
+            "z": -87.00999999999999
+          }
+        ]
+      },
+      {
+        "id": "roof-07",
+        "name": "TERRAZAS",
+        "scale": 30,
+        "modelRoof": 0.516,
+        "height": 1.6,
+        "offsetX": 3,
+        "near": 0.26,
+        "far": -0.26,
+        "path": [
+          [
+            -0.14,
+            0.23
+          ],
+          [
+            -0.14,
+            0.06
+          ],
+          [
+            -0.14,
+            -0.16
+          ],
+          [
+            -0.14,
+            -0.23
+          ]
+        ],
+        "z": -100.20999999999998,
+        "y": -13.88,
+        "entryZ": -92.40999999999998,
+        "exitZ": -108.00999999999998,
+        "route": [
+          {
+            "x": -1.2000000000000002,
+            "z": -93.30999999999997
+          },
+          {
+            "x": -1.2000000000000002,
+            "z": -98.40999999999998
+          },
+          {
+            "x": -1.2000000000000002,
+            "z": -105.00999999999998
+          },
+          {
+            "x": -1.2000000000000002,
+            "z": -107.10999999999999
+          }
+        ]
+      },
+      {
+        "id": "roof-04",
+        "name": "EL PASO ESTRECHO",
+        "scale": 27,
+        "modelRoof": 0.552,
+        "height": 0.8,
+        "offsetX": -2,
+        "near": 0.45,
+        "far": -0.44,
+        "path": [
+          [
+            0,
+            0.38
+          ],
+          [
+            -0.15,
+            0.25
+          ],
+          [
+            -0.15,
+            0.1
+          ],
+          [
+            -0.15,
+            -0.08
+          ],
+          [
+            0,
+            -0.2
+          ],
+          [
+            0,
+            -0.4
+          ]
+        ],
+        "z": -123.65999999999998,
+        "y": -14.104000000000001,
+        "entryZ": -111.50999999999998,
+        "exitZ": -135.54,
+        "route": [
+          {
+            "x": -2,
+            "z": -113.39999999999998
+          },
+          {
+            "x": -6.05,
+            "z": -116.90999999999998
+          },
+          {
+            "x": -6.05,
+            "z": -120.95999999999998
+          },
+          {
+            "x": -6.05,
+            "z": -125.81999999999998
+          },
+          {
+            "x": -2,
+            "z": -129.05999999999997
+          },
+          {
+            "x": -2,
+            "z": -134.45999999999998
+          }
+        ]
+      },
+      {
+        "id": "roof-05",
+        "name": "EL REFUGIO",
+        "scale": 28,
+        "modelRoof": 0.504,
+        "height": 2.2,
+        "offsetX": 2,
+        "near": 0.44,
+        "far": -0.17,
+        "path": [
+          [
+            0,
+            0.38
+          ],
+          [
+            0,
+            0.15
+          ],
+          [
+            0,
+            -0.1
+          ]
+        ],
+        "z": -151.85999999999999,
+        "y": -11.911999999999999,
+        "entryZ": -139.54,
+        "exitZ": -156.61999999999998,
+        "route": [
+          {
+            "x": 2,
+            "z": -141.21999999999997
+          },
+          {
+            "x": 2,
+            "z": -147.66
+          },
+          {
+            "x": 2,
+            "z": -154.66
+          }
+        ]
+      }
+    ],
+    "position": [
+      7.436016758796895,
+      2.9972940549482083,
+      -149.8286060116921
+    ],
+    "grounded": true,
+    "roof": 6,
+    "elapsed": 0,
+    "started": true,
+    "paused": true,
+    "completed": false,
+    "animation": "jump",
+    "animationsUsed": [
+      "idle",
+      "monkey_bar",
+      "climb",
+      "pole_slide",
+      "subir escalera recta hacia arriba",
+      "jump",
+      "ledge_shimmy",
+      "run"
+    ],
+    "action": null,
+    "actionHistory": [
+      "monkey",
+      "pole",
+      "net",
+      "backflip",
+      "ledge_grab",
+      "ledge_shimmy",
+      "jump",
+      "wall_run",
+      "wall_dismount"
+    ],
+    "camera": [
+      7.436016758796895,
+      7.890695875596499,
+      -142.10239713945558
+    ],
+    "orbit": {
+      "yaw": 0,
+      "pitch": 0.43,
+      "distance": 8.5,
+      "targetYaw": 0
+    },
+    "traffic": {
+      "total": 72,
+      "visible": 62,
+      "types": [
+        "traffic-compact",
+        "traffic-taxi",
+        "traffic-pickup",
+        "traffic-van"
+      ],
+      "roadModules": 28,
+      "buildings": 60,
+      "pedestrians": {
+        "total": 28,
+        "visible": 21,
+        "models": 7,
+        "sourceAnimations": 38,
+        "activities": [
+          "look_around",
+          "walk",
+          "standing_relax",
+          "wait",
+          "warm_up",
+          "fold_arms"
+        ]
+      },
+      "landscape": {
+        "continuousGround": true,
+        "sidewalkRise": 0.34,
+        "trees": 60,
+        "benches": 8,
+        "pools": 3,
+        "routes": 8
+      }
+    },
+    "pedestrians": {
+      "total": 28,
+      "visible": 21,
+      "models": 7,
+      "sourceAnimations": 38,
+      "activities": [
+        "look_around",
+        "walk",
+        "standing_relax",
+        "wait",
+        "warm_up",
+        "fold_arms"
+      ]
+    },
+    "landscape": {
+      "continuousGround": true,
+      "sidewalkRise": 0.34,
+      "trees": 60,
+      "benches": 8,
+      "pools": 3,
+      "routes": 8
+    },
+    "ladderIK": [],
+    "checkpoint": [
+      -4,
+      0.06945714095816452,
+      7.5600000000000005
+    ],
+    "checkpointIndex": 1,
+    "course": {
+      "objects": 32,
+      "zones": [
+        {
+          "id": "sky-bars",
+          "type": "monkey"
+        },
+        {
+          "id": "promenade-pole",
+          "type": "pole"
+        },
+        {
+          "id": "return-net",
+          "type": "net"
+        },
+        {
+          "id": "return-pole",
+          "type": "pole"
+        },
+        {
+          "id": "precision-jump",
+          "type": "jump"
+        },
+        {
+          "id": "cornice",
+          "type": "ledge"
+        },
+        {
+          "id": "final-wall",
+          "type": "wall"
+        }
+      ],
+      "checkpoints": 8
+    },
+    "velocity": [
+      3.258377899976267,
+      0,
+      -5.291095748662339
+    ],
+    "render": {
+      "frame": 129,
+      "calls": 68,
+      "triangles": 1555645,
+      "points": 0,
+      "lines": 0
+    }
+  }
+}

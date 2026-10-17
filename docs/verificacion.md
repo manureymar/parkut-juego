@@ -1,4 +1,21 @@
-# Verificación del primer nivel — 0.4.0
+# Verificación del primer nivel — 0.5.0
+
+- Diez GLB originales archivados sin pérdida en GitHub, restaurados y comprobados por SHA-256. Los dos packs del humano son duplicados y contienen cuatro clips; no contienen Parkour Jump.
+- Los ocho objetos nuevos están en el recorrido, con geometría de colisión y copias visuales simplificadas. Se reordenan y desplazan los siete edificios.
+- Prueba del recorrido completo: ocho etapas y meta, usando movimiento, saltos y acciones contextuales sin teletransportes durante el recorrido. Incluye descenso, paseo junto a los peatones y regreso a las azoteas.
+- Barras, dos tubos y red: entrada contextual, pausa al soltar el joystick, avance y salida sobre un suelo válido; separación final de 2,5 cm respecto al apoyo de la cápsula.
+- Cuatro puntos de calle probados en reposo: apoyo estable y deriva vertical cero durante cinco segundos.
+- Salto normal con el clip aprobado, mortal sin apoyar las manos, agarre y desplazamiento por cornisa, caída controlada desde el borde, carrera por pared y salida con mortal comprobados.
+- Revisión final de 160 poses de agarre: error máximo de la mano respecto al objetivo de 0,008 m. Las manos alternan fases de apoyo y avance en barras y cornisas.
+- Sin errores JavaScript durante las pruebas. Vistas de obstáculos, calle, barras, tubo, red, cornisa, pared y mortal inspeccionadas visualmente.
+
+Resultados: [recorrido completo](parkour-route-verification.json), [acciones](parkour-v05-verification.json), [agarres finales](parkour-grip-verification.json), [inventario](parkour-assets-audit.json). Alcance, controles y limitaciones: [cambios 0.5.0](cambios-0.5.0.md).
+
+Las pruebas de juego se hicieron en Chromium con renderizado de software. Falta comprobar esta versión en un teléfono Android físico. La verificación de la APK publicada se añadirá al terminar GitHub Actions.
+
+---
+
+# Historial de verificación — 0.4.0
 
 ## Peatones y ciudad
 

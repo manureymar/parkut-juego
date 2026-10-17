@@ -9,7 +9,9 @@ export class RunnerPhysics {
  ground(x,z,top,maxDistance=100){
   this.ray.origin.set(x,top,z);this.ray.direction.set(0,-1,0);let h=this.world.rayIntersect(this.ray);
   if(!h||h.distance>=maxDistance||h.triangle.getNormal(this.tmp).y<.40)h=null;
-  const s=stairSurface(x,z);if(s&&s.y<=top&&top-s.y<maxDistance&&(!h||Math.abs(h.position.y-s.y)<.55))return {position:new Vector3(x,s.y,z),distance:top-s.y,stairs:true};
+  let s=stairSurface(x,z);
+  for(const r of this.ramps||[]){const dx=r.b.x-r.a.x,dz=r.b.z-r.a.z,l2=dx*dx+dz*dz,t=((x-r.a.x)*dx+(z-r.a.z)*dz)/l2,lateral=Math.abs((x-r.a.x)*dz-(z-r.a.z)*dx)/Math.sqrt(l2);if(t>=0&&t<=1&&lateral<r.width/2)s={y:r.a.y+(r.b.y-r.a.y)*t,r,t};}
+  if(s&&s.y<=top&&top-s.y<maxDistance&&(!h||Math.abs(h.position.y-s.y)<.55))return {position:new Vector3(x,s.y,z),distance:top-s.y,stairs:true};
   return h;
  }
  requestJump(){this.jumpBuffer=.16;}

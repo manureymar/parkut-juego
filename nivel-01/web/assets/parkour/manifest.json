@@ -1,0 +1,154 @@
+[
+  {
+    "id": "barrier",
+    "source": "concrete barrier 3d model.glb",
+    "originalTriangles": 1990024,
+    "triangles": 18000,
+    "bounds": {
+      "min": [
+        -0.4893646538257599,
+        0,
+        -0.3638458251953125
+      ],
+      "max": [
+        0.4893646538257599,
+        0.506591796875,
+        0.3638458251953125
+      ]
+    },
+    "bytes": 1088976
+  },
+  {
+    "id": "monkey-bars",
+    "source": "industrial metal frame 3d model.glb",
+    "originalTriangles": 1948076,
+    "triangles": 18000,
+    "bounds": {
+      "min": [
+        -0.2587890625,
+        0,
+        -0.4902649223804474
+      ],
+      "max": [
+        0.2587890625,
+        0.6454467177391052,
+        0.4902649223804474
+      ]
+    },
+    "bytes": 1004936
+  },
+  {
+    "id": "platform",
+    "source": "industrial platform 3d model.glb",
+    "originalTriangles": 1946576,
+    "triangles": 17998,
+    "bounds": {
+      "min": [
+        -0.4896392822265625,
+        0,
+        -0.12928009033203125
+      ],
+      "max": [
+        0.4896392822265625,
+        0.482421875,
+        0.12928009033203125
+      ]
+    },
+    "bytes": 967940
+  },
+  {
+    "id": "rope-net",
+    "source": "obstacle rope net 3d model.glb",
+    "originalTriangles": 1901284,
+    "triangles": 18770,
+    "bounds": {
+      "min": [
+        -0.4907379150390625,
+        0,
+        -0.313812255859375
+      ],
+      "max": [
+        0.4907379150390625,
+        0.978729248046875,
+        0.313812255859375
+      ]
+    },
+    "bytes": 1200524
+  },
+  {
+    "id": "walkway",
+    "source": "industrial metal walkway 3d model.glb",
+    "originalTriangles": 1948696,
+    "triangles": 17998,
+    "bounds": {
+      "min": [
+        -0.3658905625343323,
+        0,
+        -0.4904784858226776
+      ],
+      "max": [
+        0.3658905625343323,
+        0.2737579345703125,
+        0.4904784858226776
+      ]
+    },
+    "bytes": 897744
+  },
+  {
+    "id": "pole",
+    "source": "metal post 3d model.glb",
+    "originalTriangles": 1520438,
+    "triangles": 17998,
+    "bounds": {
+      "min": [
+        -0.030010242015123367,
+        0,
+        -0.1883087158203125
+      ],
+      "max": [
+        0.030010242015123367,
+        0.979705810546875,
+        0.1883087158203125
+      ]
+    },
+    "bytes": 733000
+  },
+  {
+    "id": "pipe-rail",
+    "source": "industrial pipe railing 3d model.glb",
+    "originalTriangles": 1964427,
+    "triangles": 18000,
+    "bounds": {
+      "min": [
+        -0.48992919921875,
+        0,
+        -0.0739327073097229
+      ],
+      "max": [
+        0.48992919921875,
+        0.4095001220703125,
+        0.0739327073097229
+      ]
+    },
+    "bytes": 982976
+  },
+  {
+    "id": "ramp",
+    "source": "loading ramp 3d model.glb",
+    "originalTriangles": 1948212,
+    "triangles": 18000,
+    "bounds": {
+      "min": [
+        -0.2536010146141052,
+        0,
+        -0.4897308051586151
+      ],
+      "max": [
+        0.2536010146141052,
+        0.386505126953125,
+        0.4897308051586151
+      ]
+    },
+    "bytes": 990708
+  }
+]

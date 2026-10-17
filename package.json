@@ -1,6 +1,6 @@
 {
   "name": "parkut-juego",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Jumping in the City: parkour por azoteas, peatones animados y ciudad offline para Android.",
   "directories": {
     "doc": "docs"
@@ -16,7 +16,9 @@
     "assets:city": "python3 nivel-01/scripts/restore-city-originals.py && node nivel-01/scripts/prepare-city-assets.mjs && node nivel-01/scripts/prepare-city-buildings.mjs",
     "assets:pedestrians": "python3 nivel-01/scripts/restore-pedestrians.py && node nivel-01/scripts/prepare-pedestrians.mjs",
     "test:pedestrians": "node nivel-01/scripts/test-pedestrians.mjs",
-    "test:v04": "node nivel-01/scripts/test-city-v04.mjs"
+    "test:v04": "node nivel-01/scripts/test-city-v04.mjs",
+    "assets:parkour": "python3 nivel-01/scripts/restore-parkour.py && node nivel-01/scripts/prepare-parkour.mjs",
+    "test:v05": "node nivel-01/scripts/test-grips-v05.mjs && node nivel-01/scripts/test-parkour-v05.mjs && node nivel-01/scripts/test-route-v05.mjs"
   },
   "repository": {
     "type": "git",

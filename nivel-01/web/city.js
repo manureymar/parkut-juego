@@ -49,7 +49,8 @@ export async function createCity(scene,loader,level,progress=()=>{}){
  const facadeTexture=await new T.TextureLoader().loadAsync('./assets/environment/facade.webp');facadeTexture.colorSpace=T.SRGBColorSpace;facadeTexture.wrapS=facadeTexture.wrapT=T.RepeatWrapping;facadeTexture.anisotropy=4;
  const facade=new T.MeshStandardMaterial({map:facadeTexture,color:0xe0ddd4,roughness:.86,envMapIntensity:.35});
  const roofMat=new T.MeshStandardMaterial({color:0x929591,roughness:.95});
- const box=(x,y,z,w,h,d,mat=facade)=>{const geometry=new T.BoxGeometry(w,h,d),uv=geometry.attributes.uv,normals=geometry.attributes.normal;for(let i=0;i<uv.count;i++){const horizontal=Math.abs(normals.getX(i))>.5?d:w;uv.setXY(i,uv.getX(i)*horizontal/10,uv.getY(i)*h/12);}const m=new T.Mesh(geometry,[mat,mat,roofMat,roofMat,mat,mat]);m.position.set(x,y+h/2,z);m.receiveShadow=true;group.add(m);return m;};
+ const collisionMeshes=[];
+ const box=(x,y,z,w,h,d,mat=facade)=>{const geometry=new T.BoxGeometry(w,h,d),uv=geometry.attributes.uv,normals=geometry.attributes.normal;for(let i=0;i<uv.count;i++){const horizontal=Math.abs(normals.getX(i))>.5?d:w;uv.setXY(i,uv.getX(i)*horizontal/10,uv.getY(i)*h/12);}const m=new T.Mesh(geometry,[mat,mat,roofMat,roofMat,mat,mat]);m.position.set(x,y+h/2,z);m.receiveShadow=true;group.add(m);collisionMeshes.push(m);return m;};
  for(const b of level){const bottom=b.y,fullDepth=(b.near-b.far)*b.scale;
   if(bottom>STREET_Y)box(b.offsetX,STREET_Y,b.z+(b.near+b.far)*b.scale/2,b.id==='roof-06'?17:Math.min(24,b.scale*.72),bottom-STREET_Y+.15,fullDepth*.97);
  }
@@ -89,5 +90,5 @@ export async function createCity(scene,loader,level,progress=()=>{}){
   for(const {mesh,cars} of batches){for(const car of cars){const p=simulation.position(car),distance=Math.hypot(p.x-anchor.x,p.z-anchor.z),fade=T.MathUtils.clamp((270-distance)/35,0,1);pos.set(p.x,getHeight(car.lane,p.z)+.025,p.z);quat.setFromAxisAngle(up,p.rotation);scale.setScalar(fade);matrix.compose(pos,quat,scale);mesh.setMatrixAt(car.slot,matrix);if(fade>.01)visible++;}mesh.instanceMatrix.needsUpdate=true;}
   for(const {m,stop} of signalObjects){const phase=simulation.phase(stop);m.material.color.setHex(phase==='green'?0x76e399:phase==='amber'?0xffc861:0xff5b3f);}
  };
- update(0,new V());return {update,simulation,roads,group,landscape,pedestrians,setQuality:q=>pedestrians.setQuality(q),get state(){return {total:simulation.cars.length,visible,types:specs.map(s=>s[0]),roadModules:roads.length,buildings:n,pedestrians:pedestrians.state,landscape:landscape.state};},debug:()=>simulation.snapshot()};
+ update(0,new V());return {update,simulation,roads,group,landscape,pedestrians,collisionMeshes,setQuality:q=>pedestrians.setQuality(q),get state(){return {total:simulation.cars.length,visible,types:specs.map(s=>s[0]),roadModules:roads.length,buildings:n,pedestrians:pedestrians.state,landscape:landscape.state};},debug:()=>simulation.snapshot()};
 }
