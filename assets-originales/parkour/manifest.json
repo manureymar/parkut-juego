@@ -1,0 +1,202 @@
+[
+  {
+    "file": "human+character+3d+model (1).glb",
+    "bytes": 10455748,
+    "sha256": "ea4ac62192068604cff4f772e4e3c0bd2919ed32efbc448920f66cbbc645c1f1",
+    "encoding": "gzip",
+    "parts": [
+      "asset-00.glb.gz.part01",
+      "asset-00.glb.gz.part02",
+      "asset-00.glb.gz.part03",
+      "asset-00.glb.gz.part04"
+    ]
+  },
+  {
+    "file": "human+character+3d+model (1)(1).glb",
+    "bytes": 10455748,
+    "sha256": "ea4ac62192068604cff4f772e4e3c0bd2919ed32efbc448920f66cbbc645c1f1",
+    "encoding": "gzip",
+    "parts": [
+      "asset-00.glb.gz.part01",
+      "asset-00.glb.gz.part02",
+      "asset-00.glb.gz.part03",
+      "asset-00.glb.gz.part04"
+    ]
+  },
+  {
+    "file": "concrete barrier 3d model.glb",
+    "bytes": 73799556,
+    "sha256": "664ab527018a04f432ecf95c356e5c11825e7f96d91143804fe134dc50a4c5d9",
+    "encoding": "gzip",
+    "parts": [
+      "asset-02.glb.gz.part01",
+      "asset-02.glb.gz.part02",
+      "asset-02.glb.gz.part03",
+      "asset-02.glb.gz.part04",
+      "asset-02.glb.gz.part05",
+      "asset-02.glb.gz.part06",
+      "asset-02.glb.gz.part07",
+      "asset-02.glb.gz.part08",
+      "asset-02.glb.gz.part09",
+      "asset-02.glb.gz.part10",
+      "asset-02.glb.gz.part11",
+      "asset-02.glb.gz.part12",
+      "asset-02.glb.gz.part13",
+      "asset-02.glb.gz.part14",
+      "asset-02.glb.gz.part15",
+      "asset-02.glb.gz.part16"
+    ]
+  },
+  {
+    "file": "industrial metal frame 3d model.glb",
+    "bytes": 66973444,
+    "sha256": "5bc03c920c813bd60f0e04839708dee77c56065fb2243301d8b7f4facb3a24a6",
+    "encoding": "gzip",
+    "parts": [
+      "asset-03.glb.gz.part01",
+      "asset-03.glb.gz.part02",
+      "asset-03.glb.gz.part03",
+      "asset-03.glb.gz.part04",
+      "asset-03.glb.gz.part05",
+      "asset-03.glb.gz.part06",
+      "asset-03.glb.gz.part07",
+      "asset-03.glb.gz.part08",
+      "asset-03.glb.gz.part09",
+      "asset-03.glb.gz.part10",
+      "asset-03.glb.gz.part11",
+      "asset-03.glb.gz.part12",
+      "asset-03.glb.gz.part13"
+    ]
+  },
+  {
+    "file": "industrial platform 3d model.glb",
+    "bytes": 67758292,
+    "sha256": "5294bc63f9860be2c2e95b641012b3067cd763443c4db38b985cf039eb44db7d",
+    "encoding": "gzip",
+    "parts": [
+      "asset-04.glb.gz.part01",
+      "asset-04.glb.gz.part02",
+      "asset-04.glb.gz.part03",
+      "asset-04.glb.gz.part04",
+      "asset-04.glb.gz.part05",
+      "asset-04.glb.gz.part06",
+      "asset-04.glb.gz.part07",
+      "asset-04.glb.gz.part08",
+      "asset-04.glb.gz.part09",
+      "asset-04.glb.gz.part10",
+      "asset-04.glb.gz.part11",
+      "asset-04.glb.gz.part12",
+      "asset-04.glb.gz.part13"
+    ]
+  },
+  {
+    "file": "obstacle rope net 3d model.glb",
+    "bytes": 68111980,
+    "sha256": "3e9e9fc6865fee64bb5804eb8face779e5489baaa8942127abb82adf9a989ce2",
+    "encoding": "gzip",
+    "parts": [
+      "asset-05.glb.gz.part01",
+      "asset-05.glb.gz.part02",
+      "asset-05.glb.gz.part03",
+      "asset-05.glb.gz.part04",
+      "asset-05.glb.gz.part05",
+      "asset-05.glb.gz.part06",
+      "asset-05.glb.gz.part07",
+      "asset-05.glb.gz.part08",
+      "asset-05.glb.gz.part09",
+      "asset-05.glb.gz.part10",
+      "asset-05.glb.gz.part11",
+      "asset-05.glb.gz.part12",
+      "asset-05.glb.gz.part13",
+      "asset-05.glb.gz.part14",
+      "asset-05.glb.gz.part15",
+      "asset-05.glb.gz.part16"
+    ]
+  },
+  {
+    "file": "industrial metal walkway 3d model.glb",
+    "bytes": 66431636,
+    "sha256": "d6be0ccd29a3aadda6f11b6bdeed2d33bd40c8cfb992c5413c7bc5ada81d3be0",
+    "encoding": "gzip",
+    "parts": [
+      "asset-06.glb.gz.part01",
+      "asset-06.glb.gz.part02",
+      "asset-06.glb.gz.part03",
+      "asset-06.glb.gz.part04",
+      "asset-06.glb.gz.part05",
+      "asset-06.glb.gz.part06",
+      "asset-06.glb.gz.part07",
+      "asset-06.glb.gz.part08",
+      "asset-06.glb.gz.part09",
+      "asset-06.glb.gz.part10",
+      "asset-06.glb.gz.part11",
+      "asset-06.glb.gz.part12",
+      "asset-06.glb.gz.part13",
+      "asset-06.glb.gz.part14"
+    ]
+  },
+  {
+    "file": "metal post 3d model.glb",
+    "bytes": 51720620,
+    "sha256": "757f32a0401d5b2faa240af6629ddd62a0b4bfb67f6d6ba988cbd028a2726f33",
+    "encoding": "gzip",
+    "parts": [
+      "asset-07.glb.gz.part01",
+      "asset-07.glb.gz.part02",
+      "asset-07.glb.gz.part03",
+      "asset-07.glb.gz.part04",
+      "asset-07.glb.gz.part05",
+      "asset-07.glb.gz.part06",
+      "asset-07.glb.gz.part07",
+      "asset-07.glb.gz.part08",
+      "asset-07.glb.gz.part09",
+      "asset-07.glb.gz.part10"
+    ]
+  },
+  {
+    "file": "industrial pipe railing 3d model.glb",
+    "bytes": 69059840,
+    "sha256": "ee4fd254b3e36ab69b897472c3d7d8c8a9dbe47e76f9559bc1ca5364ca7437a3",
+    "encoding": "gzip",
+    "parts": [
+      "asset-08.glb.gz.part01",
+      "asset-08.glb.gz.part02",
+      "asset-08.glb.gz.part03",
+      "asset-08.glb.gz.part04",
+      "asset-08.glb.gz.part05",
+      "asset-08.glb.gz.part06",
+      "asset-08.glb.gz.part07",
+      "asset-08.glb.gz.part08",
+      "asset-08.glb.gz.part09",
+      "asset-08.glb.gz.part10",
+      "asset-08.glb.gz.part11",
+      "asset-08.glb.gz.part12",
+      "asset-08.glb.gz.part13",
+      "asset-08.glb.gz.part14",
+      "asset-08.glb.gz.part15"
+    ]
+  },
+  {
+    "file": "loading ramp 3d model.glb",
+    "bytes": 67792268,
+    "sha256": "1029d2da1cb915aedd182a9ce30ae490dd598976482224ec4daa64ee1d7f4510",
+    "encoding": "gzip",
+    "parts": [
+      "asset-09.glb.gz.part01",
+      "asset-09.glb.gz.part02",
+      "asset-09.glb.gz.part03",
+      "asset-09.glb.gz.part04",
+      "asset-09.glb.gz.part05",
+      "asset-09.glb.gz.part06",
+      "asset-09.glb.gz.part07",
+      "asset-09.glb.gz.part08",
+      "asset-09.glb.gz.part09",
+      "asset-09.glb.gz.part10",
+      "asset-09.glb.gz.part11",
+      "asset-09.glb.gz.part12",
+      "asset-09.glb.gz.part13",
+      "asset-09.glb.gz.part14",
+      "asset-09.glb.gz.part15"
+    ]
+  }
+]
