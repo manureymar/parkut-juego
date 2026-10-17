@@ -1,0 +1,14 @@
+[
+  {
+    "id": "sidewalk",
+    "prompt": "Use case: stylized-concept. Asset type: seamless square albedo texture for pavement in a high-quality semi-realistic 3D rooftop parkour city game. Generate ONLY an orthographic straight-down close view of pale warm-gray concrete sidewalk slabs, edge to edge. Square slabs in a restrained regular grid, narrow darker joints, fine sandy aggregate, subtle believable wear and small speckles. An approximately four-metre-square patch, with about eight slabs across. Elegant modern urban pedestrian pavement, clean but lived-in. Neutral flat diffuse lighting, no baked cast shadows, no directional lighting gradient. Tileable all four edges, no perspective, no horizon, no bevelled surrounding frame. No buildings, people, roads, cars, vegetation, text, logos or objects. Consistent microdetail, subdued contrast, physical material suitable for repeating under dynamic sunlight. 1024x1024 square."
+  },
+  {
+    "id": "garden",
+    "prompt": "Use case: stylized-concept. Asset type: square seamless ground albedo texture for landscaped urban gardens in a high-quality semi-realistic 3D parkour game. ONLY orthographic straight-down view of short dense natural grass with small clover leaves and subtle dark soil between blades, occupying the entire frame. Muted olive and sage green with gentle organic color variation, well-maintained city park lawn in warm temperate climate. Approximately four metres square coverage. Flat diffuse neutral lighting, no baked cast shadows, tileable all four edges. No paths, trees, shrubs, borders, buildings, people, flowers, rocks, text or perspective. High-quality botanical surface detail suitable for repeated flat planes in a mobile city game. 1024x1024."
+  },
+  {
+    "id": "tree",
+    "prompt": "Use case: stylized-concept. Asset type: transparent cutout billboard of one city street tree for a semi-realistic 3D game. One complete mature ornamental broadleaf tree, single sturdy slender gray-brown trunk, natural branching, rounded airy crown of individually resolved small olive and fresh-green leaves, slightly asymmetrical. About five metres tall. Front elevation with minimal perspective, trunk vertical, entire crown and trunk base inside the image with safe margins. Attractive high-quality PBR game-art appearance with soft neutral daylight; subtle highlights, detailed bark. Isolated on fully transparent background, no ground, no pavement, no pot, no planter, no cast ground shadow, no other objects, no sky, no outline, no glow, no text. Sharp clean alpha silhouette including natural gaps between leaves. Vertical 1024x1536."
+  }
+]

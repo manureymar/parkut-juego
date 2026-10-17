@@ -1,0 +1,22 @@
+import {chromium} from 'playwright';import fs from 'node:fs/promises';import assert from 'node:assert/strict';import {startServer} from './server.mjs';
+const out='test-results/v04';await fs.mkdir(out,{recursive:true});const server=await startServer(8087),browser=await chromium.launch({headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+try{
+ const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true}),errors=[],requests=[];
+ page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});page.on('request',r=>requests.push(r.url()));
+ await page.goto('http://127.0.0.1:8087/?test=1');await page.waitForFunction(()=>window.parkut?.getState().loaded,{},{timeout:180000});
+ await page.evaluate(()=>{parkut.test.start();parkut.test.pause();document.getElementById('menu').style.display='none';document.getElementById('loading').style.display='none';document.body.classList.remove('is-paused');document.getElementById('hint').classList.remove('show');});
+ let state=await page.evaluate(()=>parkut.getState());assert.equal(state.version,'0.4.0');assert.equal(state.pedestrians.models,7);assert.equal(state.pedestrians.total,28);assert.equal(state.pedestrians.sourceAnimations,38);assert(state.landscape.continuousGround);assert.equal(state.landscape.pools,3);assert.equal(state.traffic.total,72);
+ await page.screenshot({path:out+'/01-final-rooftop.png'});
+ const first=await page.evaluate(()=>parkut.test.pedestrians());await page.waitForTimeout(350);assert.deepEqual(await page.evaluate(()=>parkut.test.pedestrians()),first,'Pause must stop citizens');
+ const next=await page.evaluate(()=>parkut.test.advanceCity(120));assert(next.people.some((p,i)=>Math.hypot(p.x-first.people[i].x,p.z-first.people[i].z)>5));assert(new Set(next.people.map(p=>p.clip)).size>=4);assert(next.people.some(p=>p.used.includes('warm_up')));assert(next.people.some(p=>p.used.includes('make_a_call_02')));
+ const support=await page.evaluate(()=>parkut.test.pedestrians().people.map(p=>({id:p.id,point:parkut.test.cityProbe(p.x,p.z)})));for(const p of support){assert(p.point,'Missing pavement under citizen '+p.id);assert(Math.abs(p.point[1]+25.16)<.001,'Pedestrian elevation mismatch');}
+ const roadFree=next.people.every(p=>Math.abs(Math.abs(p.x)-31)>8&&(p.z<-91||p.z>-48));assert(roadFree);
+ const views=[['02-final-city',[43,3,35],[26,-24,-36]],['03-final-sidewalk',[18,-20,18],[21,-24.3,0]],['04-final-pool',[42,-16,2],[48,-25,-20]],['05-final-overhead',[0,65,-62],[0,-25,-63]]];
+ for(const [name,position,target] of views){await page.evaluate(({position,target})=>parkut.test.viewpoint(position,target),{position,target});await page.screenshot({path:out+'/'+name+'.png'});}
+ await page.evaluate(()=>{parkut.test.setQuality('low');parkut.test.viewpoint([42,-16,2],[48,-25,-20]);});await page.screenshot({path:out+'/06-fluid-quality.png'});await page.evaluate(()=>parkut.test.setQuality('high'));
+ // Confirm the camera remains independently controllable and the approved normal jump is intact.
+ await page.evaluate(()=>{parkut.test.recenter();parkut.test.look(110,15);});assert(Math.abs((await page.evaluate(()=>parkut.getState())).orbit.yaw)>.3);
+ await page.evaluate(()=>{parkut.test.recenter();parkut.test.resume();parkut.test.jump();parkut.test.pause();});const jumping=await page.evaluate(()=>parkut.test.advance(.3));assert.equal(jumping.animation,'jump');assert(jumping.position[1]>1);const landed=await page.evaluate(()=>parkut.test.advance(1.1));assert(landed.grounded);assert.notEqual(landed.action?.mode,'roll');
+ const label=await page.locator('.brand strong').innerText();assert.equal(label,'JUMPING IN THE CITY');assert(requests.every(url=>url.startsWith('http://127.0.0.1:8087/')||url.startsWith('blob:')||url.startsWith('data:')),'No remote runtime dependencies');
+ assert.deepEqual(errors,[]);const report={version:'0.4.0',models:state.pedestrians.models,people:28,sourceAnimations:38,supportProbes:support.length,pauseVerified:true,activities:[...new Set(next.people.map(p=>p.clip))],trafficCars:72,landscape:state.landscape,normalJumpPreserved:true,cameraOrbitVerified:true,offlineAssets:true,errors};await fs.writeFile('docs/city-v04-verification.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));
+}finally{await browser.close();server.close();}

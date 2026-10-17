@@ -4,7 +4,7 @@ Nombre del juego indicado por el usuario: **Jumping in the City** (Saltando en l
 
 ## Ícono definitivo aprobado
 
-El usuario aprobó esta composición el 16 de octubre de 2026: «listo este se queda». El archivo definitivo es **`jumping-in-the-city-icon-final.png`**, copia exacta de la imagen adjunta que confirmó. Corresponde al diseño de la versión 4: salto lateral en contrapicado, suela en primer plano y azotea de aterrizaje visible. Usar este archivo para la próxima integración del launcher. `seleccion-final.json` registra el archivo y su checksum. La aprobación del arte no significa que ya esté incluido en la APK 0.3.0 publicada.
+El usuario aprobó esta composición el 16 de octubre de 2026: «listo este se queda». El archivo definitivo es **`jumping-in-the-city-icon-final.png`**, copia exacta de la imagen adjunta que confirmó. Corresponde al diseño de la versión 4: salto lateral en contrapicado, suela en primer plano y azotea de aterrizaje visible. Este archivo está integrado en el launcher Android, la carga y el HUD del código de la versión 0.4.0. `seleccion-final.json` registra el archivo y su checksum. La aprobación del arte no significa que ya esté incluido en la APK 0.3.0 publicada.
 
 ## Versión 4 — contrapicado y aterrizaje visible
 
@@ -22,5 +22,5 @@ El usuario aprobó esta composición el 16 de octubre de 2026: «listo este se q
 
 `jumping-in-the-city-icon-v1.png` es el arte cuadrado original, opaco y sin texto, para el ícono de teléfono. Muestra un salto entre azoteas al atardecer. Generado con la herramienta integrada `image_gen.imagegen`; el prompt exacto se conserva en `prompt.json`.
 
-Este commit guarda el nuevo diseño. La sustitución del recurso de launcher y del nombre visible de Android se hará al integrar este diseño en una compilación posterior; no modifica la APK publicada 0.3.0.
+El código de la versión 0.4.0 aplica el arte final y cambia el nombre visible a Jumping in the City. Las imágenes v1–v4 se conservan como historial. La APK 0.3.0 anterior no contiene este cambio.
 

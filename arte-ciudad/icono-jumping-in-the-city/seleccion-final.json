@@ -9,5 +9,7 @@
   "sha256": "2082b679b0e6943f63b1fb18e52cd8704ed4c07a72f3afaf4a4c5fe66783f376",
   "width": 1254,
   "height": 1254,
-  "integration_status": "pending_next_apk"
+  "integration_status": "integrated_in_source",
+  "integration_version": "0.4.0",
+  "application_id": "com.parkut.game"
 }

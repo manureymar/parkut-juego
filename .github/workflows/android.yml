@@ -1,4 +1,4 @@
-name: Compilar APK de Parkut
+name: Compilar Jumping in the City
 on:
   push:
     branches: [main]
@@ -11,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verificar rutas y actividades de peatones
+        run: node nivel-01/scripts/test-pedestrians.mjs
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -41,12 +46,17 @@ jobs:
       - name: Preparar APK y checksum
         run: |
           mkdir -p distribucion
-          cp nivel-01/android/app/build/outputs/apk/debug/app-debug.apk distribucion/Parkut-Nivel01.apk
+          cp nivel-01/android/app/build/outputs/apk/debug/app-debug.apk distribucion/Jumping-in-the-City-v0.4.0.apk
           cd distribucion
-          sha256sum Parkut-Nivel01.apk > Parkut-Nivel01.apk.sha256
+          sha256sum Jumping-in-the-City-v0.4.0.apk > Jumping-in-the-City-v0.4.0.apk.sha256
+      - name: Verificar firma y recursos del APK
+        run: |
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs distribucion/Jumping-in-the-City-v0.4.0.apk > distribucion/signature.txt
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging distribucion/Jumping-in-the-City-v0.4.0.apk > distribucion/package-info.txt
+          python3 nivel-01/scripts/verify-apk.py distribucion/Jumping-in-the-City-v0.4.0.apk --signature distribucion/signature.txt --badging distribucion/package-info.txt --out distribucion/apk-0.4.0-verification.json
       - uses: actions/upload-artifact@v4
         with:
-          name: Parkut-Nivel01-APK
+          name: Jumping-in-the-City-v0.4.0-APK
           path: distribucion/*
           retention-days: 90
       - name: Publicar descarga de prueba
@@ -54,4 +64,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="nivel-01-build-${GITHUB_RUN_NUMBER}"
-          gh release create "$TAG" distribucion/* --title "Parkut · Nivel 01 · prueba ${GITHUB_RUN_NUMBER}" --notes "Parkut 0.3.0: ciudad con tráfico, cámara libre, salto y reposo originales, escaleras alineadas y recorrido ajustado. Android 8.0 o superior. Código y recursos incluidos en el repositorio. Compilación $GITHUB_SHA." --prerelease --target "$GITHUB_SHA"
+          gh release create "$TAG" distribucion/* --title "Jumping in the City · Nivel 01 · prueba ${GITHUB_RUN_NUMBER}" --notes "Jumping in the City 0.4.0: siete modelos de peatones con 38 animaciones y horarios individuales, aceras continuas, jardines, árboles 2D, estanques y el icono aprobado. Android 8.0 o superior. Código y recursos incluidos en el repositorio. Compilación $GITHUB_SHA." --prerelease --target "$GITHUB_SHA"

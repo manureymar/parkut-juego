@@ -5,3 +5,6 @@
 #movement-state{position:absolute;right:0;bottom:150px;color:#dce8eb;font-size:8px;letter-spacing:1.1px;background:#172f3e8c;border:1px solid #ffffff28;border-radius:4px;padding:8px 10px;max-width:175px;pointer-events:none}#movement-state.performing{color:var(--gold);border-color:#f3ca7677}.vignette{background:linear-gradient(180deg,#10283c17,transparent 26%,transparent 65%,#12253530),radial-gradient(ellipse at center,transparent 48%,#18283118)}
 
 .view-buttons{display:flex;gap:9px;pointer-events:auto}#recenter svg{width:21px;height:21px}
+
+/* Approved application artwork and name, sized for narrow Android screens. */
+.brand-icon{width:38px;height:38px;object-fit:cover;border-radius:9px;box-shadow:0 2px 9px #142b3b55}.brand strong{font-size:12px;letter-spacing:1px}.load-brand{font-size:30px;letter-spacing:4px;margin-top:9vh}.load-brand>img{display:block;width:112px;height:112px;border-radius:25px;margin:0 auto 23px;box-shadow:0 9px 40px #071a3277}.load-brand span{font-size:14px;letter-spacing:5px;margin-top:8px}

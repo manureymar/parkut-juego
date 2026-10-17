@@ -16,7 +16,7 @@ const $=id=>document.getElementById(id),clamp=THREE.MathUtils.clamp;
 document.body.classList.add('is-intro');
 let renderer;
 try{renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance',alpha:false});}
-catch(e){$('load-label').textContent='Tu dispositivo necesita WebGL 2 para abrir Parkut.';throw e;}
+catch(e){$('load-label').textContent='Tu dispositivo necesita WebGL 2 para abrir Jumping in the City.';throw e;}
 renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setSize(innerWidth,innerHeight);
 renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.02;
 renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
@@ -34,7 +34,7 @@ const physics=new RunnerPhysics(world),traversal=new Traversal(physics),audio=ne
 let avatar,anim,backdrop,city,ready=false,started=false,paused=false,completed=false,respawning=false,elapsed=0,roofIndex=0,bestRoof=0;
 let checkpoint=new THREE.Vector3(SPAWN.x,SPAWN.y,SPAWN.z),quality='high',toastTimer=0,lastHint='',frameCount=0,fpsTime=0,fps=60;
 const direction=new THREE.Vector3(0,0,-1),lookTarget=new THREE.Vector3(),cameraGoal=new THREE.Vector3();
-const state={version:'0.3.0',loaded:false,errors:[],assets:[],fps:60};
+const state={version:'0.4.0',loaded:false,errors:[],assets:[],fps:60};
 addEventListener('error',e=>state.errors.push(e.message));addEventListener('unhandledrejection',e=>state.errors.push(String(e.reason)));
 function progress(n,label){$('load-progress').style.width=n+'%';$('load-count').textContent=Math.round(n)+'%';$('load-label').textContent=label;}
 function toast(text,duration=3.4){if(lastHint===text&&toastTimer>0)return;lastHint=text;$('hint').textContent=text;$('hint').classList.add('show');toastTimer=duration;}
@@ -78,7 +78,7 @@ async function init(){
   progress(12+(i+1)*8,`COLOCANDO AZOTEA ${i+1} DE 7`);
  }
  progress(70,'UNIENDO CALLES Y CRUCES');
- city=await createCity(scene,loader,LEVEL,(n,total)=>progress(70+19*n/total,`PREPARANDO CIUDAD Y TRÁFICO ${n} / ${total}`));
+ city=await createCity(scene,loader,LEVEL,(n,total)=>progress(70+19*n/total,`PREPARANDO CIUDAD Y PERSONAJES ${n} / ${total}`));
  progress(91,'PREPARANDO SUPERFICIES Y SOMBRAS');collisionGroup.updateMatrixWorld(true);world.fromGraphNode(collisionGroup);
  for(const b of LEVEL)for(const p of b.route)createArrow(p.x,p.z);
  markLandings();
@@ -100,7 +100,7 @@ function climb(){if(started&&!paused)traversal.tryAttach({x:direction.x,z:direct
 const controls=createControls({jump,pause:()=>paused?resume():pause(),look:(x,y)=>view.drag(x,y),recenter:()=>view.recenter(),canLook:()=>started&&!paused&&!completed,autoChanged:a=>{if(a&&started)toast('Carrera continua · puedes mirar alrededor.',2.5);}});
 $('start').onclick=start;$('pause').onclick=pause;$('resume').onclick=resume;$('restart').onclick=reset;$('replay').onclick=reset;
 $('sound').onclick=()=>{$('sound').innerHTML=`<svg><use href="#i-sound"/></svg> SONIDO: ${audio.toggle()?'SÍ':'NO'}`;};
-function setQuality(q){quality=q;const high=q==='high';renderer.setPixelRatio(Math.min(devicePixelRatio,high?1.5:1));renderer.shadowMap.enabled=high;renderer.setSize(innerWidth,innerHeight);$('quality').textContent='CALIDAD: '+(high?'ALTA':'FLUIDA');}
+function setQuality(q){quality=q;const high=q==='high';renderer.setPixelRatio(Math.min(devicePixelRatio,high?1.5:1));renderer.shadowMap.enabled=high;renderer.setSize(innerWidth,innerHeight);$('quality').textContent='CALIDAD: '+(high?'ALTA':'FLUIDA');city?.setQuality(q);}
 $('quality').onclick=()=>setQuality(quality==='high'?'low':'high');
 window.parkutPause=pause;
 
@@ -157,7 +157,7 @@ function frame(now){
  }else if(!paused&&!completed){avatar.position.copy(physics.position);anim.update(dt,{speed:0,grounded:true});}
  const ground=groundAt(physics.position.x,physics.position.z,physics.position.y+.25,7);
  contactShadow.visible=!!ground;if(ground){contactShadow.position.set(physics.position.x,ground.position.y+.035,physics.position.z);contactShadow.material.opacity=Math.max(0,1-(physics.position.y-ground.position.y)/3);}
- if(!paused){updateCamera(dt);atmosphere.update(dt,cameraAnchor);city?.update(dt,cameraAnchor);}
+ if(!paused){updateCamera(dt);atmosphere.update(dt,cameraAnchor);city?.update(dt,cameraAnchor,camera);}
  updateSun();hudTimer+=dt;
  if(hudTimer>.16){hudTimer=0;updateHUD();for(let i=0;i<buildings.length;i++){buildings[i].visible=Math.abs(LEVEL[i].z-physics.position.z)<135;buildings[i].traverse(n=>{if(n.isMesh)n.castShadow=Math.abs(LEVEL[i].z-physics.position.z)<52;});}}
  renderer.render(scene,camera);frameCount++;fpsTime+=actualDt;if(fpsTime>1){fps=frameCount/fpsTime;frameCount=0;fpsTime=0;state.fps=Math.round(fps);}
@@ -167,6 +167,6 @@ addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updat
 renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();pause();toast('La imagen se ha interrumpido. Vuelve a abrir la aplicación.',30);});
 document.addEventListener('contextmenu',e=>e.preventDefault());
 // Read-only diagnostic state; test actions are enabled only by an explicit local URL flag.
-window.parkut={getState:()=>({...state,position:physics.position.toArray(),grounded:physics.grounded,roof:roofIndex,elapsed,started,paused,completed,animation:anim?.current,animationsUsed:[...(anim?.used||[])],action:traversal.animation,actionHistory:traversal.history,camera:camera.position.toArray(),orbit:view.state,traffic:city?.state,ladderIK:anim?.ikErrors,checkpoint:checkpoint.toArray(),velocity:physics.velocity.toArray(),render:renderer.info.render})};
-if(new URLSearchParams(location.search).has('test'))window.parkut.test={teleport:(x,y,z)=>{physics.teleport(new THREE.Vector3(x,y,z));traversal.reset();updateCamera(1,true);},start,reset,jump,climb,pause,resume,setQuality,ground:(x,z,y=40)=>groundAt(x,z,y)?.position.toArray(),setInput:controls.setAuto,setJoystick:controls.setTestInput,look:(dx,dy)=>{view.drag(dx,dy);updateCamera(1,true);renderer.render(scene,camera);},recenter:()=>{view.recenter();updateCamera(1,true);},viewpoint:(position,target)=>{camera.position.fromArray(position);camera.lookAt(new THREE.Vector3().fromArray(target));renderer.render(scene,camera);},traffic:()=>city?.debug(),advanceTraffic:seconds=>{city.update(seconds,physics.position);renderer.render(scene,camera);return city.debug();},goal:GOAL,advance:(seconds,input={x:0,z:0})=>{for(let t=0;t<seconds;t+=1/120){traversal.step(1/120,input);avatar.position.copy(physics.position);const a=traversal.active;if(a)direction.copy(a.ladder?.facing||a.dir||direction);else if(Math.hypot(input.x,input.z)>.1)direction.set(input.x,0,input.z).normalize();avatar.rotation.y=Math.atan2(direction.x,direction.z);anim.update(1/120,{speed:Math.hypot(physics.velocity.x,physics.velocity.z),grounded:physics.grounded,stairs:physics.onStairs,verticalSpeed:physics.velocity.y,action:traversal.animation});}updateProgress();updateHUD();updateMovementLabel(Math.hypot(physics.velocity.x,physics.velocity.z));updateCamera(1,true);updateSun();city?.update(seconds,physics.position);renderer.render(scene,camera);return window.parkut.getState();},level:LEVEL,ladders:LADDERS,stairs:STAIRS,pose:(name,t)=>{anim.play(name,0);anim.actions[name].paused=true;anim.actions[name].time=t;anim.mixer.update(0);anim.placeOnSupport();},support:()=>({offset:anim.model.position.y,samples:anim.samples.map(s=>s.ids.length)})};
+window.parkut={getState:()=>({...state,position:physics.position.toArray(),grounded:physics.grounded,roof:roofIndex,elapsed,started,paused,completed,animation:anim?.current,animationsUsed:[...(anim?.used||[])],action:traversal.animation,actionHistory:traversal.history,camera:camera.position.toArray(),orbit:view.state,traffic:city?.state,pedestrians:city?.pedestrians.state,landscape:city?.landscape.state,ladderIK:anim?.ikErrors,checkpoint:checkpoint.toArray(),velocity:physics.velocity.toArray(),render:renderer.info.render})};
+if(new URLSearchParams(location.search).has('test'))window.parkut.test={teleport:(x,y,z)=>{physics.teleport(new THREE.Vector3(x,y,z));traversal.reset();updateCamera(1,true);},start,reset,jump,climb,pause,resume,setQuality,ground:(x,z,y=40)=>groundAt(x,z,y)?.position.toArray(),setInput:controls.setAuto,setJoystick:controls.setTestInput,look:(dx,dy)=>{view.drag(dx,dy);updateCamera(1,true);renderer.render(scene,camera);},recenter:()=>{view.recenter();updateCamera(1,true);},viewpoint:(position,target)=>{camera.position.fromArray(position);camera.lookAt(new THREE.Vector3().fromArray(target));city?.update(0,camera.position,camera);renderer.render(scene,camera);},pedestrians:()=>city?.pedestrians.debug(),pedestrianActors:()=>city?.pedestrians.actors.map(a=>({id:a.person.id,modelY:a.model.position.y,visible:a.pivot.visible,position:a.pivot.position.toArray()})),advanceCity:seconds=>{city.update(seconds,physics.position,camera);renderer.render(scene,camera);return city.pedestrians.debug();},cityProbe:(x,z)=>{scene.updateMatrixWorld(true);const ray=new THREE.Raycaster(new THREE.Vector3(x,-22,z),new THREE.Vector3(0,-1,0));return ray.intersectObjects(city.landscape.walkMeshes,false)[0]?.point.toArray();},citySurfaces:()=>city.landscape.surfaces,cityPools:()=>city.landscape.pools,traffic:()=>city?.debug(),advanceTraffic:seconds=>{city.update(seconds,physics.position,camera);renderer.render(scene,camera);return city.debug();},goal:GOAL,advance:(seconds,input={x:0,z:0})=>{for(let t=0;t<seconds;t+=1/120){traversal.step(1/120,input);avatar.position.copy(physics.position);const a=traversal.active;if(a)direction.copy(a.ladder?.facing||a.dir||direction);else if(Math.hypot(input.x,input.z)>.1)direction.set(input.x,0,input.z).normalize();avatar.rotation.y=Math.atan2(direction.x,direction.z);anim.update(1/120,{speed:Math.hypot(physics.velocity.x,physics.velocity.z),grounded:physics.grounded,stairs:physics.onStairs,verticalSpeed:physics.velocity.y,action:traversal.animation});}updateProgress();updateHUD();updateMovementLabel(Math.hypot(physics.velocity.x,physics.velocity.z));updateCamera(1,true);updateSun();city?.update(seconds,physics.position,camera);renderer.render(scene,camera);return window.parkut.getState();},level:LEVEL,ladders:LADDERS,stairs:STAIRS,pose:(name,t)=>{anim.play(name,0);anim.actions[name].paused=true;anim.actions[name].time=t;anim.mixer.update(0);anim.placeOnSupport();},support:()=>({offset:anim.model.position.y,samples:anim.samples.map(s=>s.ids.length)})};
 init().catch(e=>{console.error(e);state.errors.push(String(e));$('load-label').textContent='No se pudo cargar la ciudad. Cierra y vuelve a abrir la aplicación.';$('load-count').textContent=e.message;});

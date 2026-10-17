@@ -1,7 +1,7 @@
 {
   "name": "parkut-juego",
-  "version": "0.3.0",
-  "description": "Primer nivel de Parkut: recorrido por azoteas, WebGL 2 y Android offline.",
+  "version": "0.4.0",
+  "description": "Jumping in the City: parkour por azoteas, peatones animados y ciudad offline para Android.",
   "directories": {
     "doc": "docs"
   },
@@ -13,7 +13,10 @@
     "restore": "python3 nivel-01/scripts/restore-originals.py",
     "test:animation": "node nivel-01/scripts/test-animation.mjs",
     "test:v03": "node nivel-01/scripts/test-traffic.mjs && node nivel-01/scripts/test-v03.mjs",
-    "assets:city": "python3 nivel-01/scripts/restore-city-originals.py && node nivel-01/scripts/prepare-city-assets.mjs && node nivel-01/scripts/prepare-city-buildings.mjs"
+    "assets:city": "python3 nivel-01/scripts/restore-city-originals.py && node nivel-01/scripts/prepare-city-assets.mjs && node nivel-01/scripts/prepare-city-buildings.mjs",
+    "assets:pedestrians": "python3 nivel-01/scripts/restore-pedestrians.py && node nivel-01/scripts/prepare-pedestrians.mjs",
+    "test:pedestrians": "node nivel-01/scripts/test-pedestrians.mjs",
+    "test:v04": "node nivel-01/scripts/test-city-v04.mjs"
   },
   "repository": {
     "type": "git",

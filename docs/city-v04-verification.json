@@ -1,0 +1,30 @@
+{
+  "version": "0.4.0",
+  "models": 7,
+  "people": 28,
+  "sourceAnimations": 38,
+  "supportProbes": 28,
+  "pauseVerified": true,
+  "activities": [
+    "walk",
+    "look_around",
+    "swagger",
+    "standing_relax",
+    "wait",
+    "caminar hacia delante y detenerce",
+    "wave_goodbye_02"
+  ],
+  "trafficCars": 72,
+  "landscape": {
+    "continuousGround": true,
+    "sidewalkRise": 0.34,
+    "trees": 60,
+    "benches": 8,
+    "pools": 3,
+    "routes": 8
+  },
+  "normalJumpPreserved": true,
+  "cameraOrbitVerified": true,
+  "offlineAssets": true,
+  "errors": []
+}

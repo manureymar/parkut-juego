@@ -1,0 +1,55 @@
+{
+  "models": 7,
+  "sourceClips": 38,
+  "citizens": 28,
+  "simulationSeconds": 900,
+  "transitions": 2277,
+  "minimumFollowingDistance": 1.349999999999966,
+  "minimumBodySeparation": 1.216243995176574,
+  "categories": [
+    "idle",
+    "travel",
+    "exercise",
+    "greeting",
+    "phone",
+    "emotion"
+  ],
+  "coverage": [
+    {
+      "model": "citizen-01",
+      "sourceClips": 4,
+      "playedClips": 4
+    },
+    {
+      "model": "citizen-02",
+      "sourceClips": 4,
+      "playedClips": 4
+    },
+    {
+      "model": "citizen-03",
+      "sourceClips": 7,
+      "playedClips": 7
+    },
+    {
+      "model": "citizen-04",
+      "sourceClips": 7,
+      "playedClips": 7
+    },
+    {
+      "model": "citizen-05",
+      "sourceClips": 6,
+      "playedClips": 6
+    },
+    {
+      "model": "citizen-06",
+      "sourceClips": 5,
+      "playedClips": 5
+    },
+    {
+      "model": "citizen-07",
+      "sourceClips": 5,
+      "playedClips": 5
+    }
+  ],
+  "reproducible": true
+}

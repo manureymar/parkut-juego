@@ -1,13 +1,10 @@
 import * as T from 'three';
 import {TrafficSimulation} from './traffic.js';
+import {createLandscape} from './city-landscape.js';
+import {createPedestrians} from './pedestrians.js';
 export const STREET_Y=-25.5;
 const V=T.Vector3;
 
-function facadeTexture(){
- const c=document.createElement('canvas');c.width=256;c.height=512;const x=c.getContext('2d');x.fillStyle='#a7a7a2';x.fillRect(0,0,256,512);
- for(let row=0;row<16;row++)for(let col=0;col<8;col++){const n=(row*17+col*29)%11;x.fillStyle=n<3?'#71838b':n<8?'#536976':'#b1b4ad';x.fillRect(col*32+6,row*32+6,20,24);x.fillStyle='#c7c5bb';x.fillRect(col*32+4,row*32+28,24,3);x.fillStyle='#455b64';x.fillRect(col*32+15,row*32+6,2,22);}
- const t=new T.CanvasTexture(c);t.colorSpace=T.SRGBColorSpace;t.wrapS=t.wrapT=T.RepeatWrapping;t.anisotropy=4;return t;
-}
 function geometryOf(g){let found;g.scene.updateMatrixWorld(true);g.scene.traverse(n=>{if(n.isMesh&&!found)found=n;});return {geometry:found.geometry.clone().applyMatrix4(found.matrixWorld),material:found.material.clone()};}
 function fadeIntoSkyline(material){
  material.transparent=true;
@@ -23,19 +20,12 @@ function straightenRoad(geometry){
  const fit=key=>{let sz=0,sv=0,szz=0,szv=0;for(const s of samples){sz+=s.z;sv+=s[key];szz+=s.z*s.z;szv+=s.z*s[key];}const slope=(samples.length*szv-sz*sv)/(samples.length*szz-sz*sz);return {slope,intercept:(sv-slope*sz)/samples.length};};
  const center=fit('c'),width=fit('w');for(let i=0;i<p.count;i++){const z=p.getZ(i),w=width.intercept+width.slope*z;p.setX(i,(p.getX(i)-center.intercept-center.slope*z)*.16185/w);}p.needsUpdate=true;geometry.computeVertexNormals();geometry.computeBoundingBox();geometry.computeBoundingSphere();
 }
-function groundMaterial(){
- const c=document.createElement('canvas');c.width=c.height=256;const x=c.getContext('2d');x.fillStyle='#8b8b82';x.fillRect(0,0,256,256);
- for(let i=0;i<1600;i++){const k=(i*37)%256,j=(i*71)%256;x.fillStyle=i%2?'#8c8d84':'#87897f';x.fillRect(k,j,2,2);}x.strokeStyle='#9b9c91';x.lineWidth=1;for(let i=0;i<256;i+=32){x.beginPath();x.moveTo(i,0);x.lineTo(i,256);x.moveTo(0,i);x.lineTo(256,i);x.stroke();}
- const texture=new T.CanvasTexture(c);texture.wrapS=texture.wrapT=T.RepeatWrapping;texture.repeat.set(80,80);texture.colorSpace=T.SRGBColorSpace;const material=new T.MeshStandardMaterial({map:texture,roughness:1,transparent:true,depthWrite:false});
- material.onBeforeCompile=shader=>{shader.vertexShader='varying vec3 cityWorld;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <project_vertex>','#include <project_vertex>\ncityWorld=(modelMatrix*vec4(transformed,1.0)).xyz;');shader.fragmentShader='varying vec3 cityWorld;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>','diffuseColor.a*=1.0-smoothstep(140.0,250.0,length(cityWorld.xz-cameraPosition.xz));\n#include <opaque_fragment>');};return material;
-}
 function normalizedCar(g,rotation,length){const {geometry,material}=geometryOf(g);geometry.rotateY(rotation);geometry.computeBoundingBox();const box=geometry.boundingBox,size=box.getSize(new V()),center=box.getCenter(new V());geometry.translate(-center.x,-box.min.y,-center.z);geometry.scale(length/size.z,length/size.z,length/size.z);material.roughness=Math.max(.48,material.roughness);material.metalness=Math.min(.45,material.metalness);material.envMapIntensity=.45;return {geometry,material};}
 
 export async function createCity(scene,loader,level,progress=()=>{}){
  const ids=['city-road','city-intersection','traffic-compact','traffic-taxi','traffic-pickup','traffic-van','city-building-1','city-building-2','city-building-3'];
- const assets={};for(const [i,id] of ids.entries()){assets[id]=await loader.loadAsync('./assets/'+id+'.glb');progress(i+1,ids.length);}
+ const assets={};for(const [i,id] of ids.entries()){assets[id]=await loader.loadAsync('./assets/'+id+'.glb');progress(i+1,ids.length+7);}
  const group=new T.Group();group.name='Ciudad y tráfico';scene.add(group);
- const asphalt=new T.Mesh(new T.PlaneGeometry(1000,1000),groundMaterial());asphalt.rotation.x=-Math.PI/2;asphalt.position.set(0,STREET_Y-.3,-80);asphalt.receiveShadow=true;group.add(asphalt);
  const road=geometryOf(assets['city-road']),intersection=geometryOf(assets['city-intersection']);
  straightenRoad(road.geometry);
  for(const m of [road.material,intersection.material]){m.envMapIntensity=.25;m.roughness=1;m.metalness=0;m.normalScale?.set(.4,.4);if(m.map)m.map.anisotropy=4;fadeIntoSkyline(m);}
@@ -56,9 +46,10 @@ export async function createCity(scene,loader,level,progress=()=>{}){
  }
  // Towers are light geometry around the roads; the authored roofs remain the
  // only playable surfaces. Foundations reach the street instead of floating.
- const facade=new T.MeshStandardMaterial({map:facadeTexture(),color:0xd9d8d2,roughness:.88,envMapIntensity:.35});
- const roofMat=new T.MeshStandardMaterial({color:0x929591,roughness:.95});const unit=new T.BoxGeometry(1,1,1);
- const box=(x,y,z,w,h,d,mat=facade)=>{const m=new T.Mesh(unit,mat);m.position.set(x,y+h/2,z);m.scale.set(w,h,d);m.receiveShadow=true;group.add(m);return m;};
+ const facadeTexture=await new T.TextureLoader().loadAsync('./assets/environment/facade.webp');facadeTexture.colorSpace=T.SRGBColorSpace;facadeTexture.wrapS=facadeTexture.wrapT=T.RepeatWrapping;facadeTexture.anisotropy=4;
+ const facade=new T.MeshStandardMaterial({map:facadeTexture,color:0xe0ddd4,roughness:.86,envMapIntensity:.35});
+ const roofMat=new T.MeshStandardMaterial({color:0x929591,roughness:.95});
+ const box=(x,y,z,w,h,d,mat=facade)=>{const geometry=new T.BoxGeometry(w,h,d),uv=geometry.attributes.uv,normals=geometry.attributes.normal;for(let i=0;i<uv.count;i++){const horizontal=Math.abs(normals.getX(i))>.5?d:w;uv.setXY(i,uv.getX(i)*horizontal/10,uv.getY(i)*h/12);}const m=new T.Mesh(geometry,[mat,mat,roofMat,roofMat,mat,mat]);m.position.set(x,y+h/2,z);m.receiveShadow=true;group.add(m);return m;};
  for(const b of level){const bottom=b.y,fullDepth=(b.near-b.far)*b.scale;
   if(bottom>STREET_Y)box(b.offsetX,STREET_Y,b.z+(b.near+b.far)*b.scale/2,b.id==='roof-06'?17:Math.min(24,b.scale*.72),bottom-STREET_Y+.15,fullDepth*.97);
  }
@@ -68,7 +59,10 @@ export async function createCity(scene,loader,level,progress=()=>{}){
   const w=17+(n*13%8),d=21+(n*7%7),h=15+(n*17%32),px=x+(n%3-1)*1.6;
   lots.push({x:px,z,w,h,d,type:n%3});n++;
  }
+ for(const z of [-302,-264,-226,-188,100,138]){lots.push({x:0,z,w:25,h:25+(n%3)*7,d:26,type:n%3});n++;}
  for(let type=0;type<3;type++){const {geometry,material}=geometryOf(assets['city-building-'+(type+1)]);geometry.computeBoundingBox();const bounds=geometry.boundingBox,center=bounds.getCenter(new V()),size=bounds.getSize(new V());geometry.translate(-center.x,-bounds.min.y,-center.z);fadeIntoSkyline(material);material.envMapIntensity=.4;material.roughness=Math.max(.8,material.roughness);material.normalScale?.set(.5,.5);const placed=lots.filter(l=>l.type===type),mesh=new T.InstancedMesh(geometry,material,placed.length),matrix=new T.Matrix4(),q=new T.Quaternion();placed.forEach((lot,i)=>{q.setFromAxisAngle(new V(0,1,0),i%2*Math.PI);matrix.compose(new V(lot.x,STREET_Y,lot.z),q,new V(lot.w/size.x,lot.h/size.y,lot.d/size.z));mesh.setMatrixAt(i,matrix);mesh.setColorAt(i,new T.Color(0xffffff).multiplyScalar(.88+i%4*.04));});mesh.receiveShadow=true;group.add(mesh);}
+ const landscape=await createLandscape(group,STREET_Y,lots);
+ const pedestrians=await createPedestrians(group,loader,landscape,(n,total)=>progress(ids.length+n,ids.length+total));
  const routes=[];const zMin=-345,zMax=206;
  for(const cross of crossings)for(const direction of [-1,1])for(let lane=0;lane<2;lane++){
   const startZ=direction<0?zMax:zMin,length=zMax-zMin,x=cross.x+(direction<0?1:-1)*(1.55+lane*3.05);
@@ -91,9 +85,9 @@ export async function createCity(scene,loader,level,progress=()=>{}){
  const signalGeo=new T.SphereGeometry(.12,6,4),signalMat=new T.MeshBasicMaterial({color:0xffffff,toneMapped:false});
  for(const [lane,r] of routes.entries())if(lane%2===0)for(const stop of r.stops){const z=r.startZ+r.direction*(stop.s+3.5),m=new T.Mesh(signalGeo,signalMat.clone());m.position.set(r.x,STREET_Y+5.7,z);group.add(m);signalObjects.push({m,stop});}
  const matrix=new T.Matrix4(),pos=new V(),quat=new T.Quaternion(),up=new V(0,1,0),scale=new V(1,1,1);let visible=0;
- const update=(dt,anchor)=>{simulation.update(dt);visible=0;
+ const update=(dt,anchor,camera)=>{simulation.update(dt);landscape.update(dt,anchor,camera);pedestrians.update(dt,anchor);visible=0;
   for(const {mesh,cars} of batches){for(const car of cars){const p=simulation.position(car),distance=Math.hypot(p.x-anchor.x,p.z-anchor.z),fade=T.MathUtils.clamp((270-distance)/35,0,1);pos.set(p.x,getHeight(car.lane,p.z)+.025,p.z);quat.setFromAxisAngle(up,p.rotation);scale.setScalar(fade);matrix.compose(pos,quat,scale);mesh.setMatrixAt(car.slot,matrix);if(fade>.01)visible++;}mesh.instanceMatrix.needsUpdate=true;}
   for(const {m,stop} of signalObjects){const phase=simulation.phase(stop);m.material.color.setHex(phase==='green'?0x76e399:phase==='amber'?0xffc861:0xff5b3f);}
  };
- update(0,new V());return {update,simulation,roads,group,get state(){return {total:simulation.cars.length,visible,types:specs.map(s=>s[0]),roadModules:roads.length,buildings:n};},debug:()=>simulation.snapshot()};
+ update(0,new V());return {update,simulation,roads,group,landscape,pedestrians,setQuality:q=>pedestrians.setQuality(q),get state(){return {total:simulation.cars.length,visible,types:specs.map(s=>s[0]),roadModules:roads.length,buildings:n,pedestrians:pedestrians.state,landscape:landscape.state};},debug:()=>simulation.snapshot()};
 }

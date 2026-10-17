@@ -1,6 +1,6 @@
-# PARKUT · Distrito del río
+# Jumping in the City · Distrito del río
 
-Primer nivel de un juego de parkour en tercera persona, diseñado en vertical para Android. Usa el personaje con esqueleto, los siete edificios, las dos carreteras y los cuatro vehículos entregados por el propietario del proyecto.
+Primer nivel de un juego de parkour en tercera persona, diseñado en vertical para Android. Usa el personaje con esqueleto, los siete edificios, las dos carreteras, los cuatro vehículos y los siete modelos de peatones entregados por el propietario del proyecto.
 
 **[Descargar el APK 0.3.0 de prueba](https://github.com/manureymar/parkut-juego/releases/download/nivel-01-build-6/Parkut-Nivel01.apk)** · **[Releases](https://github.com/manureymar/parkut-juego/releases)** · **[Ver compilaciones](https://github.com/manureymar/parkut-juego/actions/workflows/android.yml)**
 
@@ -36,13 +36,21 @@ Los originales se conservan completos en archivos GZIP sin pérdida; los mayores
 
 El código del juego y las dependencias Three.js que ejecuta están incluidos en el repositorio. No hay dependencias de CDN en tiempo de ejecución. La app es una aplicación Android que contiene un juego WebGL 2; no es un proyecto Unity ni Godot.
 
-Para reconstruir el APK sin instalar herramientas en tu ordenador, abre **Actions → Compilar APK de Parkut → Run workflow**. Cada compilación correcta crea un APK firmado de prueba y su suma SHA-256 en Releases. No se utiliza una clave de publicación de Google Play. Se corrige la conservación de la clave de pruebas con una ruta de firma explícita. Esta versión necesita desinstalar la APK anterior si Android indica conflicto de firma; se reinicia la partida local. La clave se guarda en la caché de Actions para reutilizarla mientras esa caché siga disponible.
+Para reconstruir el APK sin instalar herramientas en tu ordenador, abre **Actions → Compilar Jumping in the City → Run workflow**. Cada compilación correcta crea un APK firmado de prueba y su suma SHA-256 en Releases. No se utiliza una clave de publicación de Google Play. Se corrige la conservación de la clave de pruebas con una ruta de firma explícita. Esta versión necesita desinstalar la APK anterior si Android indica conflicto de firma; se reinicia la partida local. La clave se guarda en la caché de Actions para reutilizarla mientras esa caché siga disponible.
 
 Entorno reproducible: Java 17, Gradle 8.9, Android Gradle Plugin 8.7.3, SDK 35, Build Tools 35.0.0. Desde `nivel-01/android`, ejecuta `gradle assembleDebug`. El resultado queda en `app/build/outputs/apk/debug/app-debug.apk`. El APK compilado se conserva en GitHub Releases.
 
 Para desarrollo web: Node 22 o posterior, `npm ci`, `npm run dev` y abrir `http://127.0.0.1:8080`. `npm run assets` regenera las copias optimizadas a partir de los originales. `npm run vendor` actualiza las dependencias incluidas desde la versión fijada en `package-lock.json`. Para pruebas: `npx playwright install chromium`, `npm test` y `npm run test:v03`.
 
-## Versión 0.3.0
+## Versión 0.4.0
+
+Integra 28 peatones con los siete modelos y sus 38 clips, rutinas individuales, aceras continuas, jardines, árboles 2D, bancos y estanques. El nombre visible y el icono Android usan **Jumping in the City** y el arte definitivo aprobado.
+
+Los personajes originales completos están en `assets-originales/peatones/`. Se restauran con `python3 nivel-01/scripts/restore-pedestrians.py`. `npm run assets:pedestrians` prepara las versiones para Android. Pruebas: `npm run test:pedestrians`, `npm run test:v04` y `node nivel-01/scripts/review-pedestrians.mjs`.
+
+Consulta [los cambios y su alcance](docs/cambios-0.4.0.md). La nueva APK se publicará automáticamente en Releases al completar los controles de compilación y verificación; el enlace de descarga de la cabecera se actualiza después de comprobar la publicación.
+
+## Versión 0.3.0 (historial)
 
 Integra el reposo y el salto nuevos, nueve clips de animación, cámara libre, alineación de manos y pies con los peldaños del tanque, seis conexiones ajustadas y marcas de aterrizaje. La rodada se activa tras caídas fuertes; el salto normal tiene su propia recepción.
 

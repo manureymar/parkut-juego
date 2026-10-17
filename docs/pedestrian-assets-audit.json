@@ -1,0 +1,418 @@
+[
+  {
+    "id": "citizen-01",
+    "source": "woman+character+3d+model.glb",
+    "height": 1.65,
+    "restHips": [
+      0.0019111940637230873,
+      0.5408594608306885,
+      -0.00573355657979846
+    ],
+    "joints": 65,
+    "originalTriangles": 18009,
+    "triangles": 8349,
+    "bytes": 1792176,
+    "clips": [
+      {
+        "name": "look_around",
+        "duration": 15.583333015441895,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "walk",
+        "duration": 2.3333332538604736,
+        "category": "travel",
+        "locomotion": true,
+        "loop": true,
+        "distance": 1.5231833686120808
+      },
+      {
+        "name": "idle",
+        "duration": 15.333333015441895,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "wave_goodbye_02",
+        "duration": 5.875,
+        "category": "travel",
+        "locomotion": true,
+        "loop": false,
+        "distance": 1.1630159271880984
+      }
+    ]
+  },
+  {
+    "id": "citizen-02",
+    "source": "person+3d+model.glb",
+    "height": 1.76,
+    "restHips": [
+      0.0019098679767921567,
+      0.5137662291526794,
+      -0.005729731172323227
+    ],
+    "joints": 65,
+    "originalTriangles": 18632,
+    "triangles": 8560,
+    "bytes": 1572424,
+    "clips": [
+      {
+        "name": "walk",
+        "duration": 2.3333332538604736,
+        "category": "travel",
+        "locomotion": true,
+        "loop": true,
+        "distance": 1.4550623982213438
+      },
+      {
+        "name": "wait",
+        "duration": 6,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "look_around",
+        "duration": 15.583333015441895,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "agree",
+        "duration": 4,
+        "category": "greeting",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      }
+    ]
+  },
+  {
+    "id": "citizen-03",
+    "source": "woman+3d+model (1).glb",
+    "height": 1.7,
+    "restHips": [
+      0.0019059564219787717,
+      0.5279560685157776,
+      -0.005717922002077103
+    ],
+    "joints": 65,
+    "originalTriangles": 18361,
+    "triangles": 8603,
+    "bytes": 2299608,
+    "clips": [
+      {
+        "name": "wait",
+        "duration": 6,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "caminar hacia delante y detenerce",
+        "duration": 9.958333015441895,
+        "category": "travel",
+        "locomotion": true,
+        "loop": false,
+        "distance": 3.8242638048741546
+      },
+      {
+        "name": "agree",
+        "duration": 4,
+        "category": "greeting",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "walk",
+        "duration": 2.3333332538604736,
+        "category": "travel",
+        "locomotion": true,
+        "loop": true,
+        "distance": 1.5539896548725665
+      },
+      {
+        "name": "wave_goodbye_02",
+        "duration": 5.875,
+        "category": "travel",
+        "locomotion": true,
+        "loop": false,
+        "distance": 1.1865380480885506
+      },
+      {
+        "name": "warm_up",
+        "duration": 18.29166603088379,
+        "category": "exercise",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "look_around",
+        "duration": 15.583333015441895,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      }
+    ]
+  },
+  {
+    "id": "citizen-04",
+    "source": "female+model+3d+model.glb",
+    "height": 1.72,
+    "restHips": [
+      0.0019074605079367757,
+      0.5589057803153992,
+      0.0019075056770816445
+    ],
+    "joints": 65,
+    "originalTriangles": 18955,
+    "triangles": 8294,
+    "bytes": 2083260,
+    "clips": [
+      {
+        "name": "joven fitnes \ncaminando",
+        "duration": 4.958333492279053,
+        "category": "travel",
+        "locomotion": true,
+        "loop": false,
+        "distance": 2.644403498619795
+      },
+      {
+        "name": "greet_01",
+        "duration": 3.5,
+        "category": "travel",
+        "locomotion": true,
+        "loop": false,
+        "distance": 2.361088604782708
+      },
+      {
+        "name": "caminar hacia delante y detenerce",
+        "duration": 9.958333015441895,
+        "category": "travel",
+        "locomotion": true,
+        "loop": false,
+        "distance": 3.941800042259294
+      },
+      {
+        "name": "fold_arms",
+        "duration": 17.08333396911621,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "make_a_call_02",
+        "duration": 17.29166603088379,
+        "category": "phone",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "walk",
+        "duration": 2.3333332538604736,
+        "category": "travel",
+        "locomotion": true,
+        "loop": true,
+        "distance": 1.6017505344934762
+      },
+      {
+        "name": "wait",
+        "duration": 6,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      }
+    ]
+  },
+  {
+    "id": "citizen-05",
+    "source": "female+human+3d+model.glb",
+    "height": 1.68,
+    "restHips": [
+      0.001909666694700718,
+      0.5366016626358032,
+      -0.005728847812861204
+    ],
+    "joints": 65,
+    "originalTriangles": 18032,
+    "triangles": 8000,
+    "bytes": 1966140,
+    "clips": [
+      {
+        "name": "sob",
+        "duration": 5.583333492279053,
+        "category": "emotion",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "wave_goodbye_02",
+        "duration": 5.875,
+        "category": "travel",
+        "locomotion": true,
+        "loop": false,
+        "distance": 1.2314688232727349
+      },
+      {
+        "name": "standing_relax",
+        "duration": 17.58333396911621,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "look_around",
+        "duration": 15.583333015441895,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "swagger",
+        "duration": 3.6666667461395264,
+        "category": "travel",
+        "locomotion": true,
+        "loop": true,
+        "distance": 2.5164209185168147
+      },
+      {
+        "name": "walk",
+        "duration": 2.3333332538604736,
+        "category": "travel",
+        "locomotion": true,
+        "loop": true,
+        "distance": 1.6128309643827379
+      }
+    ]
+  },
+  {
+    "id": "citizen-06",
+    "source": "woman+3d+model.glb",
+    "height": 1.66,
+    "restHips": [
+      0.005733153782784939,
+      0.5370036363601685,
+      0.009555207565426826
+    ],
+    "joints": 65,
+    "originalTriangles": 18640,
+    "triangles": 8218,
+    "bytes": 1822448,
+    "clips": [
+      {
+        "name": "walk",
+        "duration": 2.3333332538604736,
+        "category": "travel",
+        "locomotion": true,
+        "loop": true,
+        "distance": 1.5680788466706872
+      },
+      {
+        "name": "wait",
+        "duration": 6,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "caminar hacia delante y detenerce",
+        "duration": 9.958333015441895,
+        "category": "travel",
+        "locomotion": true,
+        "loop": false,
+        "distance": 3.8589359869038358
+      },
+      {
+        "name": "warm_up",
+        "duration": 18.29166603088379,
+        "category": "exercise",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "swagger",
+        "duration": 3.6666667461395264,
+        "category": "travel",
+        "locomotion": true,
+        "loop": true,
+        "distance": 2.4465902373194695
+      }
+    ]
+  },
+  {
+    "id": "citizen-07",
+    "source": "adult+human+3d+model.glb",
+    "height": 1.79,
+    "restHips": [
+      0.0019097785698249936,
+      0.5213571190834045,
+      -0.005729224067181349
+    ],
+    "joints": 65,
+    "originalTriangles": 18277,
+    "triangles": 8509,
+    "bytes": 2074852,
+    "clips": [
+      {
+        "name": "wave_goodbye_02",
+        "duration": 5.875,
+        "category": "travel",
+        "locomotion": true,
+        "loop": false,
+        "distance": 1.1133094266988337
+      },
+      {
+        "name": "warm_up",
+        "duration": 18.29166603088379,
+        "category": "exercise",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "walk",
+        "duration": 2.3333332538604736,
+        "category": "travel",
+        "locomotion": true,
+        "loop": true,
+        "distance": 1.4580831313505769
+      },
+      {
+        "name": "standing_relax",
+        "duration": 17.58333396911621,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      },
+      {
+        "name": "wait",
+        "duration": 6,
+        "category": "idle",
+        "locomotion": false,
+        "loop": false,
+        "distance": 0
+      }
+    ]
+  }
+]
